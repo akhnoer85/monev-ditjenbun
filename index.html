@@ -186,6 +186,24 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
 </head>
 <body>
 
+<!-- MODAL LOGIN ADMIN -->
+<div id="modal-pin" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center">
+  <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:12px;padding:32px;width:320px;text-align:center">
+    <div style="font-size:24px;margin-bottom:8px">🔐</div>
+    <div style="font-size:16px;font-weight:600;color:var(--txt1);margin-bottom:4px">Login Admin</div>
+    <div style="font-size:12px;color:var(--txt3);margin-bottom:20px">Masukkan PIN untuk akses fitur admin</div>
+    <input id="pin-input" type="password" maxlength="10"
+      style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--brd);background:var(--bg);color:var(--txt1);font-size:18px;text-align:center;letter-spacing:4px;outline:none;box-sizing:border-box"
+      placeholder="••••••"
+      onkeydown="if(event.key==='Enter') checkPin()">
+    <div id="pin-error" style="color:var(--red);font-size:12px;margin-top:8px;display:none">PIN salah, coba lagi</div>
+    <div style="display:flex;gap:8px;margin-top:16px">
+      <button onclick="checkPin()" style="flex:1;padding:10px;border-radius:8px;border:none;background:var(--green);color:#000;font-weight:600;cursor:pointer;font-size:14px">Masuk</button>
+      <button onclick="closePin()" style="flex:1;padding:10px;border-radius:8px;border:none;background:var(--bg);color:var(--txt2);cursor:pointer;font-size:14px;border:1px solid var(--brd)">Batal</button>
+    </div>
+  </div>
+</div>
+
 <div class="topbar">
   <div class="topbar-logo">BUN<span>26</span> ▸ MONEV</div>
   <div class="tab-nav">
@@ -203,6 +221,11 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
     <span id="cache-info">dari cache</span>
     <button onclick="clearCache()" style="background:none;border:none;cursor:pointer;color:var(--txt3);font-size:11px;padding:0;margin-left:4px;text-decoration:underline">Hapus</button>
   </div>
+  <div id="admin-badge" style="display:none;align-items:center;gap:6px;font-size:11px;background:var(--bg2);border:1px solid var(--green);border-radius:6px;padding:4px 10px;color:var(--green)">
+    <span>🔑 Admin</span>
+    <button onclick="logoutAdmin()" style="background:none;border:none;cursor:pointer;color:var(--txt3);font-size:11px;padding:0;margin-left:4px;text-decoration:underline">Keluar</button>
+  </div>
+  <button id="btn-login-admin" onclick="openPin()" style="padding:4px 12px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt3);font-size:11px;cursor:pointer">🔐 Admin</button>
 </div>
 
 <!-- ═══════════════════════════════════════════════════ -->
@@ -211,19 +234,24 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
 <div id="tab-ringkasan" class="page active">
   <div class="section">
     <div class="section-head">Upload Data Harian</div>
-    <div id="auto-fetch-bar" style="display:none;background:var(--bg2);border:1px solid var(--brd);border-radius:8px;padding:10px 16px;margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <div id="auto-fetch-bar" style="display:none;background:var(--bg2);border:1px solid var(--brd);border-radius:8px;padding:10px 16px;margin-bottom:10px;align-items:center;gap:10px;flex-wrap:wrap">
       <span style="font-size:12px;color:var(--txt2)">🔗 Sumber data otomatis aktif</span>
       <button onclick="fetchFromGithub()" style="padding:4px 14px;border-radius:6px;border:none;background:var(--blue);color:#fff;font-size:12px;cursor:pointer">🔄 Refresh Data</button>
       <span id="auto-fetch-status" style="font-size:11px;color:var(--txt3)"></span>
     </div>
-    <div class="upload-zone" id="drop-main" onclick="document.getElementById('f-main').click()"
-         ondragover="event.preventDefault();this.classList.add('drag')"
-         ondragleave="this.classList.remove('drag')"
-         ondrop="handleDrop(event,'main')">
-      <input type="file" id="f-main" accept=".json,.xlsx" onchange="loadFile(this,'main')">
-      <div class="upload-icon">📂</div>
-      <div class="upload-title">Upload JSON Realisasi SP2D</div>
-      <div class="upload-sub">Format: dashboard_data_YYYYMMDD.json — atau gunakan refresh otomatis di atas</div>
+    <div id="upload-zone-wrap">
+      <div class="upload-zone" id="drop-main" onclick="document.getElementById('f-main').click()"
+           ondragover="event.preventDefault();this.classList.add('drag')"
+           ondragleave="this.classList.remove('drag')"
+           ondrop="handleDrop(event,'main')">
+        <input type="file" id="f-main" accept=".json,.xlsx" onchange="loadFile(this,'main')">
+        <div class="upload-icon">📂</div>
+        <div class="upload-title">Upload JSON Realisasi SP2D</div>
+        <div class="upload-sub">Format: dashboard_data_YYYYMMDD.json — atau gunakan refresh otomatis di atas</div>
+      </div>
+    </div>
+    <div id="viewer-notice" style="display:none;padding:12px 16px;border-radius:8px;background:var(--bg2);border:1px solid var(--brd);font-size:12px;color:var(--txt3);text-align:center">
+      👁 Mode Viewer — data diperbarui otomatis dari server. Login sebagai Admin untuk upload data manual.
     </div>
     <div id="status-main" style="display:none" class="upload-status">
       <div class="dot"></div><span id="status-main-txt"></span>
@@ -434,8 +462,8 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
     </div>
   </div>
 
-  <!-- Form input manual (fallback jika JSON tidak ada outstanding) -->
-  <div id="os-manual-wrap" style="margin-top:20px">
+  <!-- Form input manual — hanya tampil untuk admin -->
+  <div id="os-manual-wrap" style="display:none;margin-top:20px">
     <div class="section-head" style="margin-bottom:8px;font-size:11px;opacity:.7">Input Manual (opsional)</div>
     <div class="os-form">
       <div class="form-group">
@@ -506,6 +534,8 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
 // CONFIG — ganti URL ini setelah setup GitHub
 // ═══════════════════════════════════════════════════════════
 const GITHUB_JSON_URL = 'https://raw.githubusercontent.com/akhnoer85/monev-ditjenbun/main/latest.json';
+const ADMIN_PIN = '26bun'; // PIN admin — ganti sesuai kebutuhan
+let IS_ADMIN = false;      // status login admin sesi ini
 
 // ═══════════════════════════════════════════════════════════
 // STATE
@@ -592,6 +622,56 @@ function processFile(file, key){
   } else {
     alert('Format tidak didukung. Upload file .json');
   }
+}
+
+// ═══════════════════════════════════════════════════════════
+// ADMIN PIN
+// ═══════════════════════════════════════════════════════════
+function openPin(){
+  document.getElementById('modal-pin').style.display='flex';
+  document.getElementById('pin-input').value='';
+  document.getElementById('pin-error').style.display='none';
+  setTimeout(()=>document.getElementById('pin-input').focus(), 100);
+}
+
+function closePin(){
+  document.getElementById('modal-pin').style.display='none';
+}
+
+function checkPin(){
+  const val = document.getElementById('pin-input').value;
+  if(val === ADMIN_PIN){
+    IS_ADMIN = true;
+    closePin();
+    applyAdminMode();
+  } else {
+    document.getElementById('pin-error').style.display='block';
+    document.getElementById('pin-input').value='';
+    document.getElementById('pin-input').focus();
+  }
+}
+
+function logoutAdmin(){
+  IS_ADMIN = false;
+  applyAdminMode();
+}
+
+function applyAdminMode(){
+  // Topbar badge
+  document.getElementById('admin-badge').style.display    = IS_ADMIN ? 'flex' : 'none';
+  document.getElementById('btn-login-admin').style.display = IS_ADMIN ? 'none' : 'block';
+
+  // Upload zone & auto-fetch bar
+  const bar = document.getElementById('auto-fetch-bar');
+  const uploadWrap = document.getElementById('upload-zone-wrap');
+  const viewerNotice = document.getElementById('viewer-notice');
+  if(bar) bar.style.display = IS_ADMIN ? 'flex' : 'none';
+  if(uploadWrap) uploadWrap.style.display = IS_ADMIN ? 'block' : 'none';
+  if(viewerNotice) viewerNotice.style.display = IS_ADMIN ? 'none' : 'block';
+
+  // Form manual outstanding
+  const manualWrap = document.getElementById('os-manual-wrap');
+  if(manualWrap) manualWrap.style.display = IS_ADMIN ? 'block' : 'none';
 }
 
 function saveCache(key, d){
@@ -703,10 +783,11 @@ async function fetchFromGithub(){
 
 // Auto-load dari cache saat halaman dibuka
 window.addEventListener('DOMContentLoaded', async () => {
+  // Terapkan mode viewer dulu
+  applyAdminMode();
+
   // Tampilkan/sembunyikan auto-fetch bar
   if(GITHUB_JSON_URL){
-    const bar = document.getElementById('auto-fetch-bar');
-    if(bar) bar.style.display='flex';
     // Coba fetch dari GitHub dulu
     const ok = await fetchFromGithub();
     if(!ok){
