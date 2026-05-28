@@ -1,0 +1,8 @@
+*.xls
+*.xlsx
+*.csv
+*.py
+*.bat
+!index.html
+kontrak_data.csv
+__pycache__/

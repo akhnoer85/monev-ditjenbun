@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Monev Realisasi — Ditjenbun TA 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--bg4:#2d333b;
+  --border:#30363d;--border2:#444c56;
+  --txt:#e6edf3;--txt2:#8b949e;--txt3:#6e7681;
+  --green:#39d353;--green2:#26a641;--green3:#196127;--greenbg:rgba(57,211,83,.1);
+  --yellow:#e3b341;--yellowbg:rgba(227,179,65,.1);
+  --red:#f85149;--redbg:rgba(248,81,73,.1);
+  --blue:#58a6ff;--bluebg:rgba(88,166,255,.1);
+  --accent:#2ea043;--accentbg:rgba(46,160,67,.15);
+  --orange:#f0883e;--orangebg:rgba(240,136,62,.1);
+  --radius:8px;--radius2:12px;
+  --shadow:0 1px 3px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.5;min-height:100vh}
+a{color:var(--blue);text-decoration:none}
+
+/* ── TOP BAR ── */
+.topbar{
+  position:sticky;top:0;z-index:200;
+  background:var(--bg2);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:0;height:48px;
+  padding:0 16px;
+}
+.topbar-logo{
+  font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;
+  color:var(--green);letter-spacing:.5px;white-space:nowrap;margin-right:24px;
+}
+.topbar-logo span{color:var(--txt2);font-weight:400}
+.tab-nav{display:flex;gap:2px;flex:1;overflow-x:auto}
+.tab-nav::-webkit-scrollbar{height:0}
+.tab-btn{
+  padding:0 16px;height:48px;border:none;background:transparent;
+  color:var(--txt2);font-family:'IBM Plex Sans',sans-serif;font-size:13px;
+  font-weight:500;cursor:pointer;border-bottom:2px solid transparent;
+  white-space:nowrap;transition:color .15s,border-color .15s;
+}
+.tab-btn:hover{color:var(--txt)}
+.tab-btn.active{color:var(--green);border-bottom-color:var(--green)}
+.topbar-date{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--txt3);
+  margin-left:16px;white-space:nowrap;
+}
+
+/* ── LAYOUT ── */
+.page{display:none;padding:20px;max-width:1400px;margin:0 auto}
+.page.active{display:block}
+
+/* ── UPLOAD AREA ── */
+.upload-zone{
+  border:2px dashed var(--border2);border-radius:var(--radius2);
+  padding:32px;text-align:center;cursor:pointer;
+  transition:border-color .2s,background .2s;margin-bottom:20px;
+}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--green);background:var(--greenbg)}
+.upload-zone input{display:none}
+.upload-icon{font-size:32px;margin-bottom:8px;opacity:.5}
+.upload-title{font-size:15px;font-weight:600;margin-bottom:4px}
+.upload-sub{font-size:12px;color:var(--txt2)}
+.upload-status{
+  display:flex;align-items:center;gap:8px;margin-bottom:20px;
+  padding:10px 14px;background:var(--greenbg);border:1px solid var(--green3);
+  border-radius:var(--radius);font-size:13px;
+}
+.upload-status .dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0}
+
+/* ── KPI GRID ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:20px}
+.kpi{
+  background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);
+  padding:16px;position:relative;overflow:hidden;
+}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.kpi.green::before{background:var(--green)}
+.kpi.yellow::before{background:var(--yellow)}
+.kpi.red::before{background:var(--red)}
+.kpi.blue::before{background:var(--blue)}
+.kpi.orange::before{background:var(--orange)}
+.kpi-label{font-size:11px;color:var(--txt2);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
+.kpi-value{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;line-height:1.2;margin-bottom:4px}
+.kpi-sub{font-size:11px;color:var(--txt3)}
+.badge{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;
+  font-family:'IBM Plex Mono',monospace;
+}
+.bg{background:var(--greenbg);color:var(--green)}
+.by{background:var(--yellowbg);color:var(--yellow)}
+.br{background:var(--redbg);color:var(--red)}
+.bb{background:var(--bluebg);color:var(--blue)}
+
+/* ── SECTION ── */
+.section{margin-bottom:24px}
+.section-head{
+  font-size:11px;text-transform:uppercase;letter-spacing:.8px;
+  color:var(--txt3);font-weight:600;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.section-head::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── CARDS & CHARTS ── */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:16px}
+.card-title{font-size:12px;font-weight:600;color:var(--txt2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+.charts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:16px;margin-bottom:20px}
+
+/* ── TABLE ── */
+.tbl-wrap{overflow-x:auto;border-radius:var(--radius2);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+thead th{
+  background:var(--bg3);padding:9px 12px;text-align:left;
+  font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--txt2);
+  font-weight:600;border-bottom:1px solid var(--border);white-space:nowrap;
+}
+thead th.r{text-align:right}
+tbody tr{border-bottom:1px solid var(--border);transition:background .1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--bg3)}
+tbody td{padding:8px 12px;color:var(--txt)}
+tbody td.r{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12px}
+tbody td.mono{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--txt2)}
+.progress-bar-wrap{width:120px;min-width:80px}
+.progress-track{height:5px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;border-radius:3px;transition:width .4s}
+
+/* ── FILTER BAR ── */
+.filter-bar{
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  margin-bottom:16px;padding:12px 14px;
+  background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);
+}
+.filter-bar label{font-size:12px;color:var(--txt2);white-space:nowrap}
+select,input[type=text]{
+  background:var(--bg3);border:1px solid var(--border2);border-radius:6px;
+  color:var(--txt);padding:6px 10px;font-size:12px;font-family:inherit;
+  outline:none;transition:border-color .15s;min-width:140px;
+}
+select:focus,input[type=text]:focus{border-color:var(--green)}
+
+/* ── OUTSTANDING INPUT ── */
+.os-form{
+  display:grid;grid-template-columns:1fr 1fr auto auto;gap:10px;
+  align-items:end;padding:16px;background:var(--bg2);
+  border:1px solid var(--border);border-radius:var(--radius2);margin-bottom:16px;
+}
+.form-group{display:flex;flex-direction:column;gap:4px}
+.form-group label{font-size:11px;color:var(--txt2);font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.btn{
+  padding:8px 16px;border:none;border-radius:6px;cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:500;transition:opacity .15s;
+}
+.btn-green{background:var(--accent);color:#fff}
+.btn-green:hover{opacity:.85}
+.btn-red{background:var(--redbg);color:var(--red);border:1px solid var(--red)}
+.btn-red:hover{opacity:.8}
+.btn-blue{background:var(--bluebg);color:var(--blue);border:1px solid var(--blue)}
+
+/* ── PERBANDINGAN ── */
+.diff-pos{color:var(--green);font-family:'IBM Plex Mono',monospace;font-size:12px}
+.diff-neg{color:var(--red);font-family:'IBM Plex Mono',monospace;font-size:12px}
+.diff-neu{color:var(--txt3);font-family:'IBM Plex Mono',monospace;font-size:12px}
+
+/* ── EMPTY STATE ── */
+.empty{
+  text-align:center;padding:48px;color:var(--txt3);
+}
+.empty-icon{font-size:40px;margin-bottom:12px;opacity:.4}
+.empty-title{font-size:14px;color:var(--txt2);margin-bottom:4px}
+
+/* ── PRINT ── */
+@media print{
+  .topbar,.upload-zone,.filter-bar,.os-form,.btn,.tab-nav{display:none!important}
+  .page{display:block!important;padding:0}
+  body{background:#fff;color:#000}
+  .card,.kpi,.tbl-wrap{border:1px solid #ccc;background:#fff}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-logo">BUN<span>26</span> ▸ MONEV</div>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="goTab('ringkasan',this)">📊 Ringkasan</button>
+    <button class="tab-btn" onclick="goTab('satker',this)">🏢 Per Satker</button>
+    <button class="tab-btn" onclick="goTab('kegiatan',this)">📋 Per Kegiatan</button>
+    <button class="tab-btn" onclick="goTab('ro',this)">🔍 RO & Komponen</button>
+    <button class="tab-btn" onclick="goTab('akun',this)">💰 Per Akun</button>
+    <button class="tab-btn" onclick="goTab('outstanding',this)">⏳ Outstanding</button>
+    <button class="tab-btn" onclick="goTab('perbandingan',this)">📈 Perbandingan H-1</button>
+  </div>
+  <div class="topbar-date" id="topbar-date">—</div>
+  <div id="cache-badge" style="display:none;align-items:center;gap:6px;font-size:11px;color:var(--txt3);background:var(--bg2);border:1px solid var(--brd);border-radius:6px;padding:4px 10px">
+    <span style="width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0;display:inline-block"></span>
+    <span id="cache-info">dari cache</span>
+    <button onclick="clearCache()" style="background:none;border:none;cursor:pointer;color:var(--txt3);font-size:11px;padding:0;margin-left:4px;text-decoration:underline">Hapus</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB: RINGKASAN -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="tab-ringkasan" class="page active">
+  <div class="section">
+    <div class="section-head">Upload Data Harian</div>
+    <div id="auto-fetch-bar" style="display:none;background:var(--bg2);border:1px solid var(--brd);border-radius:8px;padding:10px 16px;margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <span style="font-size:12px;color:var(--txt2)">🔗 Sumber data otomatis aktif</span>
+      <button onclick="fetchFromGithub()" style="padding:4px 14px;border-radius:6px;border:none;background:var(--blue);color:#fff;font-size:12px;cursor:pointer">🔄 Refresh Data</button>
+      <span id="auto-fetch-status" style="font-size:11px;color:var(--txt3)"></span>
+    </div>
+    <div class="upload-zone" id="drop-main" onclick="document.getElementById('f-main').click()"
+         ondragover="event.preventDefault();this.classList.add('drag')"
+         ondragleave="this.classList.remove('drag')"
+         ondrop="handleDrop(event,'main')">
+      <input type="file" id="f-main" accept=".json,.xlsx" onchange="loadFile(this,'main')">
+      <div class="upload-icon">📂</div>
+      <div class="upload-title">Upload JSON Realisasi SP2D</div>
+      <div class="upload-sub">Format: dashboard_data_YYYYMMDD.json — atau gunakan refresh otomatis di atas</div>
+    </div>
+    <div id="status-main" style="display:none" class="upload-status">
+      <div class="dot"></div><span id="status-main-txt"></span>
+    </div>
+  </div>
+
+  <div id="ringkasan-content" style="display:none">
+    <div class="kpi-grid" id="kpi-main"></div>
+
+    <div class="charts-grid">
+      <div class="card"><div class="card-title">Realisasi per Satker (%)</div>
+        <div style="position:relative;height:220px"><canvas id="c-satker"></canvas></div></div>
+      <div class="card"><div class="card-title">Realisasi per Kegiatan (%)</div>
+        <div style="position:relative;height:220px"><canvas id="c-kegiatan"></canvas></div></div>
+      <div class="card"><div class="card-title">Komposisi Pagu (Kegiatan)</div>
+        <div style="position:relative;height:220px"><canvas id="c-donut-keg"></canvas></div></div>
+      <div class="card"><div class="card-title">Komposisi Pagu (Kewenangan)</div>
+        <div style="position:relative;height:220px"><canvas id="c-donut-kw"></canvas></div></div>
+    </div>
+
+    <div class="section-head">Realisasi per Satker × Kegiatan</div>
+    <div class="tbl-wrap">
+      <table><thead><tr>
+        <th>Satker</th><th>Kegiatan</th>
+        <th class="r">Pagu</th><th class="r">Realisasi</th><th class="r">Sisa</th><th>%</th>
+      </tr></thead>
+      <tbody id="tb-satkeg"></tbody></table>
+    </div>
+  </div>
+
+  <div id="ringkasan-empty" class="empty">
+    <div class="empty-icon">📊</div>
+    <div class="empty-title">Belum ada data — upload file JSON atau XLSX untuk memulai</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB: PER SATKER -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="tab-satker" class="page">
+  <div id="satker-content" style="display:none">
+    <div class="kpi-grid" id="kpi-satker"></div>
+    <div class="section-head">Detail Realisasi per Satker</div>
+    <div class="tbl-wrap">
+      <table><thead><tr>
+        <th>Kode</th><th>Nama Satker</th>
+        <th class="r">Pagu</th><th class="r">Realisasi</th><th class="r">Sisa</th><th>Progress</th>
+      </tr></thead>
+      <tbody id="tb-satker"></tbody></table>
+    </div>
+  </div>
+  <div id="satker-empty" class="empty"><div class="empty-icon">🏢</div>
+    <div class="empty-title">Upload data terlebih dahulu di tab Ringkasan</div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB: PER KEGIATAN -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="tab-kegiatan" class="page">
+  <div id="kegiatan-content" style="display:none">
+    <div class="filter-bar">
+      <label>Filter Satker:</label>
+      <select id="f-keg-satker" onchange="renderKegiatan()"><option value="">Semua Satker</option></select>
+      <label>Kegiatan:</label>
+      <select id="f-keg-keg" onchange="renderKro()"><option value="">Semua</option></select>
+    </div>
+    <div class="section-head">Realisasi per Kegiatan</div>
+    <div class="tbl-wrap" style="margin-bottom:16px">
+      <table><thead><tr>
+        <th>Kode</th><th>Nama Kegiatan</th>
+        <th class="r">Pagu</th><th class="r">Realisasi</th><th class="r">Sisa</th><th>Progress</th>
+      </tr></thead>
+      <tbody id="tb-kegiatan"></tbody></table>
+    </div>
+    <div class="section-head">KRO (Klasifikasi Rincian Output)</div>
+    <div class="tbl-wrap" style="margin-bottom:16px">
+      <table><thead><tr>
+        <th>Kode Keg</th><th>Nama Kegiatan</th><th>KRO</th>
+        <th class="r">Pagu</th><th class="r">Realisasi</th><th>Progress</th>
+      </tr></thead>
+      <tbody id="tb-kro"></tbody></table>
+    </div>
+  </div>
+  <div id="kegiatan-empty" class="empty"><div class="empty-icon">📋</div>
+    <div class="empty-title">Upload data terlebih dahulu di tab Ringkasan</div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB: RO & KOMPONEN -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="tab-ro" class="page">
+  <div id="ro-content" style="display:none">
+    <div class="filter-bar">
+      <label>Kegiatan:</label>
+      <select id="f-ro-keg" onchange="renderRO()"><option value="">Semua</option></select>
+      <label>KRO:</label>
+      <select id="f-ro-kro" onchange="renderRO()"><option value="">Semua</option></select>
+    </div>
+    <div class="section-head">Rincian Output (RO)</div>
+    <div class="tbl-wrap" style="margin-bottom:16px">
+      <table><thead><tr>
+        <th>Kode Keg</th><th>KRO</th><th>RO</th>
+        <th class="r">Pagu</th><th class="r">Realisasi</th><th>Progress</th>
+      </tr></thead>
+      <tbody id="tb-ro"></tbody></table>
+    </div>
+    <div class="section-head">Komponen</div>
+    <div class="filter-bar">
+      <label>RO:</label>
+      <select id="f-komp-ro" onchange="renderKomp()"><option value="">Semua RO</option></select>
+    </div>
+    <div class="tbl-wrap">
+      <table><thead><tr>
+        <th>Kode Keg</th><th>RO</th><th>Komponen</th><th class="r">Kode Komp</th>
+        <th class="r">Pagu</th><th class="r">Realisasi</th><th>Progress</th>
+      </tr></thead>
+      <tbody id="tb-komp"></tbody></table>
+    </div>
+  </div>
+  <div id="ro-empty" class="empty"><div class="empty-icon">🔍</div>
+    <div class="empty-title">Upload data terlebih dahulu di tab Ringkasan</div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB: PER AKUN -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="tab-akun" class="page">
+  <div id="akun-content" style="display:none">
+    <div class="filter-bar">
+      <label>Filter Kegiatan:</label>
+      <select id="f-akun-keg" onchange="renderAkun()"><option value="">Semua</option></select>
+      <label>Jenis Akun:</label>
+      <select id="f-akun-jenis" onchange="renderAkun()">
+        <option value="">Semua</option>
+        <option value="51">51x - Belanja Pegawai</option>
+        <option value="52">52x - Belanja Barang</option>
+        <option value="53">53x - Belanja Modal</option>
+        <option value="57">57x - Belanja Bansos/Banper</option>
+      </select>
+    </div>
+    <div class="section-head">Realisasi per Akun Belanja</div>
+    <div class="tbl-wrap">
+      <table><thead><tr>
+        <th>Kode Akun</th><th>Nama Akun</th>
+        <th class="r">Pagu</th><th class="r">Realisasi</th><th class="r">Sisa</th><th>Progress</th>
+      </tr></thead>
+      <tbody id="tb-akun"></tbody></table>
+    </div>
+    <div style="margin-top:16px">
+      <div class="card"><div class="card-title">Komposisi Belanja per Jenis Akun</div>
+        <div style="position:relative;height:280px"><canvas id="c-akun-donut"></canvas></div></div>
+    </div>
+  </div>
+  <div id="akun-empty" class="empty"><div class="empty-icon">💰</div>
+    <div class="empty-title">Upload data terlebih dahulu di tab Ringkasan</div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB: OUTSTANDING -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="tab-outstanding" class="page">
+
+  <!-- KPI Summary dari JSON -->
+  <div id="os-kpi-wrap" style="display:none;margin-bottom:16px">
+    <div id="os-kpi"></div>
+  </div>
+
+  <!-- Ringkasan per Satker (gabungan SP2D + Outstanding kontrak) -->
+  <div class="section-head" style="margin-bottom:8px">Ringkasan per Satker</div>
+  <div class="tbl-wrap" style="margin-bottom:16px">
+    <table><thead><tr>
+      <th>Satker</th>
+      <th class="r">Pagu</th><th class="r">Realisasi SP2D</th>
+      <th class="r">Sisa Kontrak</th><th class="r">SP2D + Sisa Kontrak</th><th>Progress Gabungan</th>
+    </tr></thead>
+    <tbody id="tb-os-satker"></tbody></table>
+  </div>
+
+  <!-- Filter + Tabel Detail Kontrak dari JSON -->
+  <div id="os-detail-wrap" style="display:none">
+    <div class="section-head" style="margin-bottom:8px">
+      Detail Kontrak
+      <span id="os-count" style="font-size:10px;color:var(--txt3);text-transform:none;letter-spacing:0;margin-left:6px"></span>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:center">
+      <select id="os-f-satker" style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px" onchange="renderOSDetail()">
+        <option value="">Semua Satker</option>
+      </select>
+      <select id="os-f-status" style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px" onchange="renderOSDetail()">
+        <option value="">Semua Status</option>
+      </select>
+      <input id="os-f-search" type="text" placeholder="Cari nama paket/uraian..." style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px;min-width:220px" oninput="renderOSDetail()">
+    </div>
+    <div class="tbl-wrap">
+      <table><thead><tr>
+        <th style="min-width:60px">No Kontrak</th>
+        <th style="min-width:180px">Uraian Kontrak</th>
+        <th>Satker</th>
+        <th>Kegiatan</th>
+        <th>KRO</th>
+        <th class="r">Nilai Kontrak</th>
+        <th class="r">Realisasi</th>
+        <th class="r">Sisa</th>
+        <th>Status</th>
+        <th>Selesai</th>
+      </tr></thead>
+      <tbody id="tb-os-detail"></tbody></table>
+    </div>
+  </div>
+
+  <!-- Form input manual (fallback jika JSON tidak ada outstanding) -->
+  <div id="os-manual-wrap" style="margin-top:20px">
+    <div class="section-head" style="margin-bottom:8px;font-size:11px;opacity:.7">Input Manual (opsional)</div>
+    <div class="os-form">
+      <div class="form-group">
+        <label>Satker / Unit Kerja</label>
+        <select id="os-satker"><option value="">— Pilih —</option></select>
+      </div>
+      <div class="form-group">
+        <label>Nama Kegiatan / Kontrak</label>
+        <input type="text" id="os-kegiatan" placeholder="Nama kegiatan/kontrak...">
+      </div>
+      <div class="form-group">
+        <label>Nilai Outstanding (Rp)</label>
+        <input type="text" id="os-nilai" placeholder="Contoh: 1.500.000.000">
+      </div>
+      <button class="btn btn-green" onclick="addOS()">+ Tambah Manual</button>
+    </div>
+    <div id="os-list-wrap" style="display:none">
+      <div class="tbl-wrap" style="margin-top:10px">
+        <table><thead><tr>
+          <th>Satker</th><th>Kegiatan</th><th class="r">Nilai Outstanding</th><th></th>
+        </tr></thead>
+        <tbody id="tb-os"></tbody></table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB: PERBANDINGAN H-1 -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="tab-perbandingan" class="page">
+  <div class="section-head">Upload Data H-1</div>
+  <div class="upload-zone" onclick="document.getElementById('f-prev').click()"
+       ondragover="event.preventDefault();this.classList.add('drag')"
+       ondragleave="this.classList.remove('drag')"
+       ondrop="handleDrop(event,'prev')">
+    <input type="file" id="f-prev" accept=".json,.xlsx" onchange="loadFile(this,'prev')">
+    <div class="upload-icon">📅</div>
+    <div class="upload-title">Upload JSON Hari Sebelumnya</div>
+    <div class="upload-sub">Untuk perbandingan delta realisasi H-1 → Hari Ini</div>
+  </div>
+  <div id="status-prev" style="display:none" class="upload-status">
+    <div class="dot"></div><span id="status-prev-txt"></span>
+  </div>
+  <div id="perbandingan-content" style="display:none">
+    <div class="kpi-grid" id="kpi-perbandingan"></div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title">Delta Realisasi Harian per Satker</div>
+      <div style="position:relative;height:260px"><canvas id="c-delta-satker"></canvas></div>
+    </div>
+    <div class="section-head">Tabel Delta per Satker</div>
+    <div class="tbl-wrap">
+      <table><thead><tr>
+        <th>Satker</th>
+        <th class="r">Realisasi H-1</th><th class="r">Realisasi Hari Ini</th>
+        <th class="r">Delta (Rp)</th><th class="r">Delta (%pt)</th><th>Status</th>
+      </tr></thead>
+      <tbody id="tb-delta"></tbody></table>
+    </div>
+  </div>
+  <div id="perbandingan-empty" class="empty"><div class="empty-icon">📈</div>
+    <div class="empty-title">Upload data H-1 dan pastikan data hari ini sudah diload di tab Ringkasan</div></div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// CONFIG — ganti URL ini setelah setup GitHub
+// ═══════════════════════════════════════════════════════════
+const GITHUB_JSON_URL = ''; // contoh: 'https://raw.githubusercontent.com/username/monev-ditjenbun/main/latest.json'
+                             // Kosongkan ('') jika ingin pakai upload manual saja
+
+// ═══════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════
+let D = null;    // data hari ini
+let Dprev = null; // data H-1
+let OS = JSON.parse(localStorage.getItem('bun26_os') || '[]');
+let charts = {};
+
+// ═══════════════════════════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════════════════════════
+const fmtM = v => {
+  if (Math.abs(v) >= 1e12) return (v/1e12).toFixed(2)+' T';
+  if (Math.abs(v) >= 1e9)  return (v/1e9).toFixed(2)+' M';
+  if (Math.abs(v) >= 1e6)  return (v/1e6).toFixed(1)+' Jt';
+  return v.toLocaleString('id');
+};
+const fmtRp = v => 'Rp '+v.toLocaleString('id');
+const pct = (r,p) => p>0 ? (r/p*100) : 0;
+const pctFmt = (r,p) => pct(r,p).toFixed(2)+'%';
+const chip = p => p>=90?'bg':p>=50?'by':'br';
+const chipColor = p => p>=90?'#39d353':p>=50?'#e3b341':'#f85149'; // hex untuk Chart.js
+const shortName = n => n.replace(/BALAI BESAR PERBENIHAN DAN PROTEKSI TANAMAN PERKEBUNAN/,'BBP2TP')
+                        .replace(/BALAI PROTEKSI TANAMAN PERKEBUNAN/,'BPTP')
+                        .replace(/DIREKTORAT JENDERAL PERKEBUNAN/,'Ditjenbun');
+
+function parseRupiah(s){
+  s = String(s).replace(/[Rp\s]/gi,'').replace(/\./g,'').replace(',','.');
+  return parseFloat(s)||0;
+}
+
+function progressCell(r,p){
+  const pc = pct(r,p);
+  const color = chipColor(pc);
+  return `<td style="min-width:140px">
+    <div style="display:flex;align-items:center;gap:8px">
+      <div class="progress-track" style="flex:1"><div class="progress-fill" style="width:${Math.min(pc,100)}%;background:${color}"></div></div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:${color};min-width:44px">${pc.toFixed(1)}%</span>
+    </div>
+  </td>`;
+}
+
+function destroyChart(id){ if(charts[id]){charts[id].destroy();delete charts[id];} }
+
+// ═══════════════════════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════════════════════
+function goTab(id, btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  if(btn) btn.classList.add('active');
+  // lazy render
+  if(id==='satker' && D) renderSatker();
+  if(id==='kegiatan' && D) renderKegiatan();
+  if(id==='ro' && D) renderRO();
+  if(id==='akun' && D) renderAkun();
+  if(id==='outstanding') renderOS();
+  if(id==='perbandingan' && Dprev && D) renderPerbandingan();
+}
+
+// ═══════════════════════════════════════════════════════════
+// FILE LOADING
+// ═══════════════════════════════════════════════════════════
+function handleDrop(e, key){ e.preventDefault(); e.currentTarget.classList.remove('drag'); const f=e.dataTransfer.files[0]; if(f) processFile(f,key); }
+function loadFile(inp,key){ if(inp.files[0]) processFile(inp.files[0],key); }
+
+function processFile(file, key){
+  const ext = file.name.split('.').pop().toLowerCase();
+  if(ext==='json'){
+    const r=new FileReader();
+    r.onload=e=>{
+      let d;
+      try { d=JSON.parse(e.target.result); }
+      catch(err){ alert('File JSON tidak valid atau rusak.\n'+err.message); return; }
+      try { onDataLoaded(d,key); }
+      catch(err){ console.error('onDataLoaded error:', err); alert('Gagal memuat data: '+err.message); }
+    };
+    r.onerror=()=>alert('Gagal membaca file.');
+    r.readAsText(file);
+  } else if(ext==='xlsx'){
+    alert('Untuk file XLSX, jalankan dulu:\npython generate_dashboard_json.py <file.xlsx>\nlalu upload file JSON hasilnya.');
+  } else {
+    alert('Format tidak didukung. Upload file .json');
+  }
+}
+
+function saveCache(key, d){
+  // Simpan cache — dijalankan SETELAH render, sehingga error tidak ganggu tampilan
+  try {
+    const raw = JSON.stringify(d);
+    const tsKey = key==='main' ? 'bun26_data_main_ts' : 'bun26_data_prev_ts';
+    const dataKey = key==='main' ? 'bun26_data_main' : 'bun26_data_prev';
+    if(raw.length < 4.5*1024*1024){
+      localStorage.setItem(dataKey, raw);
+    } else {
+      // Slim: buang detail kontrak yang besar
+      const slim = key==='main'
+        ? {...d, outstanding: d.outstanding ? {...d.outstanding, detail:[]} : d.outstanding}
+        : d;
+      localStorage.setItem(dataKey, JSON.stringify(slim));
+    }
+    localStorage.setItem(tsKey, new Date().toISOString());
+  } catch(e){
+    console.warn('Cache tidak tersimpan (mungkin diblokir browser):', e.message);
+    // Tidak throw — render sudah selesai, tidak masalah
+  }
+}
+
+function onDataLoaded(d, key, fromCache=false){
+  if(key==='main'){
+    D = d;
+    document.getElementById('topbar-date').textContent = d.tanggal || '';
+
+    // Render semua dulu — BARU simpan cache setelahnya
+    const src = fromCache
+      ? `Data ${d.tanggal} dimuat dari cache — klik Upload untuk perbarui`
+      : `Data ${d.tanggal} berhasil dimuat — ${d._meta?.total_baris?.toLocaleString('id')||''} baris`;
+    showStatus('main', src);
+    document.getElementById('ringkasan-content').style.display='block';
+    document.getElementById('ringkasan-empty').style.display='none';
+    document.getElementById('satker-content').style.display='block';
+    document.getElementById('satker-empty').style.display='none';
+    document.getElementById('kegiatan-content').style.display='block';
+    document.getElementById('kegiatan-empty').style.display='none';
+    document.getElementById('ro-content').style.display='block';
+    document.getElementById('ro-empty').style.display='none';
+    document.getElementById('akun-content').style.display='block';
+    document.getElementById('akun-empty').style.display='none';
+    buildFilters();
+    renderRingkasan();
+    renderOS();
+
+    // Cache badge
+    if(fromCache){
+      try {
+        const ts = localStorage.getItem('bun26_data_main_ts');
+        const tsFmt = ts ? new Date(ts).toLocaleString('id-ID',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}) : '—';
+        document.getElementById('cache-info').textContent = `Cache: ${d.tanggal} (disimpan ${tsFmt})`;
+        document.getElementById('cache-badge').style.display='flex';
+      } catch(e){ /* localStorage diblokir, abaikan */ }
+    } else {
+      try { document.getElementById('cache-badge').style.display='none'; } catch(e){}
+      // Simpan cache setelah render — error cache tidak ganggu tampilan
+      setTimeout(()=>saveCache('main', d), 100);
+    }
+
+  } else {
+    Dprev = d;
+    showStatus('prev', `Data H-1 (${d.tanggal}) berhasil dimuat${fromCache?' [cache]':''}`);
+    document.getElementById('perbandingan-content').style.display='block';
+    document.getElementById('perbandingan-empty').style.display='none';
+    renderPerbandingan();
+    if(!fromCache) setTimeout(()=>saveCache('prev', d), 100);
+  }
+}
+
+function clearCache(){
+  if(!confirm('Hapus data cache? Dashboard akan kosong saat dibuka ulang.')) return;
+  localStorage.removeItem('bun26_data_main');
+  localStorage.removeItem('bun26_data_main_ts');
+  localStorage.removeItem('bun26_data_prev');
+  localStorage.removeItem('bun26_data_prev_ts');
+  document.getElementById('cache-badge').style.display='none';
+  alert('Cache dihapus. Refresh halaman untuk mulai dari awal.');
+}
+
+// ═══════════════════════════════════════════════════════════
+// AUTO FETCH DARI GITHUB
+// ═══════════════════════════════════════════════════════════
+async function fetchFromGithub(){
+  if(!GITHUB_JSON_URL){
+    console.log('GITHUB_JSON_URL belum dikonfigurasi, skip auto-fetch.');
+    return false;
+  }
+  const statusEl = document.getElementById('auto-fetch-status');
+  if(statusEl) statusEl.textContent = 'Mengambil data...';
+  try {
+    // Tambah cache-buster agar selalu dapat data terbaru
+    const url = GITHUB_JSON_URL + '?t=' + Date.now();
+    const res = await fetch(url);
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const d = await res.json();
+    if(!d.tanggal) throw new Error('Format JSON tidak valid');
+    onDataLoaded(d, 'main', false);
+    if(statusEl) statusEl.textContent = `Terakhir update: ${d.tanggal} (${new Date().toLocaleTimeString('id-ID')})`;
+    return true;
+  } catch(e) {
+    console.warn('Auto-fetch gagal:', e.message);
+    if(statusEl) statusEl.textContent = `Gagal: ${e.message} — gunakan upload manual`;
+    return false;
+  }
+}
+
+// Auto-load dari cache saat halaman dibuka
+window.addEventListener('DOMContentLoaded', async () => {
+  // Tampilkan/sembunyikan auto-fetch bar
+  if(GITHUB_JSON_URL){
+    const bar = document.getElementById('auto-fetch-bar');
+    if(bar) bar.style.display='flex';
+    // Coba fetch dari GitHub dulu
+    const ok = await fetchFromGithub();
+    if(!ok){
+      // Fallback ke cache
+      tryLoadCache();
+    }
+  } else {
+    // Tidak ada GitHub URL — langsung load dari cache
+    tryLoadCache();
+  }
+});
+
+function tryLoadCache(){
+  try {
+    const raw = localStorage.getItem('bun26_data_main');
+    if(raw){
+      const d = JSON.parse(raw);
+      onDataLoaded(d, 'main', true);
+    }
+  } catch(e) {
+    try { localStorage.removeItem('bun26_data_main'); } catch(e2){}
+    console.warn('Cache rusak:', e);
+  }
+  try {
+    const rawPrev = localStorage.getItem('bun26_data_prev');
+    if(rawPrev){
+      const dp = JSON.parse(rawPrev);
+      onDataLoaded(dp, 'prev', true);
+    }
+  } catch(e) {
+    try { localStorage.removeItem('bun26_data_prev'); } catch(e2){}
+  }
+}
+
+function showStatus(id, msg){
+  document.getElementById('status-'+id).style.display='flex';
+  document.getElementById('status-'+id+'-txt').textContent=msg;
+}
+
+// ═══════════════════════════════════════════════════════════
+// BUILD FILTERS
+// ═══════════════════════════════════════════════════════════
+function buildFilters(){
+  if(!D) return;
+  // Satker options
+  const satOpts = D.satker.map(s=>`<option value="${s.KODE_SATKER}">${shortName(s.DESKRIPSI_SATKER)}</option>`).join('');
+  const satAll = '<option value="">Semua Satker</option>'+satOpts;
+  document.getElementById('f-keg-satker').innerHTML=satAll;
+  // OS satker
+  document.getElementById('os-satker').innerHTML='<option value="">— Pilih —</option>'+satOpts;
+  // Kegiatan options
+  const kegOpts = '<option value="">Semua</option>'+D.kegiatan.map(k=>`<option value="${k.KDKEG}">${k.KDKEG} - ${k.NAMA_KEGIATAN.substring(0,50)}</option>`).join('');
+  document.getElementById('f-keg-keg').innerHTML=kegOpts;
+  document.getElementById('f-ro-keg').innerHTML=kegOpts;
+  document.getElementById('f-akun-keg').innerHTML=kegOpts;
+  // KRO options
+  const kroOpts = '<option value="">Semua KRO</option>'+[...new Set(D.kro.map(k=>k.S05||k.S05_KEG_KRO||''))].filter(Boolean).map(k=>`<option value="${k}">${k}</option>`).join('');
+  document.getElementById('f-ro-kro').innerHTML=kroOpts;
+  // RO options untuk komponen filter
+  const roOpts = '<option value="">Semua RO</option>'+[...new Set(D.ro.map(r=>r.NAMA_RO))].slice(0,50).map(r=>`<option value="${r}">${r.substring(0,60)}</option>`).join('');
+  document.getElementById('f-komp-ro').innerHTML=roOpts;
+}
+
+// ═══════════════════════════════════════════════════════════
+// RENDER: RINGKASAN
+// ═══════════════════════════════════════════════════════════
+function renderRingkasan(){
+  if(!D) return;
+  const {total,satker,kegiatan,kewenangan} = D;
+  const p=total.pct;
+
+  // Hitung SP2D + Outstanding dari D.outstanding
+  const osTotal = D.outstanding?.summary?.sisa_kontrak || 0;
+  const gabTotal = total.real + osTotal;
+  const gabPct   = total.pagu ? gabTotal/total.pagu*100 : 0;
+
+  // KPI — tambah kartu SP2D + Outstanding
+  document.getElementById('kpi-main').innerHTML = `
+    <div class="kpi green">
+      <div class="kpi-label">Total Pagu</div>
+      <div class="kpi-value">${fmtM(total.pagu)}</div>
+      <div class="kpi-sub">Rp ${total.pagu.toLocaleString('id')}</div>
+    </div>
+    <div class="kpi ${chip(p)}">
+      <div class="kpi-label">Realisasi SP2D</div>
+      <div class="kpi-value">${fmtM(total.real)}</div>
+      <div class="kpi-sub"><span class="badge ${chip(p)}">${p.toFixed(2)}%</span></div>
+    </div>
+    ${osTotal>0 ? `
+    <div class="kpi blue">
+      <div class="kpi-label">SP2D + Outstanding</div>
+      <div class="kpi-value">${fmtM(gabTotal)}</div>
+      <div class="kpi-sub"><span class="badge ${chip(gabPct)}">${gabPct.toFixed(2)}%</span> incl. sisa kontrak</div>
+    </div>` : ''}
+    <div class="kpi red">
+      <div class="kpi-label">Sisa Anggaran</div>
+      <div class="kpi-value">${fmtM(total.pagu-total.real)}</div>
+      <div class="kpi-sub">${(100-p).toFixed(2)}% belum terealisasi</div>
+    </div>
+    <div class="kpi blue">
+      <div class="kpi-label">Jumlah Satker</div>
+      <div class="kpi-value">${satker.length}</div>
+      <div class="kpi-sub">Unit Pelaksana Anggaran</div>
+    </div>
+    ${satker.length ? (()=>{
+      const best=satker.slice().sort((a,b)=>pct(b.real,b.pagu)-pct(a.real,a.pagu))[0];
+      const worst=satker.slice().sort((a,b)=>pct(a.real,a.pagu)-pct(b.real,b.pagu))[0];
+      return `
+        <div class="kpi green">
+          <div class="kpi-label">Satker Tertinggi</div>
+          <div class="kpi-value">${pctFmt(best.real,best.pagu)}</div>
+          <div class="kpi-sub">${shortName(best.DESKRIPSI_SATKER)}</div>
+        </div>
+        <div class="kpi red">
+          <div class="kpi-label">Satker Terendah</div>
+          <div class="kpi-value">${pctFmt(worst.real,worst.pagu)}</div>
+          <div class="kpi-sub">${shortName(worst.DESKRIPSI_SATKER)}</div>
+        </div>`;
+    })() : ''}
+  `;
+
+  // Hitung sisa kontrak per satker dari outstanding
+  const osBySatker = {};
+  if(D.outstanding?.by_satker){
+    D.outstanding.by_satker.forEach(r=>{
+      osBySatker[String(r.KODE_SATKER)] = r.sisa_kontrak||0;
+    });
+  }
+
+  // Chart: per satker — grouped bar SP2D vs SP2D+Outstanding
+  destroyChart('c-satker');
+  const satLabels = satker.map(s=>shortName(s.DESKRIPSI_SATKER));
+  const satPct    = satker.map(s=>pct(s.real,s.pagu));
+  const satGabPct = satker.map(s=>{
+    const os = osBySatker[String(s.KODE_SATKER)]||0;
+    return pct(s.real+os, s.pagu);
+  });
+  const hasOS = satGabPct.some((g,i)=>g>satPct[i]);
+
+  // Warna tiap batang sesuai % realisasi
+  const satColors  = satPct.map(p=>chipColor(p));
+  const satColorsA = satColors.map(c=>c+'99');
+  const CHART_COLORS = ['#58a6ff','#39d353','#e3b341','#f0883e','#bc8cff','#f85149'];
+
+  const satDatasets = hasOS ? [
+    {label:'SP2D',data:satPct,backgroundColor:satColorsA,borderColor:satColors,borderWidth:1,borderRadius:4},
+    {label:'SP2D + Outstanding',data:satGabPct,backgroundColor:satGabPct.map(p=>chipColor(p)+'55'),borderColor:satGabPct.map(p=>chipColor(p)),borderWidth:1,borderRadius:4,borderDash:[4,2]}
+  ] : [
+    {label:'% Realisasi SP2D',data:satPct,backgroundColor:satColorsA,borderColor:satColors,borderWidth:1,borderRadius:4}
+  ];
+
+  charts['c-satker']=new Chart(document.getElementById('c-satker'),{
+    type:'bar',
+    data:{labels:satLabels,datasets:satDatasets},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:hasOS,labels:{color:'#8b949e',font:{size:11},boxWidth:12}},
+        tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.raw.toFixed(2)}%`}}
+      },
+      scales:{
+        x:{max:100,grid:{color:'#30363d'},ticks:{color:'#8b949e',callback:v=>v+'%'}},
+        y:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:11}}}
+      }
+    }
+  });
+
+  // Chart: per kegiatan — warna tiap batang sesuai %
+  destroyChart('c-kegiatan');
+  const kegLabels = kegiatan.map(k=>k.KDKEG+' '+k.NAMA_KEGIATAN.substring(0,30)+'…');
+  const kegPct    = kegiatan.map(k=>pct(k.real,k.pagu));
+  const kegColors = kegPct.map(p=>chipColor(p));
+  charts['c-kegiatan']=new Chart(document.getElementById('c-kegiatan'),{
+    type:'bar',
+    data:{labels:kegLabels,datasets:[
+      {label:'% Realisasi',data:kegPct,
+       backgroundColor:kegColors.map(c=>c+'99'),
+       borderColor:kegColors,
+       borderWidth:1,borderRadius:4}
+    ]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:c=>`${c.raw.toFixed(2)}%`}}
+      },
+      scales:{
+        x:{max:100,grid:{color:'#30363d'},ticks:{color:'#8b949e',callback:v=>v+'%'}},
+        y:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:10}}}
+      }
+    }
+  });
+
+  // Donut: komposisi pagu per kegiatan
+  destroyChart('c-donut-keg');
+  const COLORS=['#39d353','#58a6ff','#e3b341','#f0883e','#f85149','#bc8cff'];
+  charts['c-donut-keg']=new Chart(document.getElementById('c-donut-keg'),{
+    type:'doughnut',
+    data:{labels:kegiatan.map(k=>k.KDKEG),datasets:[{data:kegiatan.map(k=>k.pagu),backgroundColor:COLORS.slice(0,kegiatan.length),borderColor:'#161b22',borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#8b949e',font:{size:11},boxWidth:12}},
+      tooltip:{callbacks:{label:c=>`${c.label}: ${fmtM(c.raw)} (${(c.raw/total.pagu*100).toFixed(1)}%)`}}}}
+  });
+
+  // Donut: kewenangan
+  destroyChart('c-donut-kw');
+  const kwLabels=kewenangan.map(k=>(k.S08||k.S08_KEWENANGAN||'')==='1'?'Pusat (KP)':'Daerah (KD)');
+  charts['c-donut-kw']=new Chart(document.getElementById('c-donut-kw'),{
+    type:'doughnut',
+    data:{labels:kwLabels,datasets:[{data:kewenangan.map(k=>k.pagu),backgroundColor:['#58a6ff','#39d353'],borderColor:'#161b22',borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#8b949e',font:{size:11},boxWidth:12}},
+      tooltip:{callbacks:{label:c=>`${c.label}: ${fmtM(c.raw)} (${(c.raw/total.pagu*100).toFixed(1)}%)`}}}}
+  });
+
+  // Tabel satker×kegiatan
+  document.getElementById('tb-satkeg').innerHTML=D.satker_kegiatan.map(r=>{
+    const pc=pct(r.real,r.pagu);
+    return `<tr>
+      <td class="mono">${r.KODE_SATKER}</td>
+      <td style="max-width:200px;font-size:12px">${shortName(r.DESKRIPSI_SATKER)}</td>
+      <td class="r">${fmtM(r.pagu)}</td>
+      <td class="r">${fmtM(r.real)}</td>
+      <td class="r" style="color:var(--txt3)">${fmtM(r.pagu-r.real)}</td>
+      ${progressCell(r.real,r.pagu)}
+    </tr>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// RENDER: SATKER
+// ═══════════════════════════════════════════════════════════
+function renderSatker(){
+  if(!D) return;
+  document.getElementById('kpi-satker').innerHTML=D.satker.map(s=>{
+    const p=pct(s.real,s.pagu);
+    return `<div class="kpi ${chip(p)}">
+      <div class="kpi-label">${shortName(s.DESKRIPSI_SATKER)}</div>
+      <div class="kpi-value">${fmtM(s.real)}</div>
+      <div class="kpi-sub"><span class="badge ${chip(p)}">${p.toFixed(2)}%</span> dari ${fmtM(s.pagu)}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('tb-satker').innerHTML=D.satker.map(s=>{
+    return `<tr>
+      <td class="mono">${s.KODE_SATKER}</td>
+      <td style="font-weight:500">${shortName(s.DESKRIPSI_SATKER)}</td>
+      <td class="r">${fmtRp(s.pagu)}</td>
+      <td class="r">${fmtRp(s.real)}</td>
+      <td class="r" style="color:var(--txt3)">${fmtRp(s.pagu-s.real)}</td>
+      ${progressCell(s.real,s.pagu)}
+    </tr>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// RENDER: KEGIATAN & KRO
+// ═══════════════════════════════════════════════════════════
+function renderKegiatan(){
+  if(!D) return;
+  const fSat=document.getElementById('f-keg-satker').value;
+  let keg=D.kegiatan;
+  if(fSat){
+    // filter via satker_kegiatan
+    const kdKegs=new Set(D.satker_kegiatan.filter(r=>String(r.KODE_SATKER)===String(fSat)).map(r=>r.KDKEG));
+    keg=keg.filter(k=>kdKegs.has(k.KDKEG));
+  }
+  document.getElementById('tb-kegiatan').innerHTML=keg.map(k=>{
+    return `<tr>
+      <td class="mono" style="font-weight:700;color:var(--green)">${k.KDKEG}</td>
+      <td style="font-size:12px;max-width:320px">${k.NAMA_KEGIATAN}</td>
+      <td class="r">${fmtRp(k.pagu)}</td>
+      <td class="r">${fmtRp(k.real)}</td>
+      <td class="r" style="color:var(--txt3)">${fmtRp(k.pagu-k.real)}</td>
+      ${progressCell(k.real,k.pagu)}
+    </tr>`;
+  }).join('');
+  renderKro();
+}
+
+function renderKro(){
+  if(!D) return;
+  const fKeg=document.getElementById('f-keg-keg').value;
+  let kro=D.kro;
+  if(fKeg) kro=kro.filter(r=>r.KDKEG===fKeg);
+  document.getElementById('tb-kro').innerHTML=kro.map(r=>{
+    return `<tr>
+      <td class="mono" style="color:var(--blue)">${r.KDKEG}</td>
+      <td style="font-size:11px;color:var(--txt2);max-width:180px">${r.NAMA_KEGIATAN.substring(0,40)}…</td>
+      <td style="font-size:12px;max-width:260px">${r.NAMA_KRO||(r.S05||r.S05_KEG_KRO||'—')}</td>
+      <td class="r">${fmtRp(r.pagu)}</td>
+      <td class="r">${fmtRp(r.real)}</td>
+      ${progressCell(r.real,r.pagu)}
+    </tr>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// RENDER: RO & KOMPONEN
+// ═══════════════════════════════════════════════════════════
+function renderRO(){
+  if(!D) return;
+  const fKeg=document.getElementById('f-ro-keg').value;
+  const fKro=document.getElementById('f-ro-kro').value;
+  let ro=D.ro;
+  if(fKeg) ro=ro.filter(r=>r.KDKEG===fKeg);
+  // key JSON: S05 (bukan S05_KEG_KRO)
+  if(fKro) ro=ro.filter(r=>(r.S05||r.S05_KEG_KRO)===fKro);
+  document.getElementById('tb-ro').innerHTML=ro.map(r=>{
+    const s05  = r.S05  || r.S05_KEG_KRO  || '—';
+    const s13  = r.S13  || r.S13_SUBOUTPUT || '—';
+    return `<tr>
+      <td class="mono" style="color:var(--green)">${r.KDKEG}</td>
+      <td style="font-size:11px;color:var(--txt2)">${r.NAMA_KRO||s05}</td>
+      <td style="font-size:12px;max-width:280px">${r.NAMA_RO||'RO '+s13}</td>
+      <td class="r">${fmtRp(r.pagu)}</td>
+      <td class="r">${fmtRp(r.real)}</td>
+      ${progressCell(r.real,r.pagu)}
+    </tr>`;
+  }).join('');
+  renderKomp();
+}
+
+function renderKomp(){
+  if(!D) return;
+  const fRO=document.getElementById('f-komp-ro').value;
+  let komp=D.komponen;
+  if(fRO) komp=komp.filter(r=>r.NAMA_RO===fRO);
+  document.getElementById('tb-komp').innerHTML=komp.map(r=>{
+    // key JSON: S14 (bukan S14_KOMPONEN)
+    const s14 = r.S14 || r.S14_KOMPONEN || '—';
+    return `<tr>
+      <td class="mono" style="color:var(--blue);font-size:11px">${r.KDKEG}</td>
+      <td style="font-size:11px;color:var(--txt2);max-width:180px">${(r.NAMA_RO||'—').substring(0,40)}</td>
+      <td style="font-size:12px;max-width:220px">${r.NAMA_KOMPONEN||'—'}</td>
+      <td class="r mono" style="font-size:11px">${s14}</td>
+      <td class="r">${fmtRp(r.pagu)}</td>
+      <td class="r">${fmtRp(r.real)}</td>
+      ${progressCell(r.real,r.pagu)}
+    </tr>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// RENDER: AKUN
+// ═══════════════════════════════════════════════════════════
+function renderAkun(){
+  if(!D) return;
+  const fKeg=document.getElementById('f-akun-keg').value;
+  const fJenis=document.getElementById('f-akun-jenis').value;
+
+  let akun;
+  if(fKeg){
+    // aggregate dari akun_kegiatan — key JSON: S03, NAMA_AKUN
+    const grp={};
+    D.akun_kegiatan.filter(r=>r.KDKEG===fKeg).forEach(r=>{
+      const kode=r.S03||r.S03_AKUN||'';
+      if(!grp[kode]) grp[kode]={S03:kode,NAMA_AKUN:r.NAMA_AKUN,pagu:0,real:0};
+      grp[kode].pagu+=r.pagu; grp[kode].real+=r.real;
+    });
+    akun=Object.values(grp);
+  } else {
+    // key JSON: S03, NAMA_AKUN
+    akun=D.akun.map(r=>({...r, S03: r.S03||r.S03_AKUN||''}));
+  }
+  if(fJenis) akun=akun.filter(r=>(r.S03||'').startsWith(fJenis));
+  akun=akun.filter(r=>r.pagu>0||r.real>0).sort((a,b)=>b.pagu-a.pagu);
+
+  document.getElementById('tb-akun').innerHTML=akun.map(r=>{
+    const kode=r.S03||r.S03_AKUN||'—';
+    return `<tr>
+      <td class="mono" style="font-weight:600">${kode}</td>
+      <td style="font-size:12px;max-width:280px">${r.NAMA_AKUN||'—'}</td>
+      <td class="r">${fmtRp(r.pagu)}</td>
+      <td class="r">${fmtRp(r.real)}</td>
+      <td class="r" style="color:var(--txt3)">${fmtRp(r.pagu-r.real)}</td>
+      ${progressCell(r.real,r.pagu)}
+    </tr>`;
+  }).join('');
+
+  // Donut per jenis 5xx
+  const jenis={'51x Pegawai':0,'52x Barang':0,'53x Modal':0,'57x Banper':0,'Lainnya':0};
+  akun.forEach(r=>{
+    const pfx=(r.S03||r.S03_AKUN||'')[0]+(r.S03||r.S03_AKUN||'')[1];
+    if(pfx==='51') jenis['51x Pegawai']+=r.pagu;
+    else if(pfx==='52') jenis['52x Barang']+=r.pagu;
+    else if(pfx==='53') jenis['53x Modal']+=r.pagu;
+    else if(pfx==='57') jenis['57x Banper']+=r.pagu;
+    else jenis['Lainnya']+=r.pagu;
+  });
+  destroyChart('c-akun-donut');
+  const akunColors=['#58a6ff','#39d353','#e3b341','#f0883e','#6e7681'];
+  const jenisKeys=Object.keys(jenis).filter(k=>jenis[k]>0);
+  charts['c-akun-donut']=new Chart(document.getElementById('c-akun-donut'),{
+    type:'doughnut',
+    data:{labels:jenisKeys,datasets:[{data:jenisKeys.map(k=>jenis[k]),backgroundColor:akunColors,borderColor:'#161b22',borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#8b949e',font:{size:11},boxWidth:12}},
+      tooltip:{callbacks:{label:c=>`${c.label}: ${fmtM(c.raw)}`}}}}
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// OUTSTANDING
+// ═══════════════════════════════════════════════════════════
+function saveOS(){ localStorage.setItem('bun26_os', JSON.stringify(OS)); }
+
+function addOS(){
+  const sat=document.getElementById('os-satker');
+  const keg=document.getElementById('os-kegiatan').value.trim();
+  const nilaiRaw=document.getElementById('os-nilai').value;
+  const nilai=parseRupiah(nilaiRaw);
+  if(!sat.value){alert('Pilih satker terlebih dahulu');return;}
+  if(!keg){alert('Isi nama kegiatan');return;}
+  if(!nilai){alert('Isi nilai outstanding');return;}
+  const satNama=sat.options[sat.selectedIndex].text;
+  const key=sat.value+'::'+keg;
+  const idx=OS.findIndex(r=>r.key===key);
+  if(idx>=0){OS[idx].nilai=nilai;OS[idx].satNama=satNama;}
+  else OS.push({key,kode:sat.value,satNama,keg,nilai});
+  saveOS();
+  document.getElementById('os-kegiatan').value='';
+  document.getElementById('os-nilai').value='';
+  document.getElementById('os-list-wrap').style.display='block';
+  renderOS();
+}
+
+function delOS(key){
+  OS=OS.filter(r=>r.key!==key);
+  saveOS();
+  document.getElementById('os-list-wrap').style.display=OS.length?'block':'none';
+  renderOS();
+}
+
+function renderOS(){
+  if(!D){
+    document.getElementById('tb-os-satker').innerHTML='<tr><td colspan="6" style="text-align:center;color:var(--txt3);padding:16px">Load data JSON terlebih dahulu di tab Ringkasan</td></tr>';
+    return;
+  }
+
+  const osJSON = D.outstanding || null;
+  const hasJSON = osJSON && osJSON.summary && osJSON.summary.jml_kontrak > 0;
+
+  // ── KPI Summary dari JSON ──────────────────────────────
+  if(hasJSON){
+    const s = osJSON.summary;
+    document.getElementById('os-kpi-wrap').style.display='block';
+    document.getElementById('os-kpi').innerHTML=`
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
+        <div class="kpi blue">
+          <div class="kpi-label">Jumlah Kontrak</div>
+          <div class="kpi-value" style="font-size:28px">${s.jml_kontrak.toLocaleString('id')}</div>
+          <div class="kpi-sub">kontrak aktif</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Nilai Kontrak</div>
+          <div class="kpi-value">${fmtM(s.nilai_kontrak)}</div>
+          <div class="kpi-sub">${fmtRp(s.nilai_kontrak)}</div>
+        </div>
+        <div class="kpi green">
+          <div class="kpi-label">Realisasi Kontrak</div>
+          <div class="kpi-value">${fmtM(s.realisasi_kontrak)}</div>
+          <div class="kpi-sub">${s.pct_realisasi.toFixed(2)}% dari nilai kontrak</div>
+        </div>
+        <div class="kpi orange" style="--kpi-c:var(--orange,#f59e0b)">
+          <div class="kpi-label">Sisa Kontrak (Outstanding)</div>
+          <div class="kpi-value" style="color:var(--orange,#f59e0b)">${fmtM(s.sisa_kontrak)}</div>
+          <div class="kpi-sub">${fmtRp(s.sisa_kontrak)}</div>
+        </div>
+      </div>`;
+  } else {
+    document.getElementById('os-kpi-wrap').style.display='none';
+  }
+
+  // ── Ringkasan per Satker ───────────────────────────────
+  // Gabungkan: sisa kontrak dari JSON per satker + input manual OS
+  const osBySat={};
+  // dari JSON
+  if(hasJSON && osJSON.by_satker){
+    osJSON.by_satker.forEach(r=>{
+      osBySat[String(r.KODE_SATKER)] = {sisa: r.sisa_kontrak, jml: r.jml_kontrak};
+    });
+  }
+  // tambah dari input manual
+  OS.forEach(r=>{
+    if(!osBySat[r.kode]) osBySat[r.kode]={sisa:0,jml:0};
+    osBySat[r.kode].sisa += r.nilai;
+  });
+
+  document.getElementById('tb-os-satker').innerHTML = D.satker.map(s=>{
+    const info = osBySat[String(s.KODE_SATKER)];
+    const sisa = info?.sisa || 0;
+    const gabungan = s.real + sisa;
+    return `<tr>
+      <td style="font-size:12px;font-weight:500">${shortName(s.DESKRIPSI_SATKER)}</td>
+      <td class="r">${fmtRp(s.pagu)}</td>
+      <td class="r">${fmtRp(s.real)}</td>
+      <td class="r" style="color:var(--orange,#f59e0b)">${sisa>0?fmtRp(sisa):'—'}</td>
+      <td class="r">${fmtRp(gabungan)}</td>
+      ${progressCell(gabungan,s.pagu)}
+    </tr>`;
+  }).join('');
+
+  // ── Detail Kontrak dari JSON ───────────────────────────
+  if(hasJSON){
+    document.getElementById('os-detail-wrap').style.display='block';
+
+    // Populate filter satker
+    const satkerSet = [...new Set(osJSON.detail.map(r=>r.KODE_SATKER))];
+    const satkerMap = {};
+    D.satker.forEach(s=>satkerMap[String(s.KODE_SATKER)]=shortName(s.DESKRIPSI_SATKER));
+    document.getElementById('os-f-satker').innerHTML =
+      '<option value="">Semua Satker</option>' +
+      satkerSet.map(k=>`<option value="${k}">${satkerMap[k]||k}</option>`).join('');
+
+    // Populate filter status
+    const statusSet = [...new Set(osJSON.detail.map(r=>r.STATUS||'').filter(Boolean))];
+    document.getElementById('os-f-status').innerHTML =
+      '<option value="">Semua Status</option>' +
+      statusSet.map(s=>`<option value="${s}">${s}</option>`).join('');
+
+    renderOSDetail();
+  } else {
+    document.getElementById('os-detail-wrap').style.display='none';
+  }
+
+  // ── Tabel input manual ────────────────────────────────
+  if(OS.length){
+    document.getElementById('os-list-wrap').style.display='block';
+    document.getElementById('tb-os').innerHTML = OS.map(r=>`<tr>
+      <td style="font-size:12px">${r.satNama}</td>
+      <td style="font-size:12px">${r.keg}</td>
+      <td class="r">${fmtRp(r.nilai)}</td>
+      <td><button class="btn btn-red" style="padding:4px 10px;font-size:11px" onclick="delOS('${r.key}')">Hapus</button></td>
+    </tr>`).join('');
+  }
+}
+
+function renderOSDetail(){
+  if(!D||!D.outstanding||!D.outstanding.detail) return;
+  const fSatker = document.getElementById('os-f-satker').value;
+  const fStatus = document.getElementById('os-f-status').value;
+  const fSearch = (document.getElementById('os-f-search').value||'').toLowerCase().trim();
+
+  const satkerMap = {};
+  D.satker.forEach(s=>satkerMap[String(s.KODE_SATKER)]=shortName(s.DESKRIPSI_SATKER));
+
+  let rows = D.outstanding.detail.filter(r=>{
+    if(fSatker && String(r.KODE_SATKER)!==fSatker) return false;
+    if(fStatus && r.STATUS!==fStatus) return false;
+    if(fSearch){
+      const haystack = ((r.NAMA_PAKET||'')+(r.NO_KONTRAK||'')+(r.NAMA_KEGIATAN||'')).toLowerCase();
+      if(!haystack.includes(fSearch)) return false;
+    }
+    return true;
+  });
+
+  document.getElementById('os-count').textContent = `(${rows.length} dari ${D.outstanding.detail.length} kontrak)`;
+
+  const statusColor = s => {
+    if(!s) return 'var(--txt3)';
+    const sl = s.toLowerCase();
+    if(sl.includes('selesai')||sl.includes('lunas')) return 'var(--green,#22c55e)';
+    if(sl.includes('putus')||sl.includes('batal')) return 'var(--red,#ef4444)';
+    return 'var(--orange,#f59e0b)';
+  };
+
+  document.getElementById('tb-os-detail').innerHTML = rows.length
+    ? rows.map(r=>`<tr>
+        <td style="font-size:11px;font-family:monospace">${r.NO_KONTRAK||'—'}</td>
+        <td style="font-size:11px;max-width:200px;white-space:normal;line-height:1.4">${r.NAMA_PAKET||'—'}</td>
+        <td style="font-size:11px">${satkerMap[String(r.KODE_SATKER)]||r.KODE_SATKER||'—'}</td>
+        <td style="font-size:11px">${r.NAMA_KEGIATAN||r.KDKEG||'—'}</td>
+        <td style="font-size:11px;font-family:monospace">${r.KDKRO_SUFFIX||'—'}</td>
+        <td class="r" style="font-size:11px">${fmtRp(r.NILAI_KONTRAK||0)}</td>
+        <td class="r" style="font-size:11px">${fmtRp(r.REALISASI_KONTRAK||0)}</td>
+        <td class="r" style="font-size:11px;color:var(--orange,#f59e0b)">${fmtRp(r.SISA_KONTRAK||0)}</td>
+        <td style="font-size:11px;color:${statusColor(r.STATUS)}">${r.STATUS||'—'}</td>
+        <td style="font-size:11px">${r.TANGGAL_SELESAI||'—'}</td>
+      </tr>`).join('')
+    : '<tr><td colspan="10" style="text-align:center;color:var(--txt3);padding:24px">Tidak ada data sesuai filter</td></tr>';
+}
+
+// ═══════════════════════════════════════════════════════════
+// PERBANDINGAN H-1
+// ═══════════════════════════════════════════════════════════
+function renderPerbandingan(){
+  if(!D||!Dprev) return;
+  const today=D, prev=Dprev;
+  const todayMap={}, prevMap={};
+  today.satker.forEach(s=>todayMap[s.KODE_SATKER]=s);
+  prev.satker.forEach(s=>prevMap[s.KODE_SATKER]=s);
+
+  const deltaReal=today.total.real-prev.total.real;
+  const deltaPct=today.total.pct-prev.total.pct;
+
+  document.getElementById('kpi-perbandingan').innerHTML=`
+    <div class="kpi blue">
+      <div class="kpi-label">Realisasi H-1 (${prev.tanggal})</div>
+      <div class="kpi-value">${fmtM(prev.total.real)}</div>
+      <div class="kpi-sub">${prev.total.pct.toFixed(2)}%</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-label">Realisasi Hari Ini (${today.tanggal})</div>
+      <div class="kpi-value">${fmtM(today.total.real)}</div>
+      <div class="kpi-sub">${today.total.pct.toFixed(2)}%</div>
+    </div>
+    <div class="kpi ${deltaReal>=0?'green':'red'}">
+      <div class="kpi-label">Delta Realisasi</div>
+      <div class="kpi-value">${deltaReal>=0?'+':''}${fmtM(deltaReal)}</div>
+      <div class="kpi-sub">${deltaPct>=0?'+':''}${deltaPct.toFixed(2)} poin persentase</div>
+    </div>
+  `;
+
+  const satkers=Object.keys({...todayMap,...prevMap});
+  const rows=satkers.map(k=>{
+    const t=todayMap[k]||{real:0,pagu:0,DESKRIPSI_SATKER:'—'};
+    const p=prevMap[k]||{real:0,pagu:0};
+    const dr=t.real-p.real;
+    const dpct=pct(t.real,t.pagu)-pct(p.real,p.pagu);
+    return {nama:shortName(t.DESKRIPSI_SATKER),prevReal:p.real,todayReal:t.real,pagu:t.pagu,dr,dpct};
+  });
+
+  // Chart delta
+  destroyChart('c-delta-satker');
+  charts['c-delta-satker']=new Chart(document.getElementById('c-delta-satker'),{
+    type:'bar',
+    data:{labels:rows.map(r=>r.nama),datasets:[
+      {label:'H-1',data:rows.map(r=>pct(r.prevReal,r.pagu)),backgroundColor:'#58a6ff44',borderColor:'#58a6ff',borderWidth:1,borderRadius:4},
+      {label:'Hari Ini',data:rows.map(r=>pct(r.todayReal,r.pagu)),backgroundColor:'#39d35399',borderColor:'#39d353',borderWidth:1,borderRadius:4},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#8b949e'}}},
+      scales:{x:{grid:{color:'#30363d'},ticks:{color:'#e6edf3',font:{size:11}}},
+              y:{max:100,grid:{color:'#30363d'},ticks:{color:'#8b949e',callback:v=>v+'%'}}}}
+  });
+
+  document.getElementById('tb-delta').innerHTML=rows.map(r=>{
+    const cls=r.dr>0?'diff-pos':r.dr<0?'diff-neg':'diff-neu';
+    return `<tr>
+      <td style="font-weight:500;font-size:12px">${r.nama}</td>
+      <td class="r">${fmtRp(r.prevReal)}</td>
+      <td class="r">${fmtRp(r.todayReal)}</td>
+      <td class="r ${cls}">${r.dr>=0?'+':''}${fmtRp(r.dr)}</td>
+      <td class="r ${cls}">${r.dpct>=0?'+':''}${r.dpct.toFixed(2)}%</td>
+      <td><span class="badge ${r.dr>0?'bg':r.dr<0?'br':'bb'}">${r.dr>0?'▲ Naik':r.dr<0?'▼ Turun':'→ Sama'}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+renderOS();
+</script>
+</body>
+</html>
