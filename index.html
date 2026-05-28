@@ -74,7 +74,7 @@ a{color:var(--blue);text-decoration:none}
 .upload-status .dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0}
 
 /* ── KPI GRID ── */
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:20px}
+.kpi-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-bottom:20px;overflow-x:auto}
 .kpi{
   background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);
   padding:16px;position:relative;overflow:hidden;
@@ -110,7 +110,8 @@ a{color:var(--blue);text-decoration:none}
 /* ── CARDS & CHARTS ── */
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:16px}
 .card-title{font-size:12px;font-weight:600;color:var(--txt2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
-.charts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:16px;margin-bottom:20px}
+.charts-grid{display:grid;grid-template-columns:2.5fr 2.5fr 1.2fr 1.2fr;gap:12px;margin-bottom:16px}
+@media(max-width:1100px){.charts-grid{grid-template-columns:1fr 1fr;}}
 
 /* ── TABLE ── */
 .tbl-wrap{overflow-x:auto;border-radius:var(--radius2);border:1px solid var(--border)}
@@ -263,13 +264,13 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
 
     <div class="charts-grid">
       <div class="card"><div class="card-title">Realisasi per Satker (%)</div>
-        <div style="position:relative;height:220px"><canvas id="c-satker"></canvas></div></div>
+        <div style="position:relative;height:200px"><canvas id="c-satker"></canvas></div></div>
       <div class="card"><div class="card-title">Realisasi per Kegiatan (%)</div>
-        <div style="position:relative;height:220px"><canvas id="c-kegiatan"></canvas></div></div>
+        <div style="position:relative;height:200px"><canvas id="c-kegiatan"></canvas></div></div>
       <div class="card"><div class="card-title">Komposisi Pagu (Kegiatan)</div>
-        <div style="position:relative;height:220px"><canvas id="c-donut-keg"></canvas></div></div>
+        <div style="position:relative;height:200px"><canvas id="c-donut-keg"></canvas></div></div>
       <div class="card"><div class="card-title">Komposisi Pagu (Kewenangan)</div>
-        <div style="position:relative;height:220px"><canvas id="c-donut-kw"></canvas></div></div>
+        <div style="position:relative;height:200px"><canvas id="c-donut-kw"></canvas></div></div>
     </div>
 
     <div class="section-head">Realisasi per Satker × Kegiatan</div>
