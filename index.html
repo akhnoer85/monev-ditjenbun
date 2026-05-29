@@ -592,7 +592,8 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
 // ═══════════════════════════════════════════════════════════
 // CONFIG — ganti URL ini setelah setup GitHub
 // ═══════════════════════════════════════════════════════════
-const GITHUB_JSON_URL = 'https://raw.githubusercontent.com/akhnoer85/monev-ditjenbun/main/latest.json';
+const GITHUB_JSON_URL      = 'https://raw.githubusercontent.com/akhnoer85/monev-ditjenbun/main/latest.json';
+const GITHUB_JSON_PREV_URL = 'https://raw.githubusercontent.com/akhnoer85/monev-ditjenbun/main/latest_prev.json';
 const ADMIN_PIN = '26bun'; // PIN admin — ganti sesuai kebutuhan
 let IS_ADMIN = false;      // status login admin sesi ini
 
@@ -852,6 +853,8 @@ function onDataLoaded(d, key, fromCache=false){
   } else {
     Dprev = d;
     showStatus('prev', `Data H-1 (${d.tanggal}) berhasil dimuat${fromCache?' [cache]':''}`);
+    const prevBadge = document.getElementById('prev-auto-badge');
+    if(prevBadge && !fromCache) prevBadge.style.display='inline';
     document.getElementById('perbandingan-content').style.display='block';
     document.getElementById('perbandingan-empty').style.display='none';
     renderPerbandingan();
@@ -896,21 +899,37 @@ async function fetchFromGithub(){
   }
 }
 
+async function fetchFromGithubPrev(){
+  if(!GITHUB_JSON_PREV_URL) return;
+  try {
+    const url = GITHUB_JSON_PREV_URL + '?t=' + Date.now();
+    const res = await fetch(url);
+    if(!res.ok) return;
+    const d = await res.json();
+    if(!d.tanggal) return;
+    onDataLoaded(d, 'prev', false);
+    console.log('H-1 auto-loaded:', d.tanggal);
+  } catch(e) {
+    console.warn('Auto-fetch H-1 gagal:', e.message);
+  }
+}
+
 // Auto-load — jalankan sekali setelah DOM siap
 // Script ada di bawah body, DOM sudah pasti ada — langsung jalankan
 let _dashInited = false;
 function initDashboard(){
   if(_dashInited) return;
   _dashInited = true;
-  // Verifikasi elemen kunci ada
   if(!document.getElementById('kpi-main')){
     console.error('kpi-main tidak ditemukan, retry...');
-    setTimeout(initDashboard.bind(null, true), 500);
+    setTimeout(initDashboard, 500);
     return;
   }
   applyAdminMode();
   if(GITHUB_JSON_URL){
+    // Fetch data hari ini dan H-1 sekaligus
     fetchFromGithub().then(ok=>{ if(!ok) tryLoadCache(); }).catch(()=>tryLoadCache());
+    if(GITHUB_JSON_PREV_URL) fetchFromGithubPrev();
   } else {
     tryLoadCache();
   }
