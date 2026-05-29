@@ -282,7 +282,6 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       <div class="section-head" style="margin-bottom:0;flex:1">Realisasi per Satker × Kegiatan</div>
       <div class="export-bar" style="margin-bottom:0">
         <button class="btn-export csv" onclick="exportCSV('tb-satkeg','realisasi_satker_kegiatan')">⬇ CSV</button>
-        <button class="btn-export xls" onclick="exportXLS('tb-satkeg','realisasi_satker_kegiatan')">⬇ Excel</button>
       </div>
     </div>
     <div class="tbl-wrap">
@@ -310,7 +309,6 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       <div class="section-head" style="margin-bottom:0;flex:1">Detail Realisasi per Satker</div>
       <div class="export-bar" style="margin-bottom:0">
         <button class="btn-export csv" onclick="exportCSV('tb-satker','realisasi_satker')">⬇ CSV</button>
-        <button class="btn-export xls" onclick="exportXLS('tb-satker','realisasi_satker')">⬇ Excel</button>
       </div>
     </div>
     <div class="tbl-wrap">
@@ -340,7 +338,6 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       <div class="section-head" style="margin-bottom:0;flex:1">Realisasi per Kegiatan</div>
       <div class="export-bar" style="margin-bottom:0">
         <button class="btn-export csv" onclick="exportCSV('tb-kegiatan','realisasi_kegiatan')">⬇ CSV</button>
-        <button class="btn-export xls" onclick="exportXLS('tb-kegiatan','realisasi_kegiatan')">⬇ Excel</button>
       </div>
     </div>
     <div class="tbl-wrap" style="margin-bottom:16px">
@@ -354,7 +351,6 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       <div class="section-head" style="margin-bottom:0;flex:1">KRO (Klasifikasi Rincian Output)</div>
       <div class="export-bar" style="margin-bottom:0">
         <button class="btn-export csv" onclick="exportCSV('tb-kro','realisasi_kro')">⬇ CSV</button>
-        <button class="btn-export xls" onclick="exportXLS('tb-kro','realisasi_kro')">⬇ Excel</button>
       </div>
     </div>
     <div class="tbl-wrap" style="margin-bottom:16px">
@@ -439,7 +435,6 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       <div class="section-head" style="margin-bottom:0;flex:1">Realisasi per Akun Belanja</div>
       <div class="export-bar" style="margin-bottom:0">
         <button class="btn-export csv" onclick="exportCSV('tb-akun','realisasi_akun')">⬇ CSV</button>
-        <button class="btn-export xls" onclick="exportXLS('tb-akun','realisasi_akun')">⬇ Excel</button>
       </div>
     </div>
     <div class="tbl-wrap">
@@ -488,7 +483,6 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       </div>
       <div class="export-bar" style="margin-bottom:0">
         <button id="btn-export-kontrak-csv" class="btn-export csv" onclick="exportCSV('tb-os-detail','detail_kontrak')" style="display:none">⬇ CSV</button>
-        <button id="btn-export-kontrak-xls" class="btn-export xls" onclick="exportXLS('tb-os-detail','detail_kontrak')" style="display:none">⬇ Excel</button>
       </div>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:center">
@@ -579,7 +573,6 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       <div class="section-head" style="margin-bottom:0;flex:1">Tabel Delta per Satker</div>
       <div class="export-bar" style="margin-bottom:0">
         <button class="btn-export csv" onclick="exportCSV('tb-delta','delta_satker')">⬇ CSV</button>
-        <button class="btn-export xls" onclick="exportXLS('tb-delta','delta_satker')">⬇ Excel</button>
       </div>
     </div>
     <div class="tbl-wrap">
@@ -1229,42 +1222,47 @@ function renderRO(){
   const fKro   = document.getElementById('f-ro-kro').value;
   const fSearch= (document.getElementById('f-ro-search')?.value||'').toLowerCase().trim();
 
-  // Lookup nama kegiatan dari D.kegiatan (bukan D.ro yang tidak punya NAMA_KEGIATAN)
+  // Sumber data: satker_ro jika ada (punya KODE_SATKER), fallback ke ro
+  const srcRO = D.satker_ro || D.ro;
+
+  // Filter satker dulu
+  let roBase = fSatker ? srcRO.filter(r=>String(r.KODE_SATKER)===fSatker) : srcRO;
+
+  // Update dropdown kegiatan berdasarkan satker
   const kegMap = {};
   D.kegiatan.forEach(k=>{ kegMap[k.KDKEG] = k.NAMA_KEGIATAN||k.KDKEG; });
-
-  // Kode kegiatan yang tersedia untuk satker yang dipilih
-  const kegFiltered = fSatker
-    ? new Set(D.satker_kegiatan.filter(r=>String(r.KODE_SATKER)===fSatker).map(r=>r.KDKEG))
-    : null;
-
-  // Update dropdown kegiatan
-  const kegSet = [...new Set(D.ro
-    .filter(r=>!kegFiltered||kegFiltered.has(r.KDKEG))
-    .map(r=>r.KDKEG))];
+  const kegSet = [...new Set(roBase.map(r=>r.KDKEG))];
   const curKeg = document.getElementById('f-ro-keg').value;
   document.getElementById('f-ro-keg').innerHTML =
     '<option value="">Semua Kegiatan</option>' +
     kegSet.map(v=>`<option value="${v}"${v===curKeg?' selected':''}>${v} - ${(kegMap[v]||v).substring(0,40)}</option>`).join('');
 
-  // Update dropdown KRO sesuai kegiatan & satker
-  const kroAll = [...new Map(D.ro
-    .filter(r=>(!fKeg||r.KDKEG===fKeg)&&(!kegFiltered||kegFiltered.has(r.KDKEG)))
-    .map(r=>[(r.S05||r.S05_KEG_KRO||''), r.NAMA_KRO||r.S05||''])).entries()];
+  // Update dropdown KRO berdasarkan satker + kegiatan
+  const roForKro = fKeg ? roBase.filter(r=>r.KDKEG===fKeg) : roBase;
+  const kroAll = [...new Map(roForKro.map(r=>[(r.S05||''), r.NAMA_KRO||r.S05||''])).entries()];
   const curKro = document.getElementById('f-ro-kro').value;
   document.getElementById('f-ro-kro').innerHTML =
     '<option value="">Semua KRO</option>' +
     kroAll.map(([v,l])=>`<option value="${v}"${v===curKro?' selected':''}>${l}</option>`).join('');
 
-  // Filter data RO
-  let ro = D.ro;
-  if(fSatker){
-    const kdKegs = new Set(D.satker_kegiatan.filter(r=>String(r.KODE_SATKER)===fSatker).map(r=>r.KDKEG));
-    ro = ro.filter(r=>kdKegs.has(r.KDKEG));
-  }
+  // Filter data RO untuk tabel
+  // Jika pakai satker_ro, group per KDKEG+S05+S13 agar tidak duplikat per satker
+  let ro = roBase;
   if(fKeg) ro = ro.filter(r=>r.KDKEG===fKeg);
-  if(fKro) ro = ro.filter(r=>(r.S05||r.S05_KEG_KRO)===fKro);
+  if(fKro) ro = ro.filter(r=>(r.S05||'')===fKro);
   if(fSearch) ro = ro.filter(r=>(r.NAMA_RO||'').toLowerCase().includes(fSearch));
+
+  // Jika pakai satker_ro, aggregate supaya tidak double per satker
+  if(D.satker_ro && !fSatker){
+    const aggMap = new Map();
+    ro.forEach(r=>{
+      const key = r.KDKEG+'|'+(r.S05||'')+'|'+(r.S13||'');
+      if(!aggMap.has(key)) aggMap.set(key,{...r,pagu:0,real:0});
+      const e = aggMap.get(key);
+      e.pagu += r.pagu; e.real += r.real;
+    });
+    ro = [...aggMap.values()];
+  }
 
   document.getElementById('tb-ro').innerHTML = ro.length ? ro.map(r=>{
     const s05 = r.S05||r.S05_KEG_KRO||'—';
@@ -1284,23 +1282,33 @@ function renderRO(){
 
 function renderKomp(){
   if(!D) return;
-  // Komponen mengikuti filter satker, kegiatan & KRO di atas
   const fSatker= (document.getElementById('f-ro-satker')?.value||'');
   const fKeg   = document.getElementById('f-ro-keg').value;
   const fKro   = document.getElementById('f-ro-kro').value;
   const fSearch= (document.getElementById('f-ro-search')?.value||'').toLowerCase().trim();
 
-  let komp = D.komponen;
-  if(fSatker){
-    const kdKegs = new Set(D.satker_kegiatan.filter(r=>String(r.KODE_SATKER)===fSatker).map(r=>r.KDKEG));
-    komp = komp.filter(r=>kdKegs.has(r.KDKEG));
-  }
+  // Sumber data: satker_komponen jika ada, fallback ke komponen
+  const srcKomp = D.satker_komponen || D.komponen;
+
+  let komp = fSatker ? srcKomp.filter(r=>String(r.KODE_SATKER)===fSatker) : srcKomp;
   if(fKeg) komp = komp.filter(r=>r.KDKEG===fKeg);
-  if(fKro) komp = komp.filter(r=>(r.S05||r.S05_KEG_KRO)===fKro);
+  if(fKro) komp = komp.filter(r=>(r.S05||'')===fKro);
   if(fSearch) komp = komp.filter(r=>
     (r.NAMA_KOMPONEN||'').toLowerCase().includes(fSearch)||
     (r.NAMA_RO||'').toLowerCase().includes(fSearch)
   );
+
+  // Aggregate jika tidak filter satker (hindari duplikat)
+  if(D.satker_komponen && !fSatker){
+    const aggMap = new Map();
+    komp.forEach(r=>{
+      const key = r.KDKEG+'|'+(r.S05||'')+'|'+(r.S13||'')+'|'+(r.S14||'');
+      if(!aggMap.has(key)) aggMap.set(key,{...r,pagu:0,real:0});
+      const e = aggMap.get(key);
+      e.pagu += r.pagu; e.real += r.real;
+    });
+    komp = [...aggMap.values()];
+  }
   if(fSearch) komp = komp.filter(r=>
     (r.NAMA_KOMPONEN||'').toLowerCase().includes(fSearch)||
     (r.NAMA_RO||'').toLowerCase().includes(fSearch)
