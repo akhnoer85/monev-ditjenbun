@@ -115,6 +115,11 @@ a{color:var(--blue);text-decoration:none}
 
 /* ── TABLE ── */
 .tbl-wrap{overflow-x:auto;border-radius:var(--radius2);border:1px solid var(--border)}
+.export-bar{display:flex;gap:6px;align-items:center;justify-content:flex-end;margin-bottom:6px;flex-wrap:wrap}
+.btn-export{padding:4px 12px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt2);font-size:11px;cursor:pointer;display:flex;align-items:center;gap:4px}
+.btn-export:hover{background:var(--bg);color:var(--txt1)}
+.btn-export.csv{border-color:#39d353;color:#39d353}
+.btn-export.xls{border-color:#58a6ff;color:#58a6ff}
 table{width:100%;border-collapse:collapse;font-size:12.5px}
 thead th{
   background:var(--bg3);padding:9px 12px;text-align:left;
@@ -273,7 +278,13 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
         <div style="position:relative;height:260px"><canvas id="c-donut-kw"></canvas></div></div>
     </div>
 
-    <div class="section-head">Realisasi per Satker × Kegiatan</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
+      <div class="section-head" style="margin-bottom:0;flex:1">Realisasi per Satker × Kegiatan</div>
+      <div class="export-bar" style="margin-bottom:0">
+        <button class="btn-export csv" onclick="exportCSV('tb-satkeg','realisasi_satker_kegiatan')">⬇ CSV</button>
+        <button class="btn-export xls" onclick="exportXLS('tb-satkeg','realisasi_satker_kegiatan')">⬇ Excel</button>
+      </div>
+    </div>
     <div class="tbl-wrap">
       <table><thead><tr>
         <th>Kode</th><th>Satker</th><th>Kode Keg</th><th>Nama Kegiatan</th>
@@ -295,7 +306,13 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
 <div id="tab-satker" class="page">
   <div id="satker-content" style="display:none">
     <div class="kpi-grid" id="kpi-satker"></div>
-    <div class="section-head">Detail Realisasi per Satker</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
+      <div class="section-head" style="margin-bottom:0;flex:1">Detail Realisasi per Satker</div>
+      <div class="export-bar" style="margin-bottom:0">
+        <button class="btn-export csv" onclick="exportCSV('tb-satker','realisasi_satker')">⬇ CSV</button>
+        <button class="btn-export xls" onclick="exportXLS('tb-satker','realisasi_satker')">⬇ Excel</button>
+      </div>
+    </div>
     <div class="tbl-wrap">
       <table><thead><tr>
         <th>Kode</th><th>Nama Satker</th>
@@ -319,7 +336,13 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       <label>Kegiatan:</label>
       <select id="f-keg-keg" onchange="renderKro()"><option value="">Semua</option></select>
     </div>
-    <div class="section-head">Realisasi per Kegiatan</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
+      <div class="section-head" style="margin-bottom:0;flex:1">Realisasi per Kegiatan</div>
+      <div class="export-bar" style="margin-bottom:0">
+        <button class="btn-export csv" onclick="exportCSV('tb-kegiatan','realisasi_kegiatan')">⬇ CSV</button>
+        <button class="btn-export xls" onclick="exportXLS('tb-kegiatan','realisasi_kegiatan')">⬇ Excel</button>
+      </div>
+    </div>
     <div class="tbl-wrap" style="margin-bottom:16px">
       <table><thead><tr>
         <th>Kode</th><th>Nama Kegiatan</th>
@@ -327,7 +350,13 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       </tr></thead>
       <tbody id="tb-kegiatan"></tbody></table>
     </div>
-    <div class="section-head">KRO (Klasifikasi Rincian Output)</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
+      <div class="section-head" style="margin-bottom:0;flex:1">KRO (Klasifikasi Rincian Output)</div>
+      <div class="export-bar" style="margin-bottom:0">
+        <button class="btn-export csv" onclick="exportCSV('tb-kro','realisasi_kro')">⬇ CSV</button>
+        <button class="btn-export xls" onclick="exportXLS('tb-kro','realisasi_kro')">⬇ Excel</button>
+      </div>
+    </div>
     <div class="tbl-wrap" style="margin-bottom:16px">
       <table><thead><tr>
         <th>Kode Keg</th><th>Nama Kegiatan</th><th>KRO</th>
@@ -354,7 +383,13 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       <input id="f-ro-search" type="text" placeholder="🔍 Cari RO/Komponen..." oninput="renderRO()"
         style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px;min-width:200px">
     </div>
-    <div class="section-head">Rincian Output (RO)</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
+      <div class="section-head" style="margin-bottom:0;flex:1">Rincian Output (RO)</div>
+      <div class="export-bar" style="margin-bottom:0">
+        <button class="btn-export csv" onclick="exportCSV('tb-ro','realisasi_ro')">⬇ CSV</button>
+        <button class="btn-export xls" onclick="exportXLS('tb-ro','realisasi_ro')">⬇ Excel</button>
+      </div>
+    </div>
     <div class="tbl-wrap" style="margin-bottom:16px">
       <table><thead><tr>
         <th>Kode Keg</th><th>KRO</th><th>RO</th>
@@ -362,8 +397,14 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       </tr></thead>
       <tbody id="tb-ro"></tbody></table>
     </div>
-    <div class="section-head">Komponen
-      <span style="font-size:11px;font-weight:400;color:var(--txt3);margin-left:8px">mengikuti filter Kegiatan & KRO di atas</span>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
+      <div class="section-head" style="margin-bottom:0;flex:1">Komponen
+        <span style="font-size:11px;font-weight:400;color:var(--txt3);margin-left:8px">mengikuti filter Kegiatan & KRO di atas</span>
+      </div>
+      <div class="export-bar" style="margin-bottom:0">
+        <button class="btn-export csv" onclick="exportCSV('tb-komp','realisasi_komponen')">⬇ CSV</button>
+        <button class="btn-export xls" onclick="exportXLS('tb-komp','realisasi_komponen')">⬇ Excel</button>
+      </div>
     </div>
     <div class="tbl-wrap">
       <table><thead><tr>
@@ -394,7 +435,13 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
         <option value="57">57x - Belanja Bansos/Banper</option>
       </select>
     </div>
-    <div class="section-head">Realisasi per Akun Belanja</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
+      <div class="section-head" style="margin-bottom:0;flex:1">Realisasi per Akun Belanja</div>
+      <div class="export-bar" style="margin-bottom:0">
+        <button class="btn-export csv" onclick="exportCSV('tb-akun','realisasi_akun')">⬇ CSV</button>
+        <button class="btn-export xls" onclick="exportXLS('tb-akun','realisasi_akun')">⬇ Excel</button>
+      </div>
+    </div>
     <div class="tbl-wrap">
       <table><thead><tr>
         <th>Kode Akun</th><th>Nama Akun</th>
@@ -434,9 +481,15 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
 
   <!-- Filter + Tabel Detail Kontrak dari JSON -->
   <div id="os-detail-wrap" style="display:none">
-    <div class="section-head" style="margin-bottom:8px">
-      Detail Kontrak
-      <span id="os-count" style="font-size:10px;color:var(--txt3);text-transform:none;letter-spacing:0;margin-left:6px"></span>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:8px">
+      <div class="section-head" style="margin-bottom:0;flex:1">
+        Detail Kontrak
+        <span id="os-count" style="font-size:10px;color:var(--txt3);text-transform:none;letter-spacing:0;margin-left:6px"></span>
+      </div>
+      <div class="export-bar" style="margin-bottom:0">
+        <button class="btn-export csv" onclick="exportCSV('tb-os-detail','detail_kontrak')">⬇ CSV</button>
+        <button class="btn-export xls" onclick="exportXLS('tb-os-detail','detail_kontrak')">⬇ Excel</button>
+      </div>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:center">
       <select id="os-f-satker" style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px" onchange="OS_PAGE=1;renderOSDetail()">
@@ -522,7 +575,13 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       <div class="card-title">Delta Realisasi Harian per Satker</div>
       <div style="position:relative;height:260px"><canvas id="c-delta-satker"></canvas></div>
     </div>
-    <div class="section-head">Tabel Delta per Satker</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
+      <div class="section-head" style="margin-bottom:0;flex:1">Tabel Delta per Satker</div>
+      <div class="export-bar" style="margin-bottom:0">
+        <button class="btn-export csv" onclick="exportCSV('tb-delta','delta_satker')">⬇ CSV</button>
+        <button class="btn-export xls" onclick="exportXLS('tb-delta','delta_satker')">⬇ Excel</button>
+      </div>
+    </div>
     <div class="tbl-wrap">
       <table><thead><tr>
         <th>Satker</th>
@@ -686,6 +745,51 @@ function applyAdminMode(){
   // Form manual outstanding
   const manualWrap = document.getElementById('os-manual-wrap');
   if(manualWrap) manualWrap.style.display = IS_ADMIN ? 'block' : 'none';
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXPORT CSV & EXCEL
+// ═══════════════════════════════════════════════════════════
+function tblToData(tblId){
+  const tbl = document.getElementById(tblId);
+  if(!tbl) return {headers:[], rows:[]};
+  const headers = [...tbl.querySelectorAll('thead th')].map(th=>th.innerText.trim());
+  const rows = [...tbl.querySelectorAll('tbody tr')].map(tr=>
+    [...tr.querySelectorAll('td')].map(td=>td.innerText.trim())
+  ).filter(r=>r.length>0 && r.some(c=>c&&c!=='—'));
+  return {headers, rows};
+}
+
+function exportCSV(tblId, fname){
+  var data = tblToData(tblId);
+  if(!data.rows.length){ alert('Tidak ada data untuk diexport'); return; }
+  var tanggal = D&&D.tanggal ? D.tanggal : new Date().toISOString().slice(0,10);
+  var escape = function(v){ return '"'+String(v).replace(/"/g,'""')+'"'; };
+  var sep = ',';
+  var nl = '\r\n';
+  var out = data.headers.map(escape).join(sep) + nl;
+  for(var i=0;i<data.rows.length;i++) out += data.rows[i].map(escape).join(sep) + nl;
+  var blob = new Blob([out], {type:'text/csv;charset=utf-8'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = fname+'_'+tanggal+'.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function exportXLS(tblId, fname){
+  const tbl = document.getElementById(tblId);
+  if(!tbl){ alert('Tabel tidak ditemukan'); return; }
+  const tanggal = D?.tanggal || new Date().toISOString().slice(0,10);
+  // Gunakan format HTML table yang bisa dibuka Excel
+  const style = '<style>th{background:#1f6b34;color:white;font-weight:bold}td,th{border:1px solid #ccc;padding:4px 8px}tr:nth-child(even){background:#f5f5f5}</style>';
+  const html_content = `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="UTF-8">${style}</head><body>${tbl.outerHTML}</body></html>`;
+  const blob = new Blob([html_content], {type:'application/vnd.ms-excel;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `${fname}_${tanggal}.xls`;
+  a.click();
+  URL.revokeObjectURL(a.href);
 }
 
 function saveCache(key, d){
