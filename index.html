@@ -550,15 +550,24 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
 <!-- TAB: PERBANDINGAN H-1 -->
 <!-- ═══════════════════════════════════════════════════ -->
 <div id="tab-perbandingan" class="page">
-  <div class="section-head">Upload Data H-1</div>
-  <div class="upload-zone" onclick="document.getElementById('f-prev').click()"
-       ondragover="event.preventDefault();this.classList.add('drag')"
-       ondragleave="this.classList.remove('drag')"
-       ondrop="handleDrop(event,'prev')">
-    <input type="file" id="f-prev" accept=".json,.xlsx" onchange="loadFile(this,'prev')">
-    <div class="upload-icon">📅</div>
-    <div class="upload-title">Upload JSON Hari Sebelumnya</div>
-    <div class="upload-sub">Untuk perbandingan delta realisasi H-1 → Hari Ini</div>
+  <!-- Upload H-1 hanya untuk admin -->
+  <div id="upload-prev-wrap" style="display:none">
+    <div class="section-head">Upload Data H-1 Manual
+      <span style="font-size:11px;font-weight:400;color:var(--txt3);margin-left:8px">(opsional — data H-1 sudah otomatis dari server)</span>
+    </div>
+    <div class="upload-zone" onclick="document.getElementById('f-prev').click()"
+         ondragover="event.preventDefault();this.classList.add('drag')"
+         ondragleave="this.classList.remove('drag')"
+         ondrop="handleDrop(event,'prev')">
+      <input type="file" id="f-prev" accept=".json,.xlsx" onchange="loadFile(this,'prev')">
+      <div class="upload-icon">📅</div>
+      <div class="upload-title">Upload JSON Hari Sebelumnya</div>
+      <div class="upload-sub">Override data H-1 otomatis dengan file manual</div>
+    </div>
+  </div>
+  <!-- Status auto-fetch H-1 untuk viewer -->
+  <div id="prev-auto-info" style="display:none;padding:10px 16px;border-radius:8px;background:var(--bg2);border:1px solid var(--brd);font-size:12px;color:var(--txt3);margin-bottom:12px">
+    📅 Data H-1 dimuat otomatis dari server
   </div>
   <div id="status-prev" style="display:none" class="upload-status">
     <div class="dot"></div><span id="status-prev-txt"></span>
@@ -745,6 +754,12 @@ function applyAdminMode(){
   const btnExpXls = document.getElementById('btn-export-kontrak-xls');
   if(btnExpCsv) btnExpCsv.style.display = IS_ADMIN ? 'inline-flex' : 'none';
   if(btnExpXls) btnExpXls.style.display = IS_ADMIN ? 'inline-flex' : 'none';
+
+  // Upload H-1 — hanya admin
+  const uploadPrevWrap = document.getElementById('upload-prev-wrap');
+  const prevAutoInfo   = document.getElementById('prev-auto-info');
+  if(uploadPrevWrap) uploadPrevWrap.style.display = IS_ADMIN ? 'block' : 'none';
+  if(prevAutoInfo)   prevAutoInfo.style.display   = IS_ADMIN ? 'none' : 'block';
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -853,8 +868,9 @@ function onDataLoaded(d, key, fromCache=false){
   } else {
     Dprev = d;
     showStatus('prev', `Data H-1 (${d.tanggal}) berhasil dimuat${fromCache?' [cache]':''}`);
-    const prevBadge = document.getElementById('prev-auto-badge');
-    if(prevBadge && !fromCache) prevBadge.style.display='inline';
+    // Update info auto H-1
+    const prevAutoInfo = document.getElementById('prev-auto-info');
+    if(prevAutoInfo) prevAutoInfo.textContent = `📅 Data H-1 (${d.tanggal}) dimuat otomatis dari server`;
     document.getElementById('perbandingan-content').style.display='block';
     document.getElementById('perbandingan-empty').style.display='none';
     renderPerbandingan();
