@@ -1229,27 +1229,34 @@ function renderRO(){
   const fKro   = document.getElementById('f-ro-kro').value;
   const fSearch= (document.getElementById('f-ro-search')?.value||'').toLowerCase().trim();
 
-  // Update dropdown kegiatan sesuai satker yang dipilih
+  // Lookup nama kegiatan dari D.kegiatan (bukan D.ro yang tidak punya NAMA_KEGIATAN)
+  const kegMap = {};
+  D.kegiatan.forEach(k=>{ kegMap[k.KDKEG] = k.NAMA_KEGIATAN||k.KDKEG; });
+
+  // Kode kegiatan yang tersedia untuk satker yang dipilih
   const kegFiltered = fSatker
-    ? D.satker_kegiatan.filter(r=>String(r.KODE_SATKER)===fSatker).map(r=>r.KDKEG)
+    ? new Set(D.satker_kegiatan.filter(r=>String(r.KODE_SATKER)===fSatker).map(r=>r.KDKEG))
     : null;
-  const kegAll = [...new Map(D.ro
-    .filter(r=>!kegFiltered||kegFiltered.includes(r.KDKEG))
-    .map(r=>[r.KDKEG, r.NAMA_KEGIATAN||r.KDKEG])).entries()];
+
+  // Update dropdown kegiatan
+  const kegSet = [...new Set(D.ro
+    .filter(r=>!kegFiltered||kegFiltered.has(r.KDKEG))
+    .map(r=>r.KDKEG))];
   const curKeg = document.getElementById('f-ro-keg').value;
   document.getElementById('f-ro-keg').innerHTML =
     '<option value="">Semua Kegiatan</option>' +
-    kegAll.map(([v,l])=>`<option value="${v}"${v===curKeg?' selected':''}>${v} - ${(l||'').substring(0,35)}</option>`).join('');
+    kegSet.map(v=>`<option value="${v}"${v===curKeg?' selected':''}>${v} - ${(kegMap[v]||v).substring(0,40)}</option>`).join('');
 
-  // Update dropdown KRO sesuai kegiatan yang dipilih
+  // Update dropdown KRO sesuai kegiatan & satker
   const kroAll = [...new Map(D.ro
-    .filter(r=>(!fKeg||r.KDKEG===fKeg)&&(!kegFiltered||kegFiltered.includes(r.KDKEG)))
+    .filter(r=>(!fKeg||r.KDKEG===fKeg)&&(!kegFiltered||kegFiltered.has(r.KDKEG)))
     .map(r=>[(r.S05||r.S05_KEG_KRO||''), r.NAMA_KRO||r.S05||''])).entries()];
   const curKro = document.getElementById('f-ro-kro').value;
   document.getElementById('f-ro-kro').innerHTML =
     '<option value="">Semua KRO</option>' +
     kroAll.map(([v,l])=>`<option value="${v}"${v===curKro?' selected':''}>${l}</option>`).join('');
 
+  // Filter data RO
   let ro = D.ro;
   if(fSatker){
     const kdKegs = new Set(D.satker_kegiatan.filter(r=>String(r.KODE_SATKER)===fSatker).map(r=>r.KDKEG));
@@ -1290,6 +1297,10 @@ function renderKomp(){
   }
   if(fKeg) komp = komp.filter(r=>r.KDKEG===fKeg);
   if(fKro) komp = komp.filter(r=>(r.S05||r.S05_KEG_KRO)===fKro);
+  if(fSearch) komp = komp.filter(r=>
+    (r.NAMA_KOMPONEN||'').toLowerCase().includes(fSearch)||
+    (r.NAMA_RO||'').toLowerCase().includes(fSearch)
+  );
   if(fSearch) komp = komp.filter(r=>
     (r.NAMA_KOMPONEN||'').toLowerCase().includes(fSearch)||
     (r.NAMA_RO||'').toLowerCase().includes(fSearch)
