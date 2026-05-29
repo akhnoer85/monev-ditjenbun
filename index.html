@@ -783,8 +783,6 @@ async function fetchFromGithub(){
     if(!res.ok) throw new Error(`HTTP ${res.status}`);
     const d = await res.json();
     if(!d.tanggal) throw new Error('Format JSON tidak valid');
-    // Pastikan elemen kunci sudah ada sebelum render
-    if(!document.getElementById('kpi-main')) throw new Error('DOM belum siap');
     onDataLoaded(d, 'main', false);
     if(statusEl) statusEl.textContent = `Terakhir update: ${d.tanggal} (${new Date().toLocaleTimeString('id-ID')})`;
     return true;
@@ -795,8 +793,18 @@ async function fetchFromGithub(){
   }
 }
 
-// Auto-load — jalankan setelah semua DOM & script siap
+// Auto-load — jalankan sekali setelah DOM siap
+// Script ada di bawah body, DOM sudah pasti ada — langsung jalankan
+let _dashInited = false;
 function initDashboard(){
+  if(_dashInited) return;
+  _dashInited = true;
+  // Verifikasi elemen kunci ada
+  if(!document.getElementById('kpi-main')){
+    console.error('kpi-main tidak ditemukan, retry...');
+    setTimeout(initDashboard.bind(null, true), 500);
+    return;
+  }
   applyAdminMode();
   if(GITHUB_JSON_URL){
     fetchFromGithub().then(ok=>{ if(!ok) tryLoadCache(); }).catch(()=>tryLoadCache());
@@ -805,13 +813,8 @@ function initDashboard(){
   }
 }
 
-// Coba beberapa cara agar pasti jalan
-if(document.readyState === 'complete'){
-  setTimeout(initDashboard, 100);
-} else {
-  window.addEventListener('load', function(){ setTimeout(initDashboard, 100); });
-  document.addEventListener('DOMContentLoaded', function(){ setTimeout(initDashboard, 500); });
-}
+// Jalankan langsung karena script di bawah body
+setTimeout(initDashboard, 50);
 
 function tryLoadCache(){
   try {
