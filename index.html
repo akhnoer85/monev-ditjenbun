@@ -544,6 +544,13 @@ const GITHUB_JSON_URL = 'https://raw.githubusercontent.com/akhnoer85/monev-ditje
 const ADMIN_PIN = '26bun'; // PIN admin — ganti sesuai kebutuhan
 let IS_ADMIN = false;      // status login admin sesi ini
 
+// Helper aman — tidak error kalau elemen belum ada
+function $el(id){ return document.getElementById(id); }
+function $set(id, val){ const e=$el(id); if(e) e.innerHTML=val; }
+function $show(id, disp='block'){ const e=$el(id); if(e) e.style.display=disp; }
+function $hide(id){ const e=$el(id); if(e) e.style.display='none'; }
+function $text(id, val){ const e=$el(id); if(e) e.textContent=val; }
+
 // ═══════════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════════
@@ -709,23 +716,18 @@ function onDataLoaded(d, key, fromCache=false){
     // Buang baris header yang ikut terbaca (KODE_SATKER harus angka)
     if(D.satker) D.satker = D.satker.filter(s=>!isNaN(Number(s.KODE_SATKER))&&Number(s.KODE_SATKER)>0);
     if(D.satker_kegiatan) D.satker_kegiatan = D.satker_kegiatan.filter(s=>!isNaN(Number(s.KODE_SATKER))&&Number(s.KODE_SATKER)>0);
-    document.getElementById('topbar-date').textContent = d.tanggal || '';
+    $text('topbar-date', d.tanggal || '');
 
     // Render semua dulu — BARU simpan cache setelahnya
     const src = fromCache
       ? `Data ${d.tanggal} dimuat dari cache — klik Upload untuk perbarui`
       : `Data ${d.tanggal} berhasil dimuat — ${d._meta?.total_baris?.toLocaleString('id')||''} baris`;
     showStatus('main', src);
-    document.getElementById('ringkasan-content').style.display='block';
-    document.getElementById('ringkasan-empty').style.display='none';
-    document.getElementById('satker-content').style.display='block';
-    document.getElementById('satker-empty').style.display='none';
-    document.getElementById('kegiatan-content').style.display='block';
-    document.getElementById('kegiatan-empty').style.display='none';
-    document.getElementById('ro-content').style.display='block';
-    document.getElementById('ro-empty').style.display='none';
-    document.getElementById('akun-content').style.display='block';
-    document.getElementById('akun-empty').style.display='none';
+    $show('ringkasan-content'); $hide('ringkasan-empty');
+    $show('satker-content');    $hide('satker-empty');
+    $show('kegiatan-content');  $hide('kegiatan-empty');
+    $show('ro-content');        $hide('ro-empty');
+    $show('akun-content');      $hide('akun-empty');
     buildFilters();
     renderRingkasan();
     renderOS();
@@ -735,11 +737,11 @@ function onDataLoaded(d, key, fromCache=false){
       try {
         const ts = localStorage.getItem('bun26_data_main_ts');
         const tsFmt = ts ? new Date(ts).toLocaleString('id-ID',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}) : '—';
-        document.getElementById('cache-info').textContent = `Cache: ${d.tanggal} (disimpan ${tsFmt})`;
-        document.getElementById('cache-badge').style.display='flex';
-      } catch(e){ /* localStorage diblokir, abaikan */ }
+        $text('cache-info', `Cache: ${d.tanggal} (disimpan ${tsFmt})`);
+        $show('cache-badge','flex');
+      } catch(e){}
     } else {
-      try { document.getElementById('cache-badge').style.display='none'; } catch(e){}
+      try { $hide('cache-badge'); } catch(e){}
       // Simpan cache setelah render — error cache tidak ganggu tampilan
       setTimeout(()=>saveCache('main', d), 100);
     }
