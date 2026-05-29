@@ -276,7 +276,7 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
     <div class="section-head">Realisasi per Satker × Kegiatan</div>
     <div class="tbl-wrap">
       <table><thead><tr>
-        <th>Satker</th><th>Kegiatan</th>
+        <th>Kode</th><th>Satker</th><th>Kode Keg</th><th>Nama Kegiatan</th>
         <th class="r">Pagu</th><th class="r">Realisasi</th><th class="r">Sisa</th><th>%</th>
       </tr></thead>
       <tbody id="tb-satkeg"></tbody></table>
@@ -1024,8 +1024,10 @@ function renderRingkasan(){
   document.getElementById('tb-satkeg').innerHTML=D.satker_kegiatan.map(r=>{
     const pc=pct(r.real,r.pagu);
     return `<tr>
-      <td class="mono">${r.KODE_SATKER}</td>
-      <td style="max-width:200px;font-size:12px">${shortName(r.DESKRIPSI_SATKER)}</td>
+      <td class="mono" style="font-size:11px">${r.KODE_SATKER}</td>
+      <td style="font-size:12px;white-space:nowrap">${shortName(r.DESKRIPSI_SATKER)}</td>
+      <td class="mono" style="color:var(--green);font-size:11px">${r.KDKEG||'—'}</td>
+      <td style="font-size:12px;max-width:220px">${r.NAMA_KEGIATAN||'—'}</td>
       <td class="r">${fmtM(r.pagu)}</td>
       <td class="r">${fmtM(r.real)}</td>
       <td class="r" style="color:var(--txt3)">${fmtM(r.pagu-r.real)}</td>
