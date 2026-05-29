@@ -791,23 +791,17 @@ async function fetchFromGithub(){
   }
 }
 
-// Auto-load dari cache saat halaman dibuka
-window.addEventListener('DOMContentLoaded', async () => {
-  // Terapkan mode viewer dulu
-  applyAdminMode();
-
-  // Tampilkan/sembunyikan auto-fetch bar
-  if(GITHUB_JSON_URL){
-    // Coba fetch dari GitHub dulu
-    const ok = await fetchFromGithub();
-    if(!ok){
-      // Fallback ke cache
+// Auto-load — gunakan window.load + delay agar semua elemen DOM siap
+window.addEventListener('load', function(){
+  setTimeout(async function(){
+    applyAdminMode();
+    if(GITHUB_JSON_URL){
+      const ok = await fetchFromGithub();
+      if(!ok) tryLoadCache();
+    } else {
       tryLoadCache();
     }
-  } else {
-    // Tidak ada GitHub URL — langsung load dari cache
-    tryLoadCache();
-  }
+  }, 300);
 });
 
 function tryLoadCache(){
