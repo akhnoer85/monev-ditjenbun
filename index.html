@@ -706,6 +706,9 @@ function saveCache(key, d){
 function onDataLoaded(d, key, fromCache=false){
   if(key==='main'){
     D = d;
+    // Buang baris header yang ikut terbaca (KODE_SATKER harus angka)
+    if(D.satker) D.satker = D.satker.filter(s=>!isNaN(Number(s.KODE_SATKER))&&Number(s.KODE_SATKER)>0);
+    if(D.satker_kegiatan) D.satker_kegiatan = D.satker_kegiatan.filter(s=>!isNaN(Number(s.KODE_SATKER))&&Number(s.KODE_SATKER)>0);
     document.getElementById('topbar-date').textContent = d.tanggal || '';
 
     // Render semua dulu — BARU simpan cache setelahnya
@@ -952,14 +955,14 @@ function renderRingkasan(){
   charts['c-satker']=new Chart(document.getElementById('c-satker'),{
     type:'bar',
     data:{labels:satLabels,datasets:satDatasets},
-    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{left:0}},
       plugins:{
         legend:{display:hasOS,labels:{color:'#8b949e',font:{size:11},boxWidth:12}},
         tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.raw.toFixed(2)}%`}}
       },
       scales:{
         x:{max:100,grid:{color:'#30363d'},ticks:{color:'#8b949e',callback:v=>v+'%'}},
-        y:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:10}},afterFit(axis){axis.width=130}}
+        y:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:10},maxRotation:0}}
       }
     }
   });
@@ -980,14 +983,14 @@ function renderRingkasan(){
        borderColor:kegColors,
        borderWidth:1,borderRadius:4}
     ]},
-    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{left:0}},
       plugins:{
         legend:{display:false},
         tooltip:{callbacks:{label:c=>`${c.raw.toFixed(2)}%`}}
       },
       scales:{
         x:{max:100,grid:{color:'#30363d'},ticks:{color:'#8b949e',callback:v=>v+'%'}},
-        y:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:10}},afterFit(axis){axis.width=150}}
+        y:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:10},maxRotation:0}}
       }
     }
   });
