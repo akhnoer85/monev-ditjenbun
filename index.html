@@ -74,7 +74,7 @@ a{color:var(--blue);text-decoration:none}
 .upload-status .dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0}
 
 /* ── KPI GRID ── */
-.kpi-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-bottom:20px;overflow-x:auto}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px;width:100%}
 .kpi{
   background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);
   padding:16px;position:relative;overflow:hidden;
@@ -110,7 +110,7 @@ a{color:var(--blue);text-decoration:none}
 /* ── CARDS & CHARTS ── */
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:16px}
 .card-title{font-size:12px;font-weight:600;color:var(--txt2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
-.charts-grid{display:grid;grid-template-columns:2.5fr 2.5fr 1.2fr 1.2fr;gap:12px;margin-bottom:16px}
+.charts-grid{display:grid;grid-template-columns:2.5fr 2.5fr 1.2fr 1.2fr;gap:12px;margin-bottom:16px;align-items:start}
 @media(max-width:1100px){.charts-grid{grid-template-columns:1fr 1fr;}}
 
 /* ── TABLE ── */
@@ -264,13 +264,13 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
 
     <div class="charts-grid">
       <div class="card"><div class="card-title">Realisasi per Satker (%)</div>
-        <div style="position:relative;height:200px"><canvas id="c-satker"></canvas></div></div>
+        <div style="position:relative;height:260px"><canvas id="c-satker"></canvas></div></div>
       <div class="card"><div class="card-title">Realisasi per Kegiatan (%)</div>
-        <div style="position:relative;height:200px"><canvas id="c-kegiatan"></canvas></div></div>
+        <div style="position:relative;height:260px"><canvas id="c-kegiatan"></canvas></div></div>
       <div class="card"><div class="card-title">Komposisi Pagu (Kegiatan)</div>
-        <div style="position:relative;height:200px"><canvas id="c-donut-keg"></canvas></div></div>
+        <div style="position:relative;height:260px"><canvas id="c-donut-keg"></canvas></div></div>
       <div class="card"><div class="card-title">Komposisi Pagu (Kewenangan)</div>
-        <div style="position:relative;height:200px"><canvas id="c-donut-kw"></canvas></div></div>
+        <div style="position:relative;height:260px"><canvas id="c-donut-kw"></canvas></div></div>
     </div>
 
     <div class="section-head">Realisasi per Satker × Kegiatan</div>
@@ -345,11 +345,14 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
 <!-- ═══════════════════════════════════════════════════ -->
 <div id="tab-ro" class="page">
   <div id="ro-content" style="display:none">
-    <div class="filter-bar">
+    <!-- Filter bersama untuk RO dan Komponen -->
+    <div class="filter-bar" style="flex-wrap:wrap;gap:8px">
       <label>Kegiatan:</label>
-      <select id="f-ro-keg" onchange="renderRO()"><option value="">Semua</option></select>
+      <select id="f-ro-keg" onchange="renderRO()" style="min-width:280px"></select>
       <label>KRO:</label>
-      <select id="f-ro-kro" onchange="renderRO()"><option value="">Semua</option></select>
+      <select id="f-ro-kro" onchange="renderRO()"></select>
+      <input id="f-ro-search" type="text" placeholder="🔍 Cari RO/Komponen..." oninput="renderRO()"
+        style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px;min-width:200px">
     </div>
     <div class="section-head">Rincian Output (RO)</div>
     <div class="tbl-wrap" style="margin-bottom:16px">
@@ -359,10 +362,8 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       </tr></thead>
       <tbody id="tb-ro"></tbody></table>
     </div>
-    <div class="section-head">Komponen</div>
-    <div class="filter-bar">
-      <label>RO:</label>
-      <select id="f-komp-ro" onchange="renderKomp()"><option value="">Semua RO</option></select>
+    <div class="section-head">Komponen
+      <span style="font-size:11px;font-weight:400;color:var(--txt3);margin-left:8px">mengikuti filter Kegiatan & KRO di atas</span>
     </div>
     <div class="tbl-wrap">
       <table><thead><tr>
@@ -438,13 +439,16 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       <span id="os-count" style="font-size:10px;color:var(--txt3);text-transform:none;letter-spacing:0;margin-left:6px"></span>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:center">
-      <select id="os-f-satker" style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px" onchange="renderOSDetail()">
+      <select id="os-f-satker" style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px" onchange="OS_PAGE=1;renderOSDetail()">
         <option value="">Semua Satker</option>
       </select>
-      <select id="os-f-status" style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px" onchange="renderOSDetail()">
+      <select id="os-f-keg" style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px;min-width:200px" onchange="OS_PAGE=1;renderOSDetail()">
+        <option value="">Semua Kegiatan</option>
+      </select>
+      <select id="os-f-status" style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px" onchange="OS_PAGE=1;renderOSDetail()">
         <option value="">Semua Status</option>
       </select>
-      <input id="os-f-search" type="text" placeholder="Cari nama paket/uraian..." style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px;min-width:220px" oninput="renderOSDetail()">
+      <input id="os-f-search" type="text" placeholder="🔍 Cari no kontrak/uraian/penyedia..." style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px;min-width:240px" oninput="OS_PAGE=1;renderOSDetail()">
     </div>
     <div class="tbl-wrap">
       <table><thead><tr>
@@ -461,6 +465,8 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       </tr></thead>
       <tbody id="tb-os-detail"></tbody></table>
     </div>
+    <!-- Pagination -->
+    <div id="os-pagination" style="display:flex;gap:6px;align-items:center;justify-content:flex-end;margin-top:10px;flex-wrap:wrap"></div>
   </div>
 
   <!-- Form input manual — hanya tampil untuk admin -->
@@ -920,7 +926,10 @@ function renderRingkasan(){
 
   // Chart: per satker — grouped bar SP2D vs SP2D+Outstanding
   destroyChart('c-satker');
-  const satLabels = satker.map(s=>shortName(s.DESKRIPSI_SATKER));
+  const satLabels = satker.map(s=>{
+    const n=shortName(s.DESKRIPSI_SATKER);
+    return n.length>22 ? n.substring(0,20)+'…' : n;
+  });
   const satPct    = satker.map(s=>pct(s.real,s.pagu));
   const satGabPct = satker.map(s=>{
     const os = osBySatker[String(s.KODE_SATKER)]||0;
@@ -950,14 +959,17 @@ function renderRingkasan(){
       },
       scales:{
         x:{max:100,grid:{color:'#30363d'},ticks:{color:'#8b949e',callback:v=>v+'%'}},
-        y:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:11}}}
+        y:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:10}},afterFit(axis){axis.width=130}}
       }
     }
   });
 
   // Chart: per kegiatan — warna tiap batang sesuai %
   destroyChart('c-kegiatan');
-  const kegLabels = kegiatan.map(k=>k.KDKEG+' '+k.NAMA_KEGIATAN.substring(0,30)+'…');
+  const kegLabels = kegiatan.map(k=>{
+    const nm = k.NAMA_KEGIATAN||'';
+    return k.KDKEG+' '+(nm.length>28?nm.substring(0,26)+'…':nm);
+  });
   const kegPct    = kegiatan.map(k=>pct(k.real,k.pagu));
   const kegColors = kegPct.map(p=>chipColor(p));
   charts['c-kegiatan']=new Chart(document.getElementById('c-kegiatan'),{
@@ -975,7 +987,7 @@ function renderRingkasan(){
       },
       scales:{
         x:{max:100,grid:{color:'#30363d'},ticks:{color:'#8b949e',callback:v=>v+'%'}},
-        y:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:10}}}
+        y:{grid:{display:false},ticks:{color:'#e6edf3',font:{size:10}},afterFit(axis){axis.width=150}}
       }
     }
   });
@@ -1087,35 +1099,56 @@ function renderKro(){
 // ═══════════════════════════════════════════════════════════
 function renderRO(){
   if(!D) return;
-  const fKeg=document.getElementById('f-ro-keg').value;
-  const fKro=document.getElementById('f-ro-kro').value;
-  let ro=D.ro;
-  if(fKeg) ro=ro.filter(r=>r.KDKEG===fKeg);
-  // key JSON: S05 (bukan S05_KEG_KRO)
-  if(fKro) ro=ro.filter(r=>(r.S05||r.S05_KEG_KRO)===fKro);
-  document.getElementById('tb-ro').innerHTML=ro.map(r=>{
-    const s05  = r.S05  || r.S05_KEG_KRO  || '—';
-    const s13  = r.S13  || r.S13_SUBOUTPUT || '—';
+  const fKeg   = document.getElementById('f-ro-keg').value;
+  const fKro   = document.getElementById('f-ro-kro').value;
+  const fSearch= (document.getElementById('f-ro-search')?.value||'').toLowerCase().trim();
+
+  // Update dropdown KRO sesuai kegiatan yang dipilih
+  const kroAll = [...new Map(D.ro.filter(r=>!fKeg||r.KDKEG===fKeg)
+    .map(r=>[(r.S05||r.S05_KEG_KRO||''), r.NAMA_KRO||r.S05||''])).entries()];
+  const curKro = document.getElementById('f-ro-kro').value;
+  document.getElementById('f-ro-kro').innerHTML =
+    '<option value="">Semua KRO</option>' +
+    kroAll.map(([v,l])=>`<option value="${v}"${v===curKro?' selected':''}>${l}</option>`).join('');
+
+  let ro = D.ro;
+  if(fKeg) ro = ro.filter(r=>r.KDKEG===fKeg);
+  if(fKro) ro = ro.filter(r=>(r.S05||r.S05_KEG_KRO)===fKro);
+  if(fSearch) ro = ro.filter(r=>(r.NAMA_RO||'').toLowerCase().includes(fSearch));
+
+  document.getElementById('tb-ro').innerHTML = ro.length ? ro.map(r=>{
+    const s05 = r.S05||r.S05_KEG_KRO||'—';
     return `<tr>
       <td class="mono" style="color:var(--green)">${r.KDKEG}</td>
       <td style="font-size:11px;color:var(--txt2)">${r.NAMA_KRO||s05}</td>
-      <td style="font-size:12px;max-width:280px">${r.NAMA_RO||'RO '+s13}</td>
+      <td style="font-size:12px;max-width:280px">${r.NAMA_RO||'—'}</td>
       <td class="r">${fmtRp(r.pagu)}</td>
       <td class="r">${fmtRp(r.real)}</td>
       ${progressCell(r.real,r.pagu)}
     </tr>`;
-  }).join('');
+  }).join('')
+  : '<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--txt3)">Tidak ada data</td></tr>';
+
   renderKomp();
 }
 
 function renderKomp(){
   if(!D) return;
-  const fRO=document.getElementById('f-komp-ro').value;
-  let komp=D.komponen;
-  if(fRO) komp=komp.filter(r=>r.NAMA_RO===fRO);
-  document.getElementById('tb-komp').innerHTML=komp.map(r=>{
-    // key JSON: S14 (bukan S14_KOMPONEN)
-    const s14 = r.S14 || r.S14_KOMPONEN || '—';
+  // Komponen mengikuti filter kegiatan & KRO di atas (bukan filter terpisah)
+  const fKeg   = document.getElementById('f-ro-keg').value;
+  const fKro   = document.getElementById('f-ro-kro').value;
+  const fSearch= (document.getElementById('f-ro-search')?.value||'').toLowerCase().trim();
+
+  let komp = D.komponen;
+  if(fKeg) komp = komp.filter(r=>r.KDKEG===fKeg);
+  if(fKro) komp = komp.filter(r=>(r.S05||r.S05_KEG_KRO)===fKro);
+  if(fSearch) komp = komp.filter(r=>
+    (r.NAMA_KOMPONEN||'').toLowerCase().includes(fSearch)||
+    (r.NAMA_RO||'').toLowerCase().includes(fSearch)
+  );
+
+  document.getElementById('tb-komp').innerHTML = komp.length ? komp.map(r=>{
+    const s14 = r.S14||r.S14_KOMPONEN||'—';
     return `<tr>
       <td class="mono" style="color:var(--blue);font-size:11px">${r.KDKEG}</td>
       <td style="font-size:11px;color:var(--txt2);max-width:180px">${(r.NAMA_RO||'—').substring(0,40)}</td>
@@ -1125,7 +1158,8 @@ function renderKomp(){
       <td class="r">${fmtRp(r.real)}</td>
       ${progressCell(r.real,r.pagu)}
     </tr>`;
-  }).join('');
+  }).join('')
+  : '<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--txt3)">Tidak ada data</td></tr>';
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -1322,49 +1356,96 @@ function renderOS(){
   }
 }
 
-function renderOSDetail(){
+let OS_PAGE = 1;
+const OS_PER_PAGE = 25;
+
+function renderOSDetail(resetPage=false){
   if(!D||!D.outstanding||!D.outstanding.detail) return;
+  if(resetPage) OS_PAGE=1;
+
   const fSatker = document.getElementById('os-f-satker').value;
+  const fKeg    = document.getElementById('os-f-keg')?.value||'';
   const fStatus = document.getElementById('os-f-status').value;
   const fSearch = (document.getElementById('os-f-search').value||'').toLowerCase().trim();
 
   const satkerMap = {};
   D.satker.forEach(s=>satkerMap[String(s.KODE_SATKER)]=shortName(s.DESKRIPSI_SATKER));
 
+  // Update filter kegiatan dinamis
+  const kegEl = document.getElementById('os-f-keg');
+  if(kegEl && kegEl.options.length<=1){
+    const kegSet = [...new Map(D.outstanding.detail.map(r=>[r.KDKEG, r.NAMA_KEGIATAN||r.KDKEG])).entries()];
+    kegEl.innerHTML = '<option value="">Semua Kegiatan</option>' +
+      kegSet.map(([k,v])=>`<option value="${k}">${k} - ${(v||'').substring(0,35)}</option>`).join('');
+  }
+
   let rows = D.outstanding.detail.filter(r=>{
     if(fSatker && String(r.KODE_SATKER)!==fSatker) return false;
+    if(fKeg    && r.KDKEG!==fKeg) return false;
     if(fStatus && r.STATUS!==fStatus) return false;
     if(fSearch){
-      const haystack = ((r.NAMA_PAKET||'')+(r.NO_KONTRAK||'')+(r.NAMA_KEGIATAN||'')).toLowerCase();
-      if(!haystack.includes(fSearch)) return false;
+      const hay = ((r.NAMA_PAKET||'')+(r.NO_KONTRAK||'')+(r.NAMA_KEGIATAN||'')+(r.NAMA_PPK||'')).toLowerCase();
+      if(!hay.includes(fSearch)) return false;
     }
     return true;
   });
 
-  document.getElementById('os-count').textContent = `(${rows.length} dari ${D.outstanding.detail.length} kontrak)`;
+  const total = rows.length;
+  const totalPage = Math.max(1, Math.ceil(total/OS_PER_PAGE));
+  if(OS_PAGE>totalPage) OS_PAGE=totalPage;
+  const start = (OS_PAGE-1)*OS_PER_PAGE;
+  const pageRows = rows.slice(start, start+OS_PER_PAGE);
+
+  document.getElementById('os-count').textContent =
+    `(${total} dari ${D.outstanding.detail.length} kontrak — hal. ${OS_PAGE}/${totalPage})`;
 
   const statusColor = s => {
     if(!s) return 'var(--txt3)';
     const sl = s.toLowerCase();
-    if(sl.includes('selesai')||sl.includes('lunas')) return 'var(--green,#22c55e)';
-    if(sl.includes('putus')||sl.includes('batal')) return 'var(--red,#ef4444)';
-    return 'var(--orange,#f59e0b)';
+    if(sl.includes('selesai')||sl.includes('lunas')) return '#39d353';
+    if(sl.includes('putus')||sl.includes('batal')||sl.includes('terlambat')) return '#f85149';
+    return '#f59e0b';
   };
 
-  document.getElementById('tb-os-detail').innerHTML = rows.length
-    ? rows.map(r=>`<tr>
-        <td style="font-size:11px;font-family:monospace">${r.NO_KONTRAK||'—'}</td>
+  document.getElementById('tb-os-detail').innerHTML = pageRows.length
+    ? pageRows.map(r=>`<tr>
+        <td style="font-size:11px;font-family:monospace;white-space:nowrap">${r.NO_KONTRAK||'—'}</td>
         <td style="font-size:11px;max-width:200px;white-space:normal;line-height:1.4">${r.NAMA_PAKET||'—'}</td>
-        <td style="font-size:11px">${satkerMap[String(r.KODE_SATKER)]||r.KODE_SATKER||'—'}</td>
-        <td style="font-size:11px">${r.NAMA_KEGIATAN||r.KDKEG||'—'}</td>
+        <td style="font-size:11px;white-space:nowrap">${satkerMap[String(r.KODE_SATKER)]||r.KODE_SATKER||'—'}</td>
+        <td style="font-size:11px">${(r.NAMA_KEGIATAN||r.KDKEG||'—').substring(0,30)}</td>
         <td style="font-size:11px;font-family:monospace">${r.KDKRO_SUFFIX||'—'}</td>
-        <td class="r" style="font-size:11px">${fmtRp(r.NILAI_KONTRAK||0)}</td>
-        <td class="r" style="font-size:11px">${fmtRp(r.REALISASI_KONTRAK||0)}</td>
-        <td class="r" style="font-size:11px;color:var(--orange,#f59e0b)">${fmtRp(r.SISA_KONTRAK||0)}</td>
-        <td style="font-size:11px;color:${statusColor(r.STATUS)}">${r.STATUS||'—'}</td>
-        <td style="font-size:11px">${r.TANGGAL_SELESAI||'—'}</td>
+        <td class="r" style="font-size:11px;white-space:nowrap">${fmtRp(r.NILAI_KONTRAK||0)}</td>
+        <td class="r" style="font-size:11px;white-space:nowrap">${fmtRp(r.REALISASI_KONTRAK||0)}</td>
+        <td class="r" style="font-size:11px;white-space:nowrap;color:#f59e0b">${fmtRp(r.SISA_KONTRAK||0)}</td>
+        <td style="font-size:11px;color:${statusColor(r.STATUS)};white-space:nowrap">${r.STATUS||'—'}</td>
+        <td style="font-size:11px;white-space:nowrap">${r.TANGGAL_SELESAI||'—'}</td>
       </tr>`).join('')
     : '<tr><td colspan="10" style="text-align:center;color:var(--txt3);padding:24px">Tidak ada data sesuai filter</td></tr>';
+
+  // Pagination
+  const pgEl = document.getElementById('os-pagination');
+  if(!pgEl) return;
+  if(totalPage<=1){ pgEl.innerHTML=''; return; }
+  const btnStyle = (active) =>
+    `style="padding:4px 10px;border-radius:6px;border:1px solid var(--brd);background:${active?'var(--blue)':'var(--bg2)'};color:${active?'#fff':'var(--txt2)'};cursor:pointer;font-size:12px"`;
+  let pgHTML = `<span style="font-size:12px;color:var(--txt3)">${start+1}–${Math.min(start+OS_PER_PAGE,total)} / ${total}</span>`;
+  pgHTML += `<button ${btnStyle(false)} onclick="osGoPage(1)" ${OS_PAGE===1?'disabled':''}>«</button>`;
+  pgHTML += `<button ${btnStyle(false)} onclick="osGoPage(${OS_PAGE-1})" ${OS_PAGE===1?'disabled':''}>‹</button>`;
+  // Tampilkan max 5 halaman
+  const pStart = Math.max(1, OS_PAGE-2);
+  const pEnd   = Math.min(totalPage, pStart+4);
+  for(let p=pStart;p<=pEnd;p++){
+    pgHTML += `<button ${btnStyle(p===OS_PAGE)} onclick="osGoPage(${p})">${p}</button>`;
+  }
+  pgHTML += `<button ${btnStyle(false)} onclick="osGoPage(${OS_PAGE+1})" ${OS_PAGE===totalPage?'disabled':''}>›</button>`;
+  pgHTML += `<button ${btnStyle(false)} onclick="osGoPage(${totalPage})" ${OS_PAGE===totalPage?'disabled':''}>»</button>`;
+  pgEl.innerHTML = pgHTML;
+}
+
+function osGoPage(p){
+  OS_PAGE = p;
+  renderOSDetail();
+  document.getElementById('os-detail-wrap').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 // ═══════════════════════════════════════════════════════════
