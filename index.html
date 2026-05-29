@@ -376,18 +376,19 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
   <div id="ro-content" style="display:none">
     <!-- Filter bersama untuk RO dan Komponen -->
     <div class="filter-bar" style="flex-wrap:wrap;gap:8px">
+      <label>Satker:</label>
+      <select id="f-ro-satker" onchange="renderRO()" style="min-width:160px"></select>
       <label>Kegiatan:</label>
-      <select id="f-ro-keg" onchange="renderRO()" style="min-width:280px"></select>
+      <select id="f-ro-keg" onchange="renderRO()" style="min-width:260px"></select>
       <label>KRO:</label>
       <select id="f-ro-kro" onchange="renderRO()"></select>
       <input id="f-ro-search" type="text" placeholder="🔍 Cari RO/Komponen..." oninput="renderRO()"
-        style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px;min-width:200px">
+        style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px;min-width:180px">
     </div>
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
       <div class="section-head" style="margin-bottom:0;flex:1">Rincian Output (RO)</div>
       <div class="export-bar" style="margin-bottom:0">
         <button class="btn-export csv" onclick="exportCSV('tb-ro','realisasi_ro')">⬇ CSV</button>
-        <button class="btn-export xls" onclick="exportXLS('tb-ro','realisasi_ro')">⬇ Excel</button>
       </div>
     </div>
     <div class="tbl-wrap" style="margin-bottom:16px">
@@ -403,7 +404,6 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
       </div>
       <div class="export-bar" style="margin-bottom:0">
         <button class="btn-export csv" onclick="exportCSV('tb-komp','realisasi_komponen')">⬇ CSV</button>
-        <button class="btn-export xls" onclick="exportXLS('tb-komp','realisasi_komponen')">⬇ Excel</button>
       </div>
     </div>
     <div class="tbl-wrap">
@@ -487,8 +487,8 @@ select:focus,input[type=text]:focus{border-color:var(--green)}
         <span id="os-count" style="font-size:10px;color:var(--txt3);text-transform:none;letter-spacing:0;margin-left:6px"></span>
       </div>
       <div class="export-bar" style="margin-bottom:0">
-        <button class="btn-export csv" onclick="exportCSV('tb-os-detail','detail_kontrak')">⬇ CSV</button>
-        <button class="btn-export xls" onclick="exportXLS('tb-os-detail','detail_kontrak')">⬇ Excel</button>
+        <button id="btn-export-kontrak-csv" class="btn-export csv" onclick="exportCSV('tb-os-detail','detail_kontrak')" style="display:none">⬇ CSV</button>
+        <button id="btn-export-kontrak-xls" class="btn-export xls" onclick="exportXLS('tb-os-detail','detail_kontrak')" style="display:none">⬇ Excel</button>
       </div>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:center">
@@ -745,6 +745,12 @@ function applyAdminMode(){
   // Form manual outstanding
   const manualWrap = document.getElementById('os-manual-wrap');
   if(manualWrap) manualWrap.style.display = IS_ADMIN ? 'block' : 'none';
+
+  // Tombol export kontrak — hanya admin
+  const btnExpCsv = document.getElementById('btn-export-kontrak-csv');
+  const btnExpXls = document.getElementById('btn-export-kontrak-xls');
+  if(btnExpCsv) btnExpCsv.style.display = IS_ADMIN ? 'inline-flex' : 'none';
+  if(btnExpXls) btnExpXls.style.display = IS_ADMIN ? 'inline-flex' : 'none';
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -957,6 +963,9 @@ function buildFilters(){
   const satOpts = D.satker.map(s=>`<option value="${s.KODE_SATKER}">${shortName(s.DESKRIPSI_SATKER)}</option>`).join('');
   const satAll = '<option value="">Semua Satker</option>'+satOpts;
   document.getElementById('f-keg-satker').innerHTML=satAll;
+  // RO satker filter
+  const roSatEl = document.getElementById('f-ro-satker');
+  if(roSatEl) roSatEl.innerHTML='<option value="">Semua Satker</option>'+satOpts;
   // OS satker
   document.getElementById('os-satker').innerHTML='<option value="">— Pilih —</option>'+satOpts;
   // Kegiatan options
@@ -1215,12 +1224,26 @@ function renderKro(){
 // ═══════════════════════════════════════════════════════════
 function renderRO(){
   if(!D) return;
+  const fSatker= (document.getElementById('f-ro-satker')?.value||'');
   const fKeg   = document.getElementById('f-ro-keg').value;
   const fKro   = document.getElementById('f-ro-kro').value;
   const fSearch= (document.getElementById('f-ro-search')?.value||'').toLowerCase().trim();
 
+  // Update dropdown kegiatan sesuai satker yang dipilih
+  const kegFiltered = fSatker
+    ? D.satker_kegiatan.filter(r=>String(r.KODE_SATKER)===fSatker).map(r=>r.KDKEG)
+    : null;
+  const kegAll = [...new Map(D.ro
+    .filter(r=>!kegFiltered||kegFiltered.includes(r.KDKEG))
+    .map(r=>[r.KDKEG, r.NAMA_KEGIATAN||r.KDKEG])).entries()];
+  const curKeg = document.getElementById('f-ro-keg').value;
+  document.getElementById('f-ro-keg').innerHTML =
+    '<option value="">Semua Kegiatan</option>' +
+    kegAll.map(([v,l])=>`<option value="${v}"${v===curKeg?' selected':''}>${v} - ${(l||'').substring(0,35)}</option>`).join('');
+
   // Update dropdown KRO sesuai kegiatan yang dipilih
-  const kroAll = [...new Map(D.ro.filter(r=>!fKeg||r.KDKEG===fKeg)
+  const kroAll = [...new Map(D.ro
+    .filter(r=>(!fKeg||r.KDKEG===fKeg)&&(!kegFiltered||kegFiltered.includes(r.KDKEG)))
     .map(r=>[(r.S05||r.S05_KEG_KRO||''), r.NAMA_KRO||r.S05||''])).entries()];
   const curKro = document.getElementById('f-ro-kro').value;
   document.getElementById('f-ro-kro').innerHTML =
@@ -1228,6 +1251,10 @@ function renderRO(){
     kroAll.map(([v,l])=>`<option value="${v}"${v===curKro?' selected':''}>${l}</option>`).join('');
 
   let ro = D.ro;
+  if(fSatker){
+    const kdKegs = new Set(D.satker_kegiatan.filter(r=>String(r.KODE_SATKER)===fSatker).map(r=>r.KDKEG));
+    ro = ro.filter(r=>kdKegs.has(r.KDKEG));
+  }
   if(fKeg) ro = ro.filter(r=>r.KDKEG===fKeg);
   if(fKro) ro = ro.filter(r=>(r.S05||r.S05_KEG_KRO)===fKro);
   if(fSearch) ro = ro.filter(r=>(r.NAMA_RO||'').toLowerCase().includes(fSearch));
@@ -1250,12 +1277,17 @@ function renderRO(){
 
 function renderKomp(){
   if(!D) return;
-  // Komponen mengikuti filter kegiatan & KRO di atas (bukan filter terpisah)
+  // Komponen mengikuti filter satker, kegiatan & KRO di atas
+  const fSatker= (document.getElementById('f-ro-satker')?.value||'');
   const fKeg   = document.getElementById('f-ro-keg').value;
   const fKro   = document.getElementById('f-ro-kro').value;
   const fSearch= (document.getElementById('f-ro-search')?.value||'').toLowerCase().trim();
 
   let komp = D.komponen;
+  if(fSatker){
+    const kdKegs = new Set(D.satker_kegiatan.filter(r=>String(r.KODE_SATKER)===fSatker).map(r=>r.KDKEG));
+    komp = komp.filter(r=>kdKegs.has(r.KDKEG));
+  }
   if(fKeg) komp = komp.filter(r=>r.KDKEG===fKeg);
   if(fKro) komp = komp.filter(r=>(r.S05||r.S05_KEG_KRO)===fKro);
   if(fSearch) komp = komp.filter(r=>
