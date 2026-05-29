@@ -848,6 +848,7 @@ function showStatus(id, msg){
 // ═══════════════════════════════════════════════════════════
 function buildFilters(){
   if(!D) return;
+  if(!document.getElementById('f-keg-satker')) return; // guard DOM
   // Satker options
   const satOpts = D.satker.map(s=>`<option value="${s.KODE_SATKER}">${shortName(s.DESKRIPSI_SATKER)}</option>`).join('');
   const satAll = '<option value="">Semua Satker</option>'+satOpts;
@@ -862,9 +863,6 @@ function buildFilters(){
   // KRO options
   const kroOpts = '<option value="">Semua KRO</option>'+[...new Set(D.kro.map(k=>k.S05||k.S05_KEG_KRO||''))].filter(Boolean).map(k=>`<option value="${k}">${k}</option>`).join('');
   document.getElementById('f-ro-kro').innerHTML=kroOpts;
-  // RO options untuk komponen filter
-  const roOpts = '<option value="">Semua RO</option>'+[...new Set(D.ro.map(r=>r.NAMA_RO))].slice(0,50).map(r=>`<option value="${r}">${r.substring(0,60)}</option>`).join('');
-  document.getElementById('f-komp-ro').innerHTML=roOpts;
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -872,6 +870,7 @@ function buildFilters(){
 // ═══════════════════════════════════════════════════════════
 function renderRingkasan(){
   if(!D) return;
+  if(!document.getElementById('kpi-main')) return; // guard DOM
   const {total,satker,kegiatan,kewenangan} = D;
   const p=total.pct;
 
@@ -1040,6 +1039,7 @@ function renderRingkasan(){
 // ═══════════════════════════════════════════════════════════
 function renderSatker(){
   if(!D) return;
+  if(!document.getElementById('kpi-satker')) return;
   document.getElementById('kpi-satker').innerHTML=D.satker.map(s=>{
     const p=pct(s.real,s.pagu);
     return `<div class="kpi ${chip(p)}">
@@ -1066,6 +1066,7 @@ function renderSatker(){
 // ═══════════════════════════════════════════════════════════
 function renderKegiatan(){
   if(!D) return;
+  if(!document.getElementById('tb-kegiatan')) return;
   const fSat=document.getElementById('f-keg-satker').value;
   let keg=D.kegiatan;
   if(fSat){
@@ -1262,6 +1263,7 @@ function delOS(key){
 }
 
 function renderOS(){
+  if(!document.getElementById('tb-os-satker')) return;
   if(!D){
     document.getElementById('tb-os-satker').innerHTML='<tr><td colspan="6" style="text-align:center;color:var(--txt3);padding:16px">Load data JSON terlebih dahulu di tab Ringkasan</td></tr>';
     return;
