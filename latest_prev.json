@@ -1,35 +1,35 @@
 {
-  "tanggal": "2026-06-09",
+  "tanggal": "2026-06-10",
   "ref_keg": "id_keg_rev1.xlsx",
   "total": {
     "pagu": 5807533133000,
-    "real": 621341146857,
-    "pct": 10.7
+    "real": 627863087486,
+    "pct": 10.81
   },
   "satker": [
     {
       "KODE_SATKER": "238830",
       "DESKRIPSI_SATKER": "DIREKTORAT JENDERAL PERKEBUNAN",
       "pagu": 4323575155000,
-      "real": 502013035488
+      "real": 505816942485
     },
     {
       "KODE_SATKER": "567338",
       "DESKRIPSI_SATKER": "BALAI BESAR PERBENIHAN DAN PROTEKSI TANAMAN PERKEBUNAN (BBP2TP) SURABAYA",
       "pagu": 787583086000,
-      "real": 30495360234
+      "real": 32089087985
     },
     {
       "KODE_SATKER": "567408",
       "DESKRIPSI_SATKER": "BALAI BESAR PERBENIHAN DAN PROTEKSI TANAMAN PERKEBUNAN (BBP2TP) MEDAN",
       "pagu": 318903510000,
-      "real": 43778754243
+      "real": 44888741543
     },
     {
       "KODE_SATKER": "567521",
       "DESKRIPSI_SATKER": "BALAI PROTEKSI TANAMAN PERKEBUNAN PONTIANAK",
       "pagu": 10713931000,
-      "real": 3501336226
+      "real": 3515654807
     },
     {
       "KODE_SATKER": "567717",
@@ -49,19 +49,19 @@
       "KDKEG": "1779",
       "NAMA_KEGIATAN": "Pelindungan Perkebunan",
       "pagu": 1679788000,
-      "real": 427134091
+      "real": 432384091
     },
     {
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 99186366000,
-      "real": 43435552182
+      "real": 43690072105
     },
     {
       "KDKEG": "5888",
       "NAMA_KEGIATAN": "Pengembangan Kawasan Tanaman Semusim dan Tahunan",
       "pagu": 1664226786000,
-      "real": 113821476544
+      "real": 113899866278
     },
     {
       "KDKEG": "5889",
@@ -73,7 +73,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 3607327974000,
-      "real": 449794118166
+      "real": 455977899138
     }
   ],
   "kro": [
@@ -107,7 +107,7 @@
       "S05": "1779CAG",
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "pagu": 108695000,
-      "real": 33373000
+      "real": 38623000
     },
     {
       "KDKEG": "1779",
@@ -131,7 +131,7 @@
       "S05": "1780EBA",
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "pagu": 98535578000,
-      "real": 42893060446
+      "real": 43147580369
     },
     {
       "KDKEG": "1780",
@@ -171,7 +171,7 @@
       "S05": "5888RAI",
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "pagu": 1657672923000,
-      "real": 113821476544
+      "real": 113899866278
     },
     {
       "KDKEG": "5889",
@@ -243,7 +243,7 @@
       "S05": "5890RAG",
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "pagu": 3218427437000,
-      "real": 419646933972
+      "real": 425788985124
     },
     {
       "KDKEG": "5890",
@@ -251,7 +251,7 @@
       "S05": "5890RBK",
       "NAMA_KRO": "Prasarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "pagu": 385406570000,
-      "real": 29084142825
+      "real": 29090642825
     },
     {
       "KDKEG": "5890",
@@ -259,7 +259,7 @@
       "S05": "5890RDK",
       "NAMA_KRO": "OM Prasarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "pagu": 3267457000,
-      "real": 1058232789
+      "real": 1093462609
     }
   ],
   "ro": [
@@ -306,7 +306,7 @@
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Teknologi Pengendalian OPT Perkebunan ",
       "pagu": 108695000,
-      "real": 33373000
+      "real": 38623000
     },
     {
       "KDKEG": "1779",
@@ -351,7 +351,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Umum ",
       "pagu": 1953871000,
-      "real": 864502072
+      "real": 896836311
     },
     {
       "KDKEG": "1780",
@@ -369,7 +369,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Perkantoran ",
       "pagu": 96157361000,
-      "real": 41803370930
+      "real": 42011012134
     },
     {
       "KDKEG": "1780",
@@ -378,7 +378,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Hukum ",
       "pagu": 86851000,
-      "real": 35737920
+      "real": 50282400
     },
     {
       "KDKEG": "1780",
@@ -513,7 +513,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Kawasan Tebu ",
       "pagu": 1067924792000,
-      "real": 105970720013
+      "real": 106023001950
     },
     {
       "KDKEG": "5888",
@@ -540,7 +540,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Kawasan Jambu Mete ",
       "pagu": 181782003000,
-      "real": 4044378938
+      "real": 4070486735
     },
     {
       "KDKEG": "5889",
@@ -630,7 +630,7 @@
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "pagu": 3218427437000,
-      "real": 419646933972
+      "real": 425788985124
     },
     {
       "KDKEG": "5890",
@@ -639,7 +639,7 @@
       "NAMA_KRO": "Prasarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Kebun Benih Sebar Komoditi Perkebunan ",
       "pagu": 385406570000,
-      "real": 29084142825
+      "real": 29090642825
     },
     {
       "KDKEG": "5890",
@@ -648,7 +648,7 @@
       "NAMA_KRO": "OM Prasarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Operasional Nursery ",
       "pagu": 945533000,
-      "real": 267978880
+      "real": 303208700
     },
     {
       "KDKEG": "5890",
@@ -788,7 +788,7 @@
       "NAMA_RO": "Teknologi Pengendalian OPT Perkebunan ",
       "NAMA_KOMPONEN": "Teknologi Pengendalian OPT Perkebunan",
       "pagu": 108695000,
-      "real": 33373000
+      "real": 38623000
     },
     {
       "KDKEG": "1779",
@@ -918,7 +918,7 @@
       "NAMA_RO": "Layanan Umum ",
       "NAMA_KOMPONEN": "Pelayanan Rumah Tangga dan Umum UPT Pusat",
       "pagu": 928820000,
-      "real": 349974250
+      "real": 382308489
     },
     {
       "KDKEG": "1780",
@@ -938,7 +938,7 @@
       "NAMA_RO": "Layanan Perkantoran ",
       "NAMA_KOMPONEN": "Gaji dan Tunjangan",
       "pagu": 71845758000,
-      "real": 35375229225
+      "real": 35438379225
     },
     {
       "KDKEG": "1780",
@@ -948,7 +948,7 @@
       "NAMA_RO": "Layanan Perkantoran ",
       "NAMA_KOMPONEN": "Operasional dan Pemeliharaan Kantor",
       "pagu": 24311603000,
-      "real": 6428141705
+      "real": 6572632909
     },
     {
       "KDKEG": "1780",
@@ -958,7 +958,7 @@
       "NAMA_RO": "Layanan Hukum ",
       "NAMA_KOMPONEN": "Pelayanan Hukum Pusat",
       "pagu": 27375000,
-      "real": 9500000
+      "real": 24044480
     },
     {
       "KDKEG": "1780",
@@ -1228,7 +1228,7 @@
       "NAMA_RO": "Kawasan Tebu ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 34728791000,
-      "real": 13121694493
+      "real": 13173976430
     },
     {
       "KDKEG": "5888",
@@ -1318,7 +1318,7 @@
       "NAMA_RO": "Kawasan Jambu Mete ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 10652833000,
-      "real": 1452378938
+      "real": 1478486735
     },
     {
       "KDKEG": "5889",
@@ -1428,7 +1428,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Produksi Benih Kelapa",
       "pagu": 483218527000,
-      "real": 56358709810
+      "real": 58029956860
     },
     {
       "KDKEG": "5890",
@@ -1438,7 +1438,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Produksi Benih Kakao",
       "pagu": 1934298640000,
-      "real": 238728589225
+      "real": 242268189225
     },
     {
       "KDKEG": "5890",
@@ -1478,7 +1478,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Produksi Benih Lada",
       "pagu": 24569600000,
-      "real": 5458967961
+      "real": 6146567961
     },
     {
       "KDKEG": "5890",
@@ -1488,7 +1488,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 87056812000,
-      "real": 13605593348
+      "real": 13849197450
     },
     {
       "KDKEG": "5890",
@@ -1508,7 +1508,7 @@
       "NAMA_RO": "Kebun Benih Sebar Komoditi Perkebunan ",
       "NAMA_KOMPONEN": "Pengawalan dan pendampingan kegiatan pembangunan kebun benih sebar",
       "pagu": 11375163000,
-      "real": 1526102360
+      "real": 1532602360
     },
     {
       "KDKEG": "5890",
@@ -1518,7 +1518,7 @@
       "NAMA_RO": "Operasional Nursery ",
       "NAMA_KOMPONEN": "Operasional Nursery",
       "pagu": 945533000,
-      "real": 267978880
+      "real": 303208700
     },
     {
       "KDKEG": "5890",
@@ -1614,7 +1614,7 @@
       "S03": "511129",
       "NAMA_AKUN": "Belanja Uang Makan PNS",
       "pagu": 5168568000,
-      "real": 1516429000
+      "real": 1569660000
     },
     {
       "S03": "511151",
@@ -1662,7 +1662,7 @@
       "S03": "511628",
       "NAMA_AKUN": "Belanja Uang Makan PPPK",
       "pagu": 1914815000,
-      "real": 394963000
+      "real": 404882000
     },
     {
       "S03": "511629",
@@ -1686,7 +1686,7 @@
       "S03": "521111",
       "NAMA_AKUN": "Belanja Keperluan Perkantoran",
       "pagu": 6635893000,
-      "real": 2055160641
+      "real": 2061449188
     },
     {
       "S03": "521114",
@@ -1698,7 +1698,7 @@
       "S03": "521115",
       "NAMA_AKUN": "Belanja Honor Operasional Satuan Kerja",
       "pagu": 1401800000,
-      "real": 492600000
+      "real": 510020000
     },
     {
       "S03": "521119",
@@ -1710,13 +1710,13 @@
       "S03": "521211",
       "NAMA_AKUN": "Belanja Bahan",
       "pagu": 13222020000,
-      "real": 2712552233
+      "real": 2929457233
     },
     {
       "S03": "521213",
       "NAMA_AKUN": "Belanja Honor Output Kegiatan",
       "pagu": 3195396000,
-      "real": 42260000
+      "real": 76380000
     },
     {
       "S03": "521219",
@@ -1734,25 +1734,25 @@
       "S03": "521822",
       "NAMA_AKUN": "Belanja Barang Persediaan barang dalam proses",
       "pagu": 3500965592000,
-      "real": 433293416099
+      "real": 439191863149
     },
     {
       "S03": "522111",
       "NAMA_AKUN": "Belanja Langganan Listrik",
       "pagu": 2037255000,
-      "real": 822154200
+      "real": 836435374
     },
     {
       "S03": "522112",
       "NAMA_AKUN": "Belanja Langganan Telepon",
       "pagu": 175930000,
-      "real": 64143702
+      "real": 64181109
     },
     {
       "S03": "522113",
       "NAMA_AKUN": "Belanja Langganan Air",
       "pagu": 123600000,
-      "real": 31898431
+      "real": 34422861
     },
     {
       "S03": "522119",
@@ -1764,7 +1764,7 @@
       "S03": "522141",
       "NAMA_AKUN": "Belanja Sewa",
       "pagu": 2101580000,
-      "real": 293238506
+      "real": 306939086
     },
     {
       "S03": "522151",
@@ -1776,13 +1776,13 @@
       "S03": "522191",
       "NAMA_AKUN": "Belanja Jasa Lainnya",
       "pagu": 3420816000,
-      "real": 876234881
+      "real": 887594701
     },
     {
       "S03": "523111",
       "NAMA_AKUN": "Belanja Pemeliharaan Gedung dan Bangunan",
       "pagu": 1310705000,
-      "real": 288813431
+      "real": 310652515
     },
     {
       "S03": "523119",
@@ -1794,7 +1794,7 @@
       "S03": "523121",
       "NAMA_AKUN": "Belanja Pemeliharaan Peralatan dan Mesin",
       "pagu": 5229482000,
-      "real": 1679958479
+      "real": 1746108461
     },
     {
       "S03": "523133",
@@ -1806,13 +1806,13 @@
       "S03": "524111",
       "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
       "pagu": 141305604000,
-      "real": 30055223725
+      "real": 30205691280
     },
     {
       "S03": "524113",
       "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
       "pagu": 31596631000,
-      "real": 1250070000
+      "real": 1255320000
     },
     {
       "S03": "524114",
@@ -1892,7 +1892,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 53229301000,
-      "real": 21615588034
+      "real": 21637333094
     },
     {
       "KODE_SATKER": "238830",
@@ -1900,7 +1900,7 @@
       "KDKEG": "5888",
       "NAMA_KEGIATAN": "Pengembangan Kawasan Tanaman Semusim dan Tahunan",
       "pagu": 1381259422000,
-      "real": 112830812722
+      "real": 112883094659
     },
     {
       "KODE_SATKER": "238830",
@@ -1916,7 +1916,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 2699403147000,
-      "real": 354276247855
+      "real": 358006127855
     },
     {
       "KODE_SATKER": "567338",
@@ -1932,7 +1932,7 @@
       "KDKEG": "1779",
       "NAMA_KEGIATAN": "Pelindungan Perkebunan",
       "pagu": 362271000,
-      "real": 116897240
+      "real": 122147240
     },
     {
       "KODE_SATKER": "567338",
@@ -1940,7 +1940,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 15313447000,
-      "real": 6833902573
+      "real": 6971788855
     },
     {
       "KODE_SATKER": "567338",
@@ -1948,7 +1948,7 @@
       "KDKEG": "5888",
       "NAMA_KEGIATAN": "Pengembangan Kawasan Tanaman Semusim dan Tahunan",
       "pagu": 156148165000,
-      "real": 6267500
+      "real": 32375297
     },
     {
       "KODE_SATKER": "567338",
@@ -1956,7 +1956,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 537226288000,
-      "real": 23538292921
+      "real": 24962776593
     },
     {
       "KODE_SATKER": "567408",
@@ -1980,7 +1980,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 15367947000,
-      "real": 7669423651
+      "real": 7749993651
     },
     {
       "KODE_SATKER": "567408",
@@ -1996,7 +1996,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 177566457000,
-      "real": 34690916045
+      "real": 35720333345
     },
     {
       "KODE_SATKER": "567521",
@@ -2020,7 +2020,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 7137617000,
-      "real": 3469564619
+      "real": 3483883200
     },
     {
       "KODE_SATKER": "567717",
@@ -2172,7 +2172,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Perkantoran ",
       "pagu": 51165937000,
-      "real": 20349315292
+      "real": 20356515872
     },
     {
       "KODE_SATKER": "238830",
@@ -2183,7 +2183,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Hukum ",
       "pagu": 86851000,
-      "real": 35737920
+      "real": 50282400
     },
     {
       "KODE_SATKER": "238830",
@@ -2315,7 +2315,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Kawasan Tebu ",
       "pagu": 1067924792000,
-      "real": 105970720013
+      "real": 106023001950
     },
     {
       "KODE_SATKER": "238830",
@@ -2436,7 +2436,7 @@
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "pagu": 2317377913000,
-      "real": 324544110689
+      "real": 328267490689
     },
     {
       "KODE_SATKER": "238830",
@@ -2447,7 +2447,7 @@
       "NAMA_KRO": "Prasarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Kebun Benih Sebar Komoditi Perkebunan ",
       "pagu": 380686064000,
-      "real": 29014905057
+      "real": 29021405057
     },
     {
       "KODE_SATKER": "238830",
@@ -2502,7 +2502,7 @@
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Teknologi Pengendalian OPT Perkebunan ",
       "pagu": 35739000,
-      "real": 4527500
+      "real": 9777500
     },
     {
       "KODE_SATKER": "567338",
@@ -2524,7 +2524,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Umum ",
       "pagu": 168013000,
-      "real": 18081182
+      "real": 50415421
     },
     {
       "KODE_SATKER": "567338",
@@ -2535,7 +2535,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Perkantoran ",
       "pagu": 15138756000,
-      "real": 6815821391
+      "real": 6921373434
     },
     {
       "KODE_SATKER": "567338",
@@ -2612,7 +2612,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Kawasan Jambu Mete ",
       "pagu": 91927035000,
-      "real": 0
+      "real": 26107797
     },
     {
       "KODE_SATKER": "567338",
@@ -2645,7 +2645,7 @@
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "pagu": 531352895000,
-      "real": 23333272273
+      "real": 24722526125
     },
     {
       "KODE_SATKER": "567338",
@@ -2667,7 +2667,7 @@
       "NAMA_KRO": "OM Prasarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Operasional Nursery ",
       "pagu": 650831000,
-      "real": 134627880
+      "real": 169857700
     },
     {
       "KODE_SATKER": "567338",
@@ -2766,7 +2766,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Perkantoran ",
       "pagu": 14931446000,
-      "real": 7495080919
+      "real": 7575650919
     },
     {
       "KODE_SATKER": "567408",
@@ -2865,7 +2865,7 @@
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "pagu": 177236714000,
-      "real": 34620129665
+      "real": 35649546965
     },
     {
       "KODE_SATKER": "567408",
@@ -2964,7 +2964,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Perkantoran ",
       "pagu": 6935512000,
-      "real": 3320085205
+      "real": 3334403786
     },
     {
       "KODE_SATKER": "567521",
@@ -3472,7 +3472,7 @@
       "NAMA_RO": "Layanan Perkantoran ",
       "NAMA_KOMPONEN": "Operasional dan Pemeliharaan Kantor",
       "pagu": 14288730000,
-      "real": 3191364066
+      "real": 3198564646
     },
     {
       "KODE_SATKER": "238830",
@@ -3483,7 +3483,7 @@
       "NAMA_RO": "Layanan Hukum ",
       "NAMA_KOMPONEN": "Pelayanan Hukum Pusat",
       "pagu": 27375000,
-      "real": 9500000
+      "real": 24044480
     },
     {
       "KODE_SATKER": "238830",
@@ -3736,7 +3736,7 @@
       "NAMA_RO": "Kawasan Tebu ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 34728791000,
-      "real": 13121694493
+      "real": 13173976430
     },
     {
       "KODE_SATKER": "238830",
@@ -3945,7 +3945,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Produksi Benih Kakao",
       "pagu": 1314650000000,
-      "real": 181480122500
+      "real": 185019722500
     },
     {
       "KODE_SATKER": "238830",
@@ -3967,7 +3967,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 59449361000,
-      "real": 9652814917
+      "real": 9836594917
     },
     {
       "KODE_SATKER": "238830",
@@ -3989,7 +3989,7 @@
       "NAMA_RO": "Kebun Benih Sebar Komoditi Perkebunan ",
       "NAMA_KOMPONEN": "Pengawalan dan pendampingan kegiatan pembangunan kebun benih sebar",
       "pagu": 11150463000,
-      "real": 1456864592
+      "real": 1463364592
     },
     {
       "KODE_SATKER": "238830",
@@ -4099,7 +4099,7 @@
       "NAMA_RO": "Teknologi Pengendalian OPT Perkebunan ",
       "NAMA_KOMPONEN": "Teknologi Pengendalian OPT Perkebunan",
       "pagu": 35739000,
-      "real": 4527500
+      "real": 9777500
     },
     {
       "KODE_SATKER": "567338",
@@ -4132,7 +4132,7 @@
       "NAMA_RO": "Layanan Umum ",
       "NAMA_KOMPONEN": "Pelayanan Rumah Tangga dan Umum UPT Pusat",
       "pagu": 168013000,
-      "real": 18081182
+      "real": 50415421
     },
     {
       "KODE_SATKER": "567338",
@@ -4154,7 +4154,7 @@
       "NAMA_RO": "Layanan Perkantoran ",
       "NAMA_KOMPONEN": "Operasional dan Pemeliharaan Kantor",
       "pagu": 3770001000,
-      "real": 1019301070
+      "real": 1124853113
     },
     {
       "KODE_SATKER": "567338",
@@ -4297,7 +4297,7 @@
       "NAMA_RO": "Kawasan Jambu Mete ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 5460372000,
-      "real": 0
+      "real": 26107797
     },
     {
       "KODE_SATKER": "567338",
@@ -4330,7 +4330,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Produksi Benih Kelapa",
       "pagu": 37634975000,
-      "real": 5278000500
+      "real": 6607430250
     },
     {
       "KODE_SATKER": "567338",
@@ -4385,7 +4385,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 13821720000,
-      "real": 871318573
+      "real": 931142675
     },
     {
       "KODE_SATKER": "567338",
@@ -4418,7 +4418,7 @@
       "NAMA_RO": "Operasional Nursery ",
       "NAMA_KOMPONEN": "Operasional Nursery",
       "pagu": 650831000,
-      "real": 134627880
+      "real": 169857700
     },
     {
       "KODE_SATKER": "567338",
@@ -4583,7 +4583,7 @@
       "NAMA_RO": "Layanan Perkantoran ",
       "NAMA_KOMPONEN": "Gaji dan Tunjangan",
       "pagu": 12021655000,
-      "real": 6429472233
+      "real": 6492622233
     },
     {
       "KODE_SATKER": "567408",
@@ -4594,7 +4594,7 @@
       "NAMA_RO": "Layanan Perkantoran ",
       "NAMA_KOMPONEN": "Operasional dan Pemeliharaan Kantor",
       "pagu": 2909791000,
-      "real": 1065608686
+      "real": 1083028686
     },
     {
       "KODE_SATKER": "567408",
@@ -4737,7 +4737,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Produksi Benih Kelapa",
       "pagu": 45665000000,
-      "real": 8382089603
+      "real": 8723906903
     },
     {
       "KODE_SATKER": "567408",
@@ -4759,7 +4759,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Produksi Benih Lada",
       "pagu": 13129600000,
-      "real": 2571167961
+      "real": 3258767961
     },
     {
       "KODE_SATKER": "567408",
@@ -4902,7 +4902,7 @@
       "NAMA_RO": "Layanan Perkantoran ",
       "NAMA_KOMPONEN": "Operasional dan Pemeliharaan Kantor",
       "pagu": 1906538000,
-      "real": 774802968
+      "real": 789121549
     },
     {
       "KODE_SATKER": "567521",
@@ -5349,7 +5349,7 @@
     {
       "S06": "A000000001",
       "pagu": 5807159199000,
-      "real": 621234592917
+      "real": 627756533546
     },
     {
       "S06": "D000000001",
@@ -5361,12 +5361,12 @@
     {
       "S08": "1",
       "pagu": 4323575155000,
-      "real": 502013035488
+      "real": 505816942485
     },
     {
       "S08": "2",
       "pagu": 1483957978000,
-      "real": 119328111369
+      "real": 122046145001
     }
   ],
   "akun_kegiatan": [
@@ -5440,7 +5440,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 5168568000,
-      "real": 1516429000
+      "real": 1569660000
     },
     {
       "S03": "511151",
@@ -5504,7 +5504,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 1914815000,
-      "real": 394963000
+      "real": 404882000
     },
     {
       "S03": "511629",
@@ -5536,7 +5536,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 6635893000,
-      "real": 2055160641
+      "real": 2061449188
     },
     {
       "S03": "521114",
@@ -5552,7 +5552,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 1401800000,
-      "real": 492600000
+      "real": 510020000
     },
     {
       "S03": "521119",
@@ -5584,7 +5584,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 615812000,
-      "real": 284056192
+      "real": 289846192
     },
     {
       "S03": "521211",
@@ -5592,7 +5592,7 @@
       "KDKEG": "5888",
       "NAMA_KEGIATAN": "Pengembangan Kawasan Tanaman Semusim dan Tahunan",
       "pagu": 5186119000,
-      "real": 199545200
+      "real": 228440200
     },
     {
       "S03": "521211",
@@ -5608,7 +5608,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 5847306000,
-      "real": 1802021390
+      "real": 1984241390
     },
     {
       "S03": "521213",
@@ -5648,7 +5648,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 185870000,
-      "real": 42260000
+      "real": 76380000
     },
     {
       "S03": "521219",
@@ -5688,7 +5688,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 3500965592000,
-      "real": 433293416099
+      "real": 439191863149
     },
     {
       "S03": "522111",
@@ -5696,7 +5696,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 2037255000,
-      "real": 822154200
+      "real": 836435374
     },
     {
       "S03": "522112",
@@ -5704,7 +5704,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 175930000,
-      "real": 64143702
+      "real": 64181109
     },
     {
       "S03": "522113",
@@ -5712,7 +5712,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 123600000,
-      "real": 31898431
+      "real": 34422861
     },
     {
       "S03": "522119",
@@ -5744,7 +5744,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 1135700000,
-      "real": 280758506
+      "real": 287959086
     },
     {
       "S03": "522141",
@@ -5760,7 +5760,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 277400000,
-      "real": 0
+      "real": 6500000
     },
     {
       "S03": "522151",
@@ -5824,7 +5824,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 2695587000,
-      "real": 808737191
+      "real": 818987191
     },
     {
       "S03": "522191",
@@ -5848,7 +5848,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 309377000,
-      "real": 18198150
+      "real": 19307970
     },
     {
       "S03": "523111",
@@ -5856,7 +5856,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 1310705000,
-      "real": 288813431
+      "real": 310652515
     },
     {
       "S03": "523119",
@@ -5880,7 +5880,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 5219482000,
-      "real": 1679958479
+      "real": 1746108461
     },
     {
       "S03": "523133",
@@ -5912,7 +5912,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 1144133000,
-      "real": 824736872
+      "real": 864325591
     },
     {
       "S03": "524111",
@@ -5920,7 +5920,7 @@
       "KDKEG": "5888",
       "NAMA_KEGIATAN": "Pengembangan Kawasan Tanaman Semusim dan Tahunan",
       "pagu": 42771913000,
-      "real": 14667642824
+      "real": 14717137558
     },
     {
       "S03": "524111",
@@ -5936,7 +5936,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 88697395000,
-      "real": 12978539055
+      "real": 13039923157
     },
     {
       "S03": "524113",
@@ -5952,7 +5952,7 @@
       "KDKEG": "1779",
       "NAMA_KEGIATAN": "Pelindungan Perkebunan",
       "pagu": 90320000,
-      "real": 29600000
+      "real": 34850000
     },
     {
       "S03": "524113",
