@@ -1,23 +1,23 @@
 {
-  "tanggal": "2026-06-16",
+  "tanggal": "2026-06-18",
   "ref_keg": "id_keg_rev1.xlsx",
   "total": {
     "pagu": 5807533133000,
-    "real": 651376609865,
-    "pct": 11.22
+    "real": 659379091387,
+    "pct": 11.35
   },
   "satker": [
     {
       "KODE_SATKER": "238830",
       "DESKRIPSI_SATKER": "DIREKTORAT JENDERAL PERKEBUNAN",
       "pagu": 4323575155000,
-      "real": 524676662995
+      "real": 532247884813
     },
     {
       "KODE_SATKER": "567338",
       "DESKRIPSI_SATKER": "BALAI BESAR PERBENIHAN DAN PROTEKSI TANAMAN PERKEBUNAN (BBP2TP) SURABAYA",
       "pagu": 787583086000,
-      "real": 32782678566
+      "real": 33122945036
     },
     {
       "KODE_SATKER": "567408",
@@ -29,13 +29,13 @@
       "KODE_SATKER": "567521",
       "DESKRIPSI_SATKER": "BALAI PROTEKSI TANAMAN PERKEBUNAN PONTIANAK",
       "pagu": 10713931000,
-      "real": 3515654807
+      "real": 3587649641
     },
     {
       "KODE_SATKER": "567717",
       "DESKRIPSI_SATKER": "BALAI BESAR PERBENIHAN DAN PROTEKSI TANAMAN PERKEBUNAN (BBP2TP) AMBON",
       "pagu": 366757451000,
-      "real": 42826999985
+      "real": 42845998385
     }
   ],
   "kegiatan": [
@@ -49,19 +49,19 @@
       "KDKEG": "1779",
       "NAMA_KEGIATAN": "Pelindungan Perkebunan",
       "pagu": 1679788000,
-      "real": 460430979
+      "real": 539458915
     },
     {
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 99186366000,
-      "real": 48090341823
+      "real": 48156503437
     },
     {
       "KDKEG": "5888",
       "NAMA_KEGIATAN": "Pengembangan Kawasan Tanaman Semusim dan Tahunan",
       "pagu": 1664226786000,
-      "real": 117118326960
+      "real": 117373697713
     },
     {
       "KDKEG": "5889",
@@ -73,7 +73,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 3607327974000,
-      "real": 467887328649
+      "real": 475489249868
     }
   ],
   "kro": [
@@ -107,7 +107,7 @@
       "S05": "1779CAG",
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "pagu": 108695000,
-      "real": 38623000
+      "real": 45986620
     },
     {
       "KDKEG": "1779",
@@ -115,7 +115,7 @@
       "S05": "1779QDD",
       "NAMA_KRO": "Fasilitasi dan Pembinaan Kelompok Masyarakat",
       "pagu": 585996000,
-      "real": 8742500
+      "real": 52825661
     },
     {
       "KDKEG": "1779",
@@ -123,7 +123,7 @@
       "S05": "1779RAI",
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "pagu": 638477000,
-      "real": 275358288
+      "real": 302939443
     },
     {
       "KDKEG": "1780",
@@ -131,7 +131,7 @@
       "S05": "1780EBA",
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "pagu": 98535578000,
-      "real": 47547410087
+      "real": 47613571701
     },
     {
       "KDKEG": "1780",
@@ -171,7 +171,7 @@
       "S05": "5888RAI",
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "pagu": 1657672923000,
-      "real": 117118326960
+      "real": 117373697713
     },
     {
       "KDKEG": "5889",
@@ -243,7 +243,7 @@
       "S05": "5890RAG",
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "pagu": 3218427437000,
-      "real": 433724224635
+      "real": 440123205854
     },
     {
       "KDKEG": "5890",
@@ -251,7 +251,7 @@
       "S05": "5890RBK",
       "NAMA_KRO": "Prasarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "pagu": 385406570000,
-      "real": 33064832825
+      "real": 34267772825
     },
     {
       "KDKEG": "5890",
@@ -306,7 +306,7 @@
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Teknologi Pengendalian OPT Perkebunan ",
       "pagu": 108695000,
-      "real": 38623000
+      "real": 45986620
     },
     {
       "KDKEG": "1779",
@@ -315,7 +315,7 @@
       "NAMA_KRO": "Fasilitasi dan Pembinaan Kelompok Masyarakat",
       "NAMA_RO": "Desa Pertanian Organik Berbasis Komoditi Perkebunan ",
       "pagu": 277889000,
-      "real": 2926500
+      "real": 44609661
     },
     {
       "KDKEG": "1779",
@@ -324,7 +324,7 @@
       "NAMA_KRO": "Fasilitasi dan Pembinaan Kelompok Masyarakat",
       "NAMA_RO": "Regu Pengendalian Organisme Penggangu Tanaman (OPT) ",
       "pagu": 308107000,
-      "real": 5816000
+      "real": 8216000
     },
     {
       "KDKEG": "1779",
@@ -342,7 +342,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Area Penanganan Organisme Pengganggu Tumbuhan (OPT) Tanaman Perkebunan ",
       "pagu": 354245000,
-      "real": 275358288
+      "real": 302939443
     },
     {
       "KDKEG": "1780",
@@ -351,7 +351,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Umum ",
       "pagu": 1953871000,
-      "real": 911829204
+      "real": 916517604
     },
     {
       "KDKEG": "1780",
@@ -369,7 +369,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Perkantoran ",
       "pagu": 96157361000,
-      "real": 46291637199
+      "real": 46353110413
     },
     {
       "KDKEG": "1780",
@@ -513,7 +513,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Kawasan Tebu ",
       "pagu": 1067924792000,
-      "real": 109132129606
+      "real": 109236391339
     },
     {
       "KDKEG": "5888",
@@ -522,7 +522,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Kawasan Kopi ",
       "pagu": 119736559000,
-      "real": 1488553265
+      "real": 1532745145
     },
     {
       "KDKEG": "5888",
@@ -531,7 +531,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Kawasan Kakao ",
       "pagu": 241429675000,
-      "real": 1119121781
+      "real": 1141914221
     },
     {
       "KDKEG": "5888",
@@ -540,7 +540,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Kawasan Jambu Mete ",
       "pagu": 181782003000,
-      "real": 4113156735
+      "real": 4197281435
     },
     {
       "KDKEG": "5889",
@@ -630,7 +630,7 @@
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "pagu": 3218427437000,
-      "real": 433724224635
+      "real": 440123205854
     },
     {
       "KDKEG": "5890",
@@ -639,7 +639,7 @@
       "NAMA_KRO": "Prasarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Kebun Benih Sebar Komoditi Perkebunan ",
       "pagu": 385406570000,
-      "real": 33064832825
+      "real": 34267772825
     },
     {
       "KDKEG": "5890",
@@ -788,7 +788,7 @@
       "NAMA_RO": "Teknologi Pengendalian OPT Perkebunan ",
       "NAMA_KOMPONEN": "Teknologi Pengendalian OPT Perkebunan",
       "pagu": 108695000,
-      "real": 38623000
+      "real": 45986620
     },
     {
       "KDKEG": "1779",
@@ -798,7 +798,7 @@
       "NAMA_RO": "Desa Pertanian Organik Berbasis Komoditi Perkebunan ",
       "NAMA_KOMPONEN": "Pembinaan Desa Pertanian Organik Berbasis Komoditi Perkebunan",
       "pagu": 265169000,
-      "real": 2926500
+      "real": 44609661
     },
     {
       "KDKEG": "1779",
@@ -838,7 +838,7 @@
       "NAMA_RO": "Regu Pengendalian Organisme Penggangu Tanaman (OPT) ",
       "NAMA_KOMPONEN": "Penerapan Pengendalian Hama Terpadu Tanaman Semusim dan Rempah",
       "pagu": 89446000,
-      "real": 5816000
+      "real": 8216000
     },
     {
       "KDKEG": "1779",
@@ -878,7 +878,7 @@
       "NAMA_RO": "Area Penanganan Organisme Pengganggu Tumbuhan (OPT) Tanaman Perkebunan ",
       "NAMA_KOMPONEN": "Pengendalian OPT Tanaman Tahunan dan Penyegar",
       "pagu": 118201000,
-      "real": 70780488
+      "real": 98361643
     },
     {
       "KDKEG": "1779",
@@ -918,7 +918,7 @@
       "NAMA_RO": "Layanan Umum ",
       "NAMA_KOMPONEN": "Pelayanan Rumah Tangga dan Umum UPT Pusat",
       "pagu": 928820000,
-      "real": 395051382
+      "real": 399739782
     },
     {
       "KDKEG": "1780",
@@ -948,7 +948,7 @@
       "NAMA_RO": "Layanan Perkantoran ",
       "NAMA_KOMPONEN": "Operasional dan Pemeliharaan Kantor",
       "pagu": 24311603000,
-      "real": 6923565018
+      "real": 6985038232
     },
     {
       "KDKEG": "1780",
@@ -1228,7 +1228,7 @@
       "NAMA_RO": "Kawasan Tebu ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 34728791000,
-      "real": 13552394226
+      "real": 13656655959
     },
     {
       "KDKEG": "5888",
@@ -1258,7 +1258,7 @@
       "NAMA_RO": "Kawasan Kopi ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 7181676000,
-      "real": 343780265
+      "real": 387972145
     },
     {
       "KDKEG": "5888",
@@ -1288,7 +1288,7 @@
       "NAMA_RO": "Kawasan Kakao ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 14477088000,
-      "real": 706641781
+      "real": 729434221
     },
     {
       "KDKEG": "5888",
@@ -1318,7 +1318,7 @@
       "NAMA_RO": "Kawasan Jambu Mete ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 10652833000,
-      "real": 1521156735
+      "real": 1605281435
     },
     {
       "KDKEG": "5889",
@@ -1428,7 +1428,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Produksi Benih Kelapa",
       "pagu": 483218527000,
-      "real": 58029956860
+      "real": 60304299535
     },
     {
       "KDKEG": "5890",
@@ -1438,7 +1438,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Produksi Benih Kakao",
       "pagu": 1934298640000,
-      "real": 245972589225
+      "real": 249668529195
     },
     {
       "KDKEG": "5890",
@@ -1488,7 +1488,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 88386812000,
-      "real": 13985786961
+      "real": 14414485535
     },
     {
       "KDKEG": "5890",
@@ -1498,7 +1498,7 @@
       "NAMA_RO": "Kebun Benih Sebar Komoditi Perkebunan ",
       "NAMA_KOMPONEN": "Pembangunan Kebun Benih Sebar",
       "pagu": 374031407000,
-      "real": 31532230465
+      "real": 32735170465
     },
     {
       "KDKEG": "5890",
@@ -1686,7 +1686,7 @@
       "S03": "521111",
       "NAMA_AKUN": "Belanja Keperluan Perkantoran",
       "pagu": 6626892000,
-      "real": 2340491499
+      "real": 2347829379
     },
     {
       "S03": "521114",
@@ -1698,7 +1698,7 @@
       "S03": "521115",
       "NAMA_AKUN": "Belanja Honor Operasional Satuan Kerja",
       "pagu": 1401800000,
-      "real": 510020000
+      "real": 515250000
     },
     {
       "S03": "521119",
@@ -1710,7 +1710,7 @@
       "S03": "521211",
       "NAMA_AKUN": "Belanja Bahan",
       "pagu": 14295839000,
-      "real": 3023645881
+      "real": 3112126081
     },
     {
       "S03": "521213",
@@ -1734,25 +1734,25 @@
       "S03": "521822",
       "NAMA_AKUN": "Belanja Barang Persediaan barang dalam proses",
       "pagu": 3499635592000,
-      "real": 450964703149
+      "real": 458137925794
     },
     {
       "S03": "522111",
       "NAMA_AKUN": "Belanja Langganan Listrik",
       "pagu": 2037255000,
-      "real": 850431687
+      "real": 850992580
     },
     {
       "S03": "522112",
       "NAMA_AKUN": "Belanja Langganan Telepon",
       "pagu": 175930000,
-      "real": 65272510
+      "real": 65312717
     },
     {
       "S03": "522113",
       "NAMA_AKUN": "Belanja Langganan Air",
       "pagu": 123600000,
-      "real": 34422861
+      "real": 35906111
     },
     {
       "S03": "522119",
@@ -1776,7 +1776,7 @@
       "S03": "522191",
       "NAMA_AKUN": "Belanja Jasa Lainnya",
       "pagu": 3620816000,
-      "real": 987344701
+      "real": 993744701
     },
     {
       "S03": "523111",
@@ -1794,7 +1794,7 @@
       "S03": "523121",
       "NAMA_AKUN": "Belanja Pemeliharaan Peralatan dan Mesin",
       "pagu": 5421152000,
-      "real": 1763862045
+      "real": 1810673749
     },
     {
       "S03": "523133",
@@ -1806,13 +1806,13 @@
       "S03": "524111",
       "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
       "pagu": 141464630000,
-      "real": 31036164056
+      "real": 31599215638
     },
     {
       "S03": "524113",
       "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
       "pagu": 31317606000,
-      "real": 1332692500
+      "real": 1400872500
     },
     {
       "S03": "524114",
@@ -1842,7 +1842,7 @@
       "S03": "526112",
       "NAMA_AKUN": "Belanja Peralatan Dan Mesin Untuk Diserahkan Kepada Masyarakat/Pemda",
       "pagu": 5983770000,
-      "real": 174116810
+      "real": 215799971
     },
     {
       "S03": "526113",
@@ -1884,7 +1884,7 @@
       "KDKEG": "1779",
       "NAMA_KEGIATAN": "Pelindungan Perkebunan",
       "pagu": 1059901000,
-      "real": 278284788
+      "real": 347549104
     },
     {
       "KODE_SATKER": "238830",
@@ -1900,7 +1900,7 @@
       "KDKEG": "5888",
       "NAMA_KEGIATAN": "Pengembangan Kawasan Tanaman Semusim dan Tahunan",
       "pagu": 1381259422000,
-      "real": 116034892315
+      "real": 116290263068
     },
     {
       "KODE_SATKER": "238830",
@@ -1916,7 +1916,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 2699403147000,
-      "real": 369812035455
+      "real": 377058622204
     },
     {
       "KODE_SATKER": "567338",
@@ -1956,7 +1956,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 537226288000,
-      "real": 24977139813
+      "real": 25317406283
     },
     {
       "KODE_SATKER": "567408",
@@ -2012,7 +2012,7 @@
       "KDKEG": "1779",
       "NAMA_KEGIATAN": "Pelindungan Perkebunan",
       "pagu": 171994000,
-      "real": 23841451
+      "real": 33605071
     },
     {
       "KODE_SATKER": "567521",
@@ -2020,7 +2020,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 7137617000,
-      "real": 3483883200
+      "real": 3546114414
     },
     {
       "KODE_SATKER": "567717",
@@ -2044,7 +2044,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 8138054000,
-      "real": 4248605681
+      "real": 4252536081
     },
     {
       "KODE_SATKER": "567717",
@@ -2060,7 +2060,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 193132082000,
-      "real": 37304888360
+      "real": 37319956360
     }
   ],
   "satker_ro": [
@@ -2106,7 +2106,7 @@
       "NAMA_KRO": "Fasilitasi dan Pembinaan Kelompok Masyarakat",
       "NAMA_RO": "Desa Pertanian Organik Berbasis Komoditi Perkebunan ",
       "pagu": 277889000,
-      "real": 2926500
+      "real": 44609661
     },
     {
       "KODE_SATKER": "238830",
@@ -2139,7 +2139,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Area Penanganan Organisme Pengganggu Tumbuhan (OPT) Tanaman Perkebunan ",
       "pagu": 354245000,
-      "real": 275358288
+      "real": 302939443
     },
     {
       "KODE_SATKER": "238830",
@@ -2315,7 +2315,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Kawasan Tebu ",
       "pagu": 1067924792000,
-      "real": 109132129606
+      "real": 109236391339
     },
     {
       "KODE_SATKER": "238830",
@@ -2326,7 +2326,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Kawasan Kopi ",
       "pagu": 70784152000,
-      "real": 550818684
+      "real": 595010564
     },
     {
       "KODE_SATKER": "238830",
@@ -2337,7 +2337,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Kawasan Kakao ",
       "pagu": 115600432000,
-      "real": 999529514
+      "real": 1022321954
     },
     {
       "KODE_SATKER": "238830",
@@ -2348,7 +2348,7 @@
       "NAMA_KRO": "Sarana Pengembangan Kawasan",
       "NAMA_RO": "Kawasan Jambu Mete ",
       "pagu": 89854968000,
-      "real": 4087048938
+      "real": 4171173638
     },
     {
       "KODE_SATKER": "238830",
@@ -2436,7 +2436,7 @@
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "pagu": 2317377913000,
-      "real": 336099208289
+      "real": 342142855038
     },
     {
       "KODE_SATKER": "238830",
@@ -2447,7 +2447,7 @@
       "NAMA_KRO": "Prasarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Kebun Benih Sebar Komoditi Perkebunan ",
       "pagu": 380686064000,
-      "real": 32995595057
+      "real": 34198535057
     },
     {
       "KODE_SATKER": "238830",
@@ -2645,7 +2645,7 @@
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "pagu": 531352895000,
-      "real": 24736889345
+      "real": 25077155815
     },
     {
       "KODE_SATKER": "567338",
@@ -2931,7 +2931,7 @@
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Teknologi Pengendalian OPT Perkebunan ",
       "pagu": 41002000,
-      "real": 3158000
+      "real": 10521620
     },
     {
       "KODE_SATKER": "567521",
@@ -2942,7 +2942,7 @@
       "NAMA_KRO": "Fasilitasi dan Pembinaan Kelompok Masyarakat",
       "NAMA_RO": "Regu Pengendalian Organisme Penggangu Tanaman (OPT) ",
       "pagu": 89626000,
-      "real": 5816000
+      "real": 8216000
     },
     {
       "KODE_SATKER": "567521",
@@ -2953,7 +2953,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Umum ",
       "pagu": 185697000,
-      "real": 134745154
+      "real": 135503154
     },
     {
       "KODE_SATKER": "567521",
@@ -2964,7 +2964,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Perkantoran ",
       "pagu": 6935512000,
-      "real": 3334403786
+      "real": 3395877000
     },
     {
       "KODE_SATKER": "567521",
@@ -3074,7 +3074,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Umum ",
       "pagu": 144377000,
-      "real": 26742415
+      "real": 30672815
     },
     {
       "KODE_SATKER": "567717",
@@ -3184,7 +3184,7 @@
       "NAMA_KRO": "Sarana Bidang Pertanian, Kehutanan dan Lingkungan Hidup",
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "pagu": 192459915000,
-      "real": 37165648360
+      "real": 37180716360
     },
     {
       "KODE_SATKER": "567717",
@@ -3340,7 +3340,7 @@
       "NAMA_RO": "Desa Pertanian Organik Berbasis Komoditi Perkebunan ",
       "NAMA_KOMPONEN": "Pembinaan Desa Pertanian Organik Berbasis Komoditi Perkebunan",
       "pagu": 265169000,
-      "real": 2926500
+      "real": 44609661
     },
     {
       "KODE_SATKER": "238830",
@@ -3406,7 +3406,7 @@
       "NAMA_RO": "Area Penanganan Organisme Pengganggu Tumbuhan (OPT) Tanaman Perkebunan ",
       "NAMA_KOMPONEN": "Pengendalian OPT Tanaman Tahunan dan Penyegar",
       "pagu": 118201000,
-      "real": 70780488
+      "real": 98361643
     },
     {
       "KODE_SATKER": "238830",
@@ -3736,7 +3736,7 @@
       "NAMA_RO": "Kawasan Tebu ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 34728791000,
-      "real": 13552394226
+      "real": 13656655959
     },
     {
       "KODE_SATKER": "238830",
@@ -3769,7 +3769,7 @@
       "NAMA_RO": "Kawasan Kopi ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 4246392000,
-      "real": 212093684
+      "real": 256285564
     },
     {
       "KODE_SATKER": "238830",
@@ -3802,7 +3802,7 @@
       "NAMA_RO": "Kawasan Kakao ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 6935705000,
-      "real": 600649514
+      "real": 623441954
     },
     {
       "KODE_SATKER": "238830",
@@ -3835,7 +3835,7 @@
       "NAMA_RO": "Kawasan Jambu Mete ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 5192461000,
-      "real": 1495048938
+      "real": 1579173638
     },
     {
       "KODE_SATKER": "238830",
@@ -3934,7 +3934,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Produksi Benih Kelapa",
       "pagu": 342168552000,
-      "real": 33726729872
+      "real": 36001072547
     },
     {
       "KODE_SATKER": "238830",
@@ -3945,7 +3945,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Produksi Benih Kakao",
       "pagu": 1314650000000,
-      "real": 188724122500
+      "real": 192086162500
     },
     {
       "KODE_SATKER": "238830",
@@ -3967,7 +3967,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 60779361000,
-      "real": 9869662517
+      "real": 10276926591
     },
     {
       "KODE_SATKER": "238830",
@@ -3978,7 +3978,7 @@
       "NAMA_RO": "Kebun Benih Sebar Komoditi Perkebunan ",
       "NAMA_KOMPONEN": "Pembangunan Kebun Benih Sebar",
       "pagu": 369535601000,
-      "real": 31532230465
+      "real": 32735170465
     },
     {
       "KODE_SATKER": "238830",
@@ -4341,7 +4341,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Produksi Benih Kakao",
       "pagu": 400873640000,
-      "real": 12789016200
+      "real": 13122916170
     },
     {
       "KODE_SATKER": "567338",
@@ -4385,7 +4385,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 13821720000,
-      "real": 945505895
+      "real": 951872395
     },
     {
       "KODE_SATKER": "567338",
@@ -4847,7 +4847,7 @@
       "NAMA_RO": "Teknologi Pengendalian OPT Perkebunan ",
       "NAMA_KOMPONEN": "Teknologi Pengendalian OPT Perkebunan",
       "pagu": 41002000,
-      "real": 3158000
+      "real": 10521620
     },
     {
       "KODE_SATKER": "567521",
@@ -4858,7 +4858,7 @@
       "NAMA_RO": "Regu Pengendalian Organisme Penggangu Tanaman (OPT) ",
       "NAMA_KOMPONEN": "Penerapan Pengendalian Hama Terpadu Tanaman Semusim dan Rempah",
       "pagu": 89446000,
-      "real": 5816000
+      "real": 8216000
     },
     {
       "KODE_SATKER": "567521",
@@ -4880,7 +4880,7 @@
       "NAMA_RO": "Layanan Umum ",
       "NAMA_KOMPONEN": "Pelayanan Rumah Tangga dan Umum UPT Pusat",
       "pagu": 185697000,
-      "real": 134745154
+      "real": 135503154
     },
     {
       "KODE_SATKER": "567521",
@@ -4902,7 +4902,7 @@
       "NAMA_RO": "Layanan Perkantoran ",
       "NAMA_KOMPONEN": "Operasional dan Pemeliharaan Kantor",
       "pagu": 1906538000,
-      "real": 789121549
+      "real": 850594763
     },
     {
       "KODE_SATKER": "567521",
@@ -5089,7 +5089,7 @@
       "NAMA_RO": "Layanan Umum ",
       "NAMA_KOMPONEN": "Pelayanan Rumah Tangga dan Umum UPT Pusat",
       "pagu": 144377000,
-      "real": 26742415
+      "real": 30672815
     },
     {
       "KODE_SATKER": "567717",
@@ -5309,7 +5309,7 @@
       "NAMA_RO": "Benih Komoditas Perkebunan Siap Salur ",
       "NAMA_KOMPONEN": "Pengawalan dan Pendampingan Kegiatan",
       "pagu": 6218617000,
-      "real": 983154438
+      "real": 998222438
     },
     {
       "KODE_SATKER": "567717",
@@ -5349,7 +5349,7 @@
     {
       "S06": "A000000001",
       "pagu": 5807159199000,
-      "real": 651265505925
+      "real": 659267987447
     },
     {
       "S06": "D000000001",
@@ -5361,12 +5361,12 @@
     {
       "S08": "1",
       "pagu": 4323575155000,
-      "real": 524676662995
+      "real": 532247884813
     },
     {
       "S08": "2",
       "pagu": 1483957978000,
-      "real": 126699946870
+      "real": 127131206574
     }
   ],
   "akun_kegiatan": [
@@ -5536,7 +5536,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 6626892000,
-      "real": 2340491499
+      "real": 2347829379
     },
     {
       "S03": "521114",
@@ -5552,7 +5552,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 1401800000,
-      "real": 510020000
+      "real": 515250000
     },
     {
       "S03": "521119",
@@ -5576,7 +5576,7 @@
       "KDKEG": "1779",
       "NAMA_KEGIATAN": "Pelindungan Perkebunan",
       "pagu": 583473000,
-      "real": 326604939
+      "real": 328104939
     },
     {
       "S03": "521211",
@@ -5584,7 +5584,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 599800000,
-      "real": 296997952
+      "real": 298728852
     },
     {
       "S03": "521211",
@@ -5608,7 +5608,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 6841899000,
-      "real": 1984241390
+      "real": 2069490690
     },
     {
       "S03": "521213",
@@ -5688,7 +5688,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 3499635592000,
-      "real": 450964703149
+      "real": 458137925794
     },
     {
       "S03": "522111",
@@ -5696,7 +5696,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 2037255000,
-      "real": 850431687
+      "real": 850992580
     },
     {
       "S03": "522112",
@@ -5704,7 +5704,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 175930000,
-      "real": 65272510
+      "real": 65312717
     },
     {
       "S03": "522113",
@@ -5712,7 +5712,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 123600000,
-      "real": 34422861
+      "real": 35906111
     },
     {
       "S03": "522119",
@@ -5816,7 +5816,7 @@
       "KDKEG": "1779",
       "NAMA_KEGIATAN": "Pelindungan Perkebunan",
       "pagu": 157092000,
-      "real": 49299540
+      "real": 55699540
     },
     {
       "S03": "522191",
@@ -5872,7 +5872,7 @@
       "KDKEG": "1779",
       "NAMA_KEGIATAN": "Pelindungan Perkebunan",
       "pagu": 10000000,
-      "real": 0
+      "real": 963620
     },
     {
       "S03": "523121",
@@ -5880,7 +5880,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 5411152000,
-      "real": 1763862045
+      "real": 1809710129
     },
     {
       "S03": "523133",
@@ -5904,7 +5904,7 @@
       "KDKEG": "1779",
       "NAMA_KEGIATAN": "Pelindungan Perkebunan",
       "pagu": 297726000,
-      "real": 49526500
+      "real": 76807655
     },
     {
       "S03": "524111",
@@ -5912,7 +5912,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 1094265000,
-      "real": 867062824
+      "real": 870993224
     },
     {
       "S03": "524111",
@@ -5920,7 +5920,7 @@
       "KDKEG": "5888",
       "NAMA_KEGIATAN": "Pengembangan Kawasan Tanaman Semusim dan Tahunan",
       "pagu": 42966662000,
-      "real": 15088278380
+      "real": 15278029133
     },
     {
       "S03": "524111",
@@ -5936,7 +5936,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 88814802000,
-      "real": 13175832668
+      "real": 13517921942
     },
     {
       "S03": "524113",
@@ -5952,7 +5952,7 @@
       "KDKEG": "1779",
       "NAMA_KEGIATAN": "Pelindungan Perkebunan",
       "pagu": 90320000,
-      "real": 35000000
+      "real": 36200000
     },
     {
       "S03": "524113",
@@ -5968,7 +5968,7 @@
       "KDKEG": "5888",
       "NAMA_KEGIATAN": "Pengembangan Kawasan Tanaman Semusim dan Tahunan",
       "pagu": 25585760000,
-      "real": 1098880000
+      "real": 1164500000
     },
     {
       "S03": "524113",
@@ -5984,7 +5984,7 @@
       "KDKEG": "5890",
       "NAMA_KEGIATAN": "Penguatan Perbenihan Tanaman Perkebunan",
       "pagu": 3135456000,
-      "real": 121080000
+      "real": 122440000
     },
     {
       "S03": "524114",
@@ -6056,7 +6056,7 @@
       "KDKEG": "1779",
       "NAMA_KEGIATAN": "Pelindungan Perkebunan",
       "pagu": 149640000,
-      "real": 0
+      "real": 41683161
     },
     {
       "S03": "526112",
@@ -6157,28 +6157,28 @@
   ],
   "outstanding": {
     "summary": {
-      "jml_kontrak": 869,
-      "nilai_kontrak": 3326588115074,
-      "realisasi_kontrak": 473636740476,
-      "sisa_kontrak": 2852951374598,
-      "pct_realisasi": 14.24
+      "jml_kontrak": 874,
+      "nilai_kontrak": 3332085608970,
+      "realisasi_kontrak": 481206650744,
+      "sisa_kontrak": 2850878958226,
+      "pct_realisasi": 14.44
     },
     "by_satker": [
       {
         "KODE_SATKER": "238830",
         "DESKRIPSI_SATKER": "",
-        "jml_kontrak": 609,
-        "nilai_kontrak": 2766729686572,
-        "realisasi_kontrak": 376503624206,
-        "sisa_kontrak": 2390226062366
+        "jml_kontrak": 612,
+        "nilai_kontrak": 2768411952568,
+        "realisasi_kontrak": 382570986274,
+        "sisa_kontrak": 2385840966294
       },
       {
         "KODE_SATKER": "567338",
         "DESKRIPSI_SATKER": "",
-        "jml_kontrak": 123,
-        "nilai_kontrak": 233334738126,
-        "realisasi_kontrak": 24060460845,
-        "sisa_kontrak": 209274277281
+        "jml_kontrak": 125,
+        "nilai_kontrak": 237149966026,
+        "realisasi_kontrak": 25563009045,
+        "sisa_kontrak": 211586956981
       },
       {
         "KODE_SATKER": "567408",
@@ -6209,18 +6209,18 @@
       {
         "KDKEG": "1777",
         "NAMA_KEGIATAN": "Pengadaan Pupuk Organik",
-        "jml_kontrak": 59,
-        "nilai_kontrak": 78290973620,
+        "jml_kontrak": 60,
+        "nilai_kontrak": 78419095370,
         "realisasi_kontrak": 2798067870,
-        "sisa_kontrak": 75492905750
+        "sisa_kontrak": 75621027500
       },
       {
         "KDKEG": "1779",
         "NAMA_KEGIATAN": "Layanan Pengujian Pestisida",
         "jml_kontrak": 15,
         "nilai_kontrak": 333759434,
-        "realisasi_kontrak": 216454751,
-        "sisa_kontrak": 117304683
+        "realisasi_kontrak": 298264409,
+        "sisa_kontrak": 35495025
       },
       {
         "KDKEG": "1780",
@@ -6233,10 +6233,10 @@
       {
         "KDKEG": "5888",
         "NAMA_KEGIATAN": "Bongkar Ratoon",
-        "jml_kontrak": 312,
-        "nilai_kontrak": 503988644761,
-        "realisasi_kontrak": 12423850380,
-        "sisa_kontrak": 491564794381
+        "jml_kontrak": 315,
+        "nilai_kontrak": 505670910757,
+        "realisasi_kontrak": 13064870815,
+        "sisa_kontrak": 492606039942
       },
       {
         "KDKEG": "5889",
@@ -6249,30 +6249,21 @@
       {
         "KDKEG": "5890",
         "NAMA_KEGIATAN": "Produksi Benih (Lanjutan)",
-        "jml_kontrak": 450,
-        "nilai_kontrak": 2724413079565,
-        "realisasi_kontrak": 455874305419,
-        "sisa_kontrak": 2268538774146
+        "jml_kontrak": 451,
+        "nilai_kontrak": 2728100185715,
+        "realisasi_kontrak": 462721385594,
+        "sisa_kontrak": 2265378800121
       }
     ],
     "by_seg5": [
       {
         "KODE_SATKER": "238830",
         "KDKEG": "1777",
-        "KDKRO_SUFFIX": "",
-        "jml_kontrak": 3,
-        "nilai_kontrak": 1285374500,
-        "realisasi_kontrak": 0,
-        "sisa_kontrak": 1285374500
-      },
-      {
-        "KODE_SATKER": "238830",
-        "KDKEG": "1777",
         "KDKRO_SUFFIX": "238",
-        "jml_kontrak": 20,
-        "nilai_kontrak": 25454094600,
+        "jml_kontrak": 23,
+        "nilai_kontrak": 26739469100,
         "realisasi_kontrak": 0,
-        "sisa_kontrak": 25454094600
+        "sisa_kontrak": 26739469100
       },
       {
         "KODE_SATKER": "238830",
@@ -6280,8 +6271,8 @@
         "KDKRO_SUFFIX": "238",
         "jml_kontrak": 9,
         "nilai_kontrak": 227008958,
-        "realisasi_kontrak": 145199300,
-        "sisa_kontrak": 81809658
+        "realisasi_kontrak": 227008958,
+        "sisa_kontrak": 0
       },
       {
         "KODE_SATKER": "238830",
@@ -6305,10 +6296,10 @@
         "KODE_SATKER": "238830",
         "KDKEG": "5888",
         "KDKRO_SUFFIX": "238",
-        "jml_kontrak": 263,
-        "nilai_kontrak": 456801335805,
-        "realisasi_kontrak": 12423850380,
-        "sisa_kontrak": 444377485425
+        "jml_kontrak": 266,
+        "nilai_kontrak": 458483601801,
+        "realisasi_kontrak": 13064870815,
+        "sisa_kontrak": 445418730986
       },
       {
         "KODE_SATKER": "238830",
@@ -6334,8 +6325,17 @@
         "KDKRO_SUFFIX": "238",
         "jml_kontrak": 289,
         "nilai_kontrak": 2198351758652,
-        "realisasi_kontrak": 362298280717,
-        "sisa_kontrak": 1836053477935
+        "realisasi_kontrak": 367642812692,
+        "sisa_kontrak": 1830708945960
+      },
+      {
+        "KODE_SATKER": "567338",
+        "KDKEG": "1777",
+        "KDKRO_SUFFIX": "",
+        "jml_kontrak": 1,
+        "nilai_kontrak": 128121750,
+        "realisasi_kontrak": 0,
+        "sisa_kontrak": 128121750
       },
       {
         "KODE_SATKER": "567338",
@@ -6377,19 +6377,19 @@
         "KODE_SATKER": "567338",
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "",
-        "jml_kontrak": 2,
-        "nilai_kontrak": 4954184600,
+        "jml_kontrak": 1,
+        "nilai_kontrak": 3687106150,
         "realisasi_kontrak": 0,
-        "sisa_kontrak": 4954184600
+        "sisa_kontrak": 3687106150
       },
       {
         "KODE_SATKER": "567338",
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "567",
-        "jml_kontrak": 82,
-        "nilai_kontrak": 178328013115,
-        "realisasi_kontrak": 23791383450,
-        "sisa_kontrak": 154536629665
+        "jml_kontrak": 84,
+        "nilai_kontrak": 183282197715,
+        "realisasi_kontrak": 25293931650,
+        "sisa_kontrak": 157988266065
       },
       {
         "KODE_SATKER": "567408",
@@ -6560,7 +6560,7 @@
         "SISA_KONTRAK": 382690000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "GEMILANG JAYA PERSADA",
-        "TANGGAL_KONTRAK": "09 Januari 2026",
+        "TANGGAL_KONTRAK": "9 Januari 2026",
         "TANGGAL_SELESAI": "29 Juni 2026",
         "NAMA_KEGIATAN": "Produksi Benih (Lanjutan)"
       },
@@ -7115,7 +7115,7 @@
         "SISA_KONTRAK": 1855000000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "CV ARRASYI JAYA",
-        "TANGGAL_KONTRAK": "2 Februari 2026",
+        "TANGGAL_KONTRAK": "02 Februari 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih (Lanjutan)"
       },
@@ -7145,7 +7145,7 @@
         "SISA_KONTRAK": 2411500000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "AGRO KARYA MANDIRI",
-        "TANGGAL_KONTRAK": "9 Februari 2026",
+        "TANGGAL_KONTRAK": "09 Februari 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih (Lanjutan)"
       },
@@ -7520,7 +7520,7 @@
         "SISA_KONTRAK": 0,
         "STATUS": "SELESAI TEPAT WAKTU",
         "NAMA_PPK": "KUD SUMBER BAHAGIA",
-        "TANGGAL_KONTRAK": "2 Februari 2026",
+        "TANGGAL_KONTRAK": "02 Februari 2026",
         "TANGGAL_SELESAI": "28 Februari 2026",
         "NAMA_KEGIATAN": "Perluasan Tebu"
       },
@@ -7715,7 +7715,7 @@
         "SISA_KONTRAK": 4221753760,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "KARYA AMALIA",
-        "TANGGAL_KONTRAK": "02 Februari 2026",
+        "TANGGAL_KONTRAK": "2 Februari 2026",
         "TANGGAL_SELESAI": "31 Oktober 2026",
         "NAMA_KEGIATAN": "Pembangunan KBD Tebu"
       },
@@ -7730,7 +7730,7 @@
         "SISA_KONTRAK": 4221823760,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "KARYA AMALIA",
-        "TANGGAL_KONTRAK": "2 Februari 2026",
+        "TANGGAL_KONTRAK": "02 Februari 2026",
         "TANGGAL_SELESAI": "31 Oktober 2026",
         "NAMA_KEGIATAN": "Pembangunan KBD Tebu"
       },
@@ -7790,7 +7790,7 @@
         "SISA_KONTRAK": 6640000000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "AYEN PRATIWI",
-        "TANGGAL_KONTRAK": "6 Februari 2026",
+        "TANGGAL_KONTRAK": "06 Februari 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih (Lanjutan)"
       },
@@ -7985,7 +7985,7 @@
         "SISA_KONTRAK": 3658756431,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "JOYO ROSAN, CV",
-        "TANGGAL_KONTRAK": "05 Februari 2026",
+        "TANGGAL_KONTRAK": "5 Februari 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -8015,7 +8015,7 @@
         "SISA_KONTRAK": 3344978544,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "KUD SUMBER BAHAGIA",
-        "TANGGAL_KONTRAK": "5 Februari 2026",
+        "TANGGAL_KONTRAK": "05 Februari 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -8405,7 +8405,7 @@
         "SISA_KONTRAK": 3394590000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "DEFARRO SEMBADA",
-        "TANGGAL_KONTRAK": "3 Februari 2026",
+        "TANGGAL_KONTRAK": "03 Februari 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -8465,7 +8465,7 @@
         "SISA_KONTRAK": 4743420983,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "JOYO ROSAN, CV",
-        "TANGGAL_KONTRAK": "9 Februari 2026",
+        "TANGGAL_KONTRAK": "09 Februari 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -8510,7 +8510,7 @@
         "SISA_KONTRAK": 2159696000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "ANGIN UTARA",
-        "TANGGAL_KONTRAK": "09 Februari 2026",
+        "TANGGAL_KONTRAK": "9 Februari 2026",
         "TANGGAL_SELESAI": "30 September 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -8645,7 +8645,7 @@
         "SISA_KONTRAK": 4735205303,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "LANG BUANA",
-        "TANGGAL_KONTRAK": "03 Februari 2026",
+        "TANGGAL_KONTRAK": "3 Februari 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -8765,7 +8765,7 @@
         "SISA_KONTRAK": 2740104500,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "KOPERASI PRODUSEN KARYAWAN GUNUNG TILU",
-        "TANGGAL_KONTRAK": "4 Februari 2026",
+        "TANGGAL_KONTRAK": "04 Februari 2026",
         "TANGGAL_SELESAI": "27 November 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -8795,7 +8795,7 @@
         "SISA_KONTRAK": 4331686500,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "PT RISET PERKEBUNAN NUSANTARA",
-        "TANGGAL_KONTRAK": "04 Februari 2026",
+        "TANGGAL_KONTRAK": "4 Februari 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -8885,7 +8885,7 @@
         "SISA_KONTRAK": 9082500000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "ANUGRAH CIPTA",
-        "TANGGAL_KONTRAK": "2 Februari 2026",
+        "TANGGAL_KONTRAK": "02 Februari 2026",
         "TANGGAL_SELESAI": "27 November 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -8930,7 +8930,7 @@
         "SISA_KONTRAK": 20150000000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "BIBIT UNGGUL BERNAS",
-        "TANGGAL_KONTRAK": "02 Februari 2026",
+        "TANGGAL_KONTRAK": "2 Februari 2026",
         "TANGGAL_SELESAI": "27 November 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -8945,7 +8945,7 @@
         "SISA_KONTRAK": 9100000000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "BIBIT UNGGUL BERNAS",
-        "TANGGAL_KONTRAK": "2 Februari 2026",
+        "TANGGAL_KONTRAK": "02 Februari 2026",
         "TANGGAL_SELESAI": "27 November 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -9005,7 +9005,7 @@
         "SISA_KONTRAK": 4816000000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "AULIA INDORAYA",
-        "TANGGAL_KONTRAK": "9 Februari 2026",
+        "TANGGAL_KONTRAK": "09 Februari 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih (Lanjutan)"
       },
@@ -9035,7 +9035,7 @@
         "SISA_KONTRAK": 533400000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "ASCARYA AGRO GEMPITA INDONESIA",
-        "TANGGAL_KONTRAK": "02 Februari 2026",
+        "TANGGAL_KONTRAK": "2 Februari 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -9290,7 +9290,7 @@
         "SISA_KONTRAK": 2608877382,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "LANG BUANA",
-        "TANGGAL_KONTRAK": "3 Februari 2026",
+        "TANGGAL_KONTRAK": "03 Februari 2026",
         "TANGGAL_SELESAI": "30 September 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -9305,7 +9305,7 @@
         "SISA_KONTRAK": 3031048800,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "EMBAH CACING",
-        "TANGGAL_KONTRAK": "03 Februari 2026",
+        "TANGGAL_KONTRAK": "3 Februari 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -9485,7 +9485,7 @@
         "SISA_KONTRAK": 1609755000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "KARYA USAHA ROSSAN",
-        "TANGGAL_KONTRAK": "5 Februari 2026",
+        "TANGGAL_KONTRAK": "05 Februari 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -9515,7 +9515,7 @@
         "SISA_KONTRAK": 4386262500,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "ASCARYA AGRO GEMPITA INDONESIA",
-        "TANGGAL_KONTRAK": "6 Februari 2026",
+        "TANGGAL_KONTRAK": "06 Februari 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -9545,7 +9545,7 @@
         "SISA_KONTRAK": 881820000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "ASCARYA AGRO GEMPITA INDONESIA",
-        "TANGGAL_KONTRAK": "6 Februari 2026",
+        "TANGGAL_KONTRAK": "06 Februari 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Perluasan Tebu"
       },
@@ -9770,7 +9770,7 @@
         "SISA_KONTRAK": 2368800000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "ILHAM KARYA MANDIRI",
-        "TANGGAL_KONTRAK": "06 Februari 2026",
+        "TANGGAL_KONTRAK": "6 Februari 2026",
         "TANGGAL_SELESAI": "27 November 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -9890,7 +9890,7 @@
         "SISA_KONTRAK": 50404061,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "UTAMA KARYA SENTOSA",
-        "TANGGAL_KONTRAK": "6 Februari 2026",
+        "TANGGAL_KONTRAK": "06 Februari 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Sewa Alat dan Pengharum Ruangan"
       },
@@ -9905,7 +9905,7 @@
         "SISA_KONTRAK": 0,
         "STATUS": "SELESAI TEPAT WAKTU",
         "NAMA_PPK": "TERRA PRETA INDONESIA",
-        "TANGGAL_KONTRAK": "06 Februari 2026",
+        "TANGGAL_KONTRAK": "6 Februari 2026",
         "TANGGAL_SELESAI": "20 Februari 2026",
         "NAMA_KEGIATAN": "Pengadaan Benih"
       },
@@ -9980,7 +9980,7 @@
         "SISA_KONTRAK": 4314585000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "AGRO SYAMAS",
-        "TANGGAL_KONTRAK": "6 Februari 2026",
+        "TANGGAL_KONTRAK": "06 Februari 2026",
         "TANGGAL_SELESAI": "30 September 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -10775,7 +10775,7 @@
         "SISA_KONTRAK": 1604400000,
         "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "ANEKA TANI MAJU MANDIRI",
-        "TANGGAL_KONTRAK": "4 Februari 2026",
+        "TANGGAL_KONTRAK": "04 Februari 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -10940,7 +10940,7 @@
         "SISA_KONTRAK": 352275000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "CV MALANGKA",
-        "TANGGAL_KONTRAK": "05 Februari 2026",
+        "TANGGAL_KONTRAK": "5 Februari 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih "
       },
@@ -11491,9 +11491,9 @@
         "KDKEG": "5888",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 675580944,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 675580944,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 202674283,
+        "SISA_KONTRAK": 472906661,
+        "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "ENGGAL JAYA",
         "TANGGAL_KONTRAK": "2 Maret 2026",
         "TANGGAL_SELESAI": "31 Oktober 2026",
@@ -11506,9 +11506,9 @@
         "KDKEG": "5888",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 412107072,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 412107072,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 123632122,
+        "SISA_KONTRAK": 288474950,
+        "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "ENGGAL JAYA",
         "TANGGAL_KONTRAK": "2 Maret 2026",
         "TANGGAL_SELESAI": "31 Oktober 2026",
@@ -11521,9 +11521,9 @@
         "KDKEG": "5888",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 530288451,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 530288451,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 159086535,
+        "SISA_KONTRAK": 371201916,
+        "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "ENGGAL JAYA",
         "TANGGAL_KONTRAK": "02 Maret 2026",
         "TANGGAL_SELESAI": "31 Agustus 2026",
@@ -11536,11 +11536,11 @@
         "KDKEG": "5888",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 518758317,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 518758317,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 155627495,
+        "SISA_KONTRAK": 363130822,
+        "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "ENGGAL JAYA",
-        "TANGGAL_KONTRAK": "2 Maret 2026",
+        "TANGGAL_KONTRAK": "02 Maret 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -11585,7 +11585,7 @@
         "SISA_KONTRAK": 2883776000,
         "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "PARIT SENTOSA",
-        "TANGGAL_KONTRAK": "02 Maret 2026",
+        "TANGGAL_KONTRAK": "2 Maret 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -11615,7 +11615,7 @@
         "SISA_KONTRAK": 0,
         "STATUS": "SELESAI TEPAT WAKTU",
         "NAMA_PPK": "HUTAMAKARSA LINTAS NIAGA",
-        "TANGGAL_KONTRAK": "3 Maret 2026",
+        "TANGGAL_KONTRAK": "03 Maret 2026",
         "TANGGAL_SELESAI": "31 Maret 2026",
         "NAMA_KEGIATAN": "Peralatan dan Mesin"
       },
@@ -11630,7 +11630,7 @@
         "SISA_KONTRAK": 0,
         "STATUS": "SELESAI TEPAT WAKTU",
         "NAMA_PPK": "WIBIKSANA KAYA UTAMA",
-        "TANGGAL_KONTRAK": "4 Maret 2026",
+        "TANGGAL_KONTRAK": "04 Maret 2026",
         "TANGGAL_SELESAI": "31 Maret 2026",
         "NAMA_KEGIATAN": "Peralatan dan Mesin"
       },
@@ -11675,7 +11675,7 @@
         "SISA_KONTRAK": 522808079,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "LANG BUANA",
-        "TANGGAL_KONTRAK": "03 Maret 2026",
+        "TANGGAL_KONTRAK": "3 Maret 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -11690,7 +11690,7 @@
         "SISA_KONTRAK": 19344000000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "MARIO MANDRI PERKASA",
-        "TANGGAL_KONTRAK": "6 Maret 2026",
+        "TANGGAL_KONTRAK": "06 Maret 2026",
         "TANGGAL_SELESAI": "23 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih (Lanjutan)"
       },
@@ -11720,7 +11720,7 @@
         "SISA_KONTRAK": 8137500000,
         "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "MARIO MANDRI PERKASA",
-        "TANGGAL_KONTRAK": "06 Maret 2026",
+        "TANGGAL_KONTRAK": "6 Maret 2026",
         "TANGGAL_SELESAI": "23 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih (Lanjutan)"
       },
@@ -11765,7 +11765,7 @@
         "SISA_KONTRAK": 12752000000,
         "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "INDONESIA HIJAU",
-        "TANGGAL_KONTRAK": "5 Maret 2026",
+        "TANGGAL_KONTRAK": "05 Maret 2026",
         "TANGGAL_SELESAI": "23 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih (Lanjutan)"
       },
@@ -11780,7 +11780,7 @@
         "SISA_KONTRAK": 2621101000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "PERAPI",
-        "TANGGAL_KONTRAK": "05 Maret 2026",
+        "TANGGAL_KONTRAK": "5 Maret 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -11990,7 +11990,7 @@
         "SISA_KONTRAK": 1984920000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "ABI TANI",
-        "TANGGAL_KONTRAK": "9 Maret 2026",
+        "TANGGAL_KONTRAK": "09 Maret 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -12601,8 +12601,8 @@
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 2848450000,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 2848450000,
+        "REALISASI_KONTRAK": 854535000,
+        "SISA_KONTRAK": 1993915000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "KALUKU ANUTA PURA",
         "TANGGAL_KONTRAK": "17 Maret 2026",
@@ -12830,7 +12830,7 @@
         "SISA_KONTRAK": 516740840,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "BERKAT BERSAMA",
-        "TANGGAL_KONTRAK": "01 April 2026",
+        "TANGGAL_KONTRAK": "1 April 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -12920,7 +12920,7 @@
         "SISA_KONTRAK": 6715520000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "MITRA ALAM NUSANTARA EVERGREEN",
-        "TANGGAL_KONTRAK": "06 April 2026",
+        "TANGGAL_KONTRAK": "6 April 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -13040,7 +13040,7 @@
         "SISA_KONTRAK": 4120441710,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "GALANG PUTRA JAMBI",
-        "TANGGAL_KONTRAK": "7 April 2026",
+        "TANGGAL_KONTRAK": "07 April 2026",
         "TANGGAL_SELESAI": "17 November 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -13070,7 +13070,7 @@
         "SISA_KONTRAK": 3834600000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "ANGIN UTARA",
-        "TANGGAL_KONTRAK": "07 April 2026",
+        "TANGGAL_KONTRAK": "7 April 2026",
         "TANGGAL_SELESAI": "17 November 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -13111,8 +13111,8 @@
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 3282906000,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 3282906000,
+        "REALISASI_KONTRAK": 984871800,
+        "SISA_KONTRAK": 2298034200,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "HATI MAS",
         "TANGGAL_KONTRAK": "07 April 2026",
@@ -13265,7 +13265,7 @@
         "SISA_KONTRAK": 148757220,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "PERWIRA CIPTA MANDIRI",
-        "TANGGAL_KONTRAK": "09 April 2026",
+        "TANGGAL_KONTRAK": "9 April 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Perluasan Tebu"
       },
@@ -13280,7 +13280,7 @@
         "SISA_KONTRAK": 178642800,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "LANG BUANA",
-        "TANGGAL_KONTRAK": "09 April 2026",
+        "TANGGAL_KONTRAK": "9 April 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Perluasan Tebu"
       },
@@ -13400,7 +13400,7 @@
         "SISA_KONTRAK": 1971600000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "LANG BUANA",
-        "TANGGAL_KONTRAK": "9 April 2026",
+        "TANGGAL_KONTRAK": "09 April 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Perluasan Tebu"
       },
@@ -13910,7 +13910,7 @@
         "SISA_KONTRAK": 2498438250,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "GALANG PUTRA JAMBI",
-        "TANGGAL_KONTRAK": "9 April 2026",
+        "TANGGAL_KONTRAK": "09 April 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -13981,9 +13981,9 @@
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 3570000000,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 3570000000,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 1071000000,
+        "SISA_KONTRAK": 2499000000,
+        "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "ANEKA TANI MAJU MANDIRI",
         "TANGGAL_KONTRAK": "22 April 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
@@ -13996,9 +13996,9 @@
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 2370000000,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 2370000000,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 711000000,
+        "SISA_KONTRAK": 1659000000,
+        "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "ANEKA TANI MAJU MANDIRI",
         "TANGGAL_KONTRAK": "22 April 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
@@ -14206,8 +14206,8 @@
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 1449786250,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 1449786250,
+        "REALISASI_KONTRAK": 434935875,
+        "SISA_KONTRAK": 1014850375,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "KALUKU ANUTA PURA",
         "TANGGAL_KONTRAK": "27 April 2026",
@@ -14356,9 +14356,9 @@
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 2800000000,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 2800000000,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 840000000,
+        "SISA_KONTRAK": 1960000000,
+        "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "DEFARRO SEMBADA",
         "TANGGAL_KONTRAK": "28 April 2026",
         "TANGGAL_SELESAI": "31 Oktober 2026",
@@ -14645,7 +14645,7 @@
         "SISA_KONTRAK": 13448160000,
         "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "USAHA BAROKAH",
-        "TANGGAL_KONTRAK": "04 Mei 2026",
+        "TANGGAL_KONTRAK": "4 Mei 2026",
         "TANGGAL_SELESAI": "23 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih (Lanjutan)"
       },
@@ -14780,7 +14780,7 @@
         "SISA_KONTRAK": 6048000000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "INSAN MANDIRI PANGAN",
-        "TANGGAL_KONTRAK": "01 Mei 2026",
+        "TANGGAL_KONTRAK": "1 Mei 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Pembangunan KBD Tebu"
       },
@@ -14791,9 +14791,9 @@
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 1209800000,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 1209800000,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 362940000,
+        "SISA_KONTRAK": 846860000,
+        "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "DEFARRO SEMBADA",
         "TANGGAL_KONTRAK": "30 April 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
@@ -14900,7 +14900,7 @@
         "SISA_KONTRAK": 56847000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "ARRASYI JAYA",
-        "TANGGAL_KONTRAK": "7 Mei 2026",
+        "TANGGAL_KONTRAK": "07 Mei 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -14915,7 +14915,7 @@
         "SISA_KONTRAK": 3456750000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "AGRO NUSA INDAH",
-        "TANGGAL_KONTRAK": "7 Mei 2026",
+        "TANGGAL_KONTRAK": "07 Mei 2026",
         "TANGGAL_SELESAI": "30 Juni 2026",
         "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
       },
@@ -14945,7 +14945,7 @@
         "SISA_KONTRAK": 12162000000,
         "STATUS": "BELUM SELESAI TERLAMBAT TERMIN",
         "NAMA_PPK": "SUMBER TANI",
-        "TANGGAL_KONTRAK": "8 Mei 2026",
+        "TANGGAL_KONTRAK": "08 Mei 2026",
         "TANGGAL_SELESAI": "23 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih (Lanjutan)"
       },
@@ -14990,7 +14990,7 @@
         "SISA_KONTRAK": 790984600,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "SUKSES TANI CV",
-        "TANGGAL_KONTRAK": "6 Mei 2026",
+        "TANGGAL_KONTRAK": "06 Mei 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -15005,7 +15005,7 @@
         "SISA_KONTRAK": 1960000000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "AGRO INDUSTRI TUNAS MANDIRI",
-        "TANGGAL_KONTRAK": "07 Mei 2026",
+        "TANGGAL_KONTRAK": "7 Mei 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -15515,7 +15515,7 @@
         "SISA_KONTRAK": 8330000000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "BUMI PERKASA",
-        "TANGGAL_KONTRAK": "5 Mei 2026",
+        "TANGGAL_KONTRAK": "05 Mei 2026",
         "TANGGAL_SELESAI": "23 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -15571,9 +15571,9 @@
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 85249300,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 85249300,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 85249300,
+        "SISA_KONTRAK": 0,
+        "STATUS": "SELESAI TEPAT WAKTU",
         "NAMA_PPK": "AGRO LEFI SEED",
         "TANGGAL_KONTRAK": "15 Mei 2026",
         "TANGGAL_SELESAI": "16 Juni 2026",
@@ -16516,9 +16516,9 @@
         "KDKEG": "1779",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 34731899,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 34731899,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 34731899,
+        "SISA_KONTRAK": 0,
+        "STATUS": "SELESAI TEPAT WAKTU",
         "NAMA_PPK": "OCTAVIANA",
         "TANGGAL_KONTRAK": "25 Mei 2026",
         "TANGGAL_SELESAI": "26 Juni 2026",
@@ -16531,9 +16531,9 @@
         "KDKEG": "1779",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 778332,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 778332,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 778332,
+        "SISA_KONTRAK": 0,
+        "STATUS": "SELESAI TEPAT WAKTU",
         "NAMA_PPK": "OCTAVIANA",
         "TANGGAL_KONTRAK": "25 Mei 2026",
         "TANGGAL_SELESAI": "26 Juni 2026",
@@ -16546,9 +16546,9 @@
         "KDKEG": "1779",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 5394598,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 5394598,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 5394598,
+        "SISA_KONTRAK": 0,
+        "STATUS": "SELESAI TEPAT WAKTU",
         "NAMA_PPK": "OCTAVIANA",
         "TANGGAL_KONTRAK": "25 Mei 2026",
         "TANGGAL_SELESAI": "26 Juni 2026",
@@ -16816,9 +16816,9 @@
         "KDKEG": "1779",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 778332,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 778332,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 778332,
+        "SISA_KONTRAK": 0,
+        "STATUS": "SELESAI TEPAT WAKTU",
         "NAMA_PPK": "OCTAVIANA",
         "TANGGAL_KONTRAK": "26 Mei 2026",
         "TANGGAL_SELESAI": "26 Juni 2026",
@@ -16831,9 +16831,9 @@
         "KDKEG": "1779",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 5394598,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 5394598,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 5394598,
+        "SISA_KONTRAK": 0,
+        "STATUS": "SELESAI TEPAT WAKTU",
         "NAMA_PPK": "OCTAVIANA",
         "TANGGAL_KONTRAK": "26 Mei 2026",
         "TANGGAL_SELESAI": "26 Juni 2026",
@@ -16846,9 +16846,9 @@
         "KDKEG": "1779",
         "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 34731899,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 34731899,
-        "STATUS": "BELUM SELESAI",
+        "REALISASI_KONTRAK": 34731899,
+        "SISA_KONTRAK": 0,
+        "STATUS": "SELESAI TEPAT WAKTU",
         "NAMA_PPK": "OCTAVIANA",
         "TANGGAL_KONTRAK": "26 Mei 2026",
         "TANGGAL_SELESAI": "26 Juni 2026",
@@ -18050,7 +18050,7 @@
         "SISA_KONTRAK": 803510796,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "CIPTA AGRIFARMERINDO",
-        "TANGGAL_KONTRAK": "2 Juni 2026",
+        "TANGGAL_KONTRAK": "02 Juni 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
       },
@@ -18140,7 +18140,7 @@
         "SISA_KONTRAK": 1156542300,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "BORNEO INTECH",
-        "TANGGAL_KONTRAK": "02 Juni 2026",
+        "TANGGAL_KONTRAK": "2 Juni 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
       },
@@ -18170,7 +18170,7 @@
         "SISA_KONTRAK": 113598100,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "AIR BUNGA",
-        "TANGGAL_KONTRAK": "02 Juni 2026",
+        "TANGGAL_KONTRAK": "2 Juni 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -18365,7 +18365,7 @@
         "SISA_KONTRAK": 1553450820,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "CV. TRUBUS PRIMA",
-        "TANGGAL_KONTRAK": "02 Juni 2026",
+        "TANGGAL_KONTRAK": "2 Juni 2026",
         "TANGGAL_SELESAI": "31 Oktober 2026",
         "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
       },
@@ -18380,7 +18380,7 @@
         "SISA_KONTRAK": 195294000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "JOYO ROSAN, CV",
-        "TANGGAL_KONTRAK": "02 Juni 2026",
+        "TANGGAL_KONTRAK": "2 Juni 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -18515,7 +18515,7 @@
         "SISA_KONTRAK": 1066376301,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "BORNEO INTECH",
-        "TANGGAL_KONTRAK": "03 Juni 2026",
+        "TANGGAL_KONTRAK": "3 Juni 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
       },
@@ -18545,7 +18545,7 @@
         "SISA_KONTRAK": 134711500,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "AIR BUNGA",
-        "TANGGAL_KONTRAK": "03 Juni 2026",
+        "TANGGAL_KONTRAK": "3 Juni 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -18590,7 +18590,7 @@
         "SISA_KONTRAK": 97914000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "PERWIRA CIPTA MANDIRI",
-        "TANGGAL_KONTRAK": "04 Juni 2026",
+        "TANGGAL_KONTRAK": "4 Juni 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Perluasan Tebu"
       },
@@ -18605,7 +18605,7 @@
         "SISA_KONTRAK": 373735890,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "REJEKI INDAH MANDIRI",
-        "TANGGAL_KONTRAK": "4 Juni 2026",
+        "TANGGAL_KONTRAK": "04 Juni 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
       },
@@ -18620,7 +18620,7 @@
         "SISA_KONTRAK": 2227104000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "REJEKI INDAH MANDIRI",
-        "TANGGAL_KONTRAK": "04 Juni 2026",
+        "TANGGAL_KONTRAK": "4 Juni 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
       },
@@ -18635,7 +18635,7 @@
         "SISA_KONTRAK": 146124000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "INDOFARSA INTI RAYA",
-        "TANGGAL_KONTRAK": "3 Juni 2026",
+        "TANGGAL_KONTRAK": "03 Juni 2026",
         "TANGGAL_SELESAI": "10 Desember 2026",
         "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
       },
@@ -18710,7 +18710,7 @@
         "SISA_KONTRAK": 1113552000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "DIRA LIMINDO PUTRA",
-        "TANGGAL_KONTRAK": "3 Juni 2026",
+        "TANGGAL_KONTRAK": "03 Juni 2026",
         "TANGGAL_SELESAI": "10 Desember 2026",
         "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
       },
@@ -18755,7 +18755,7 @@
         "SISA_KONTRAK": 2701601250,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "BORNEO INTECH",
-        "TANGGAL_KONTRAK": "5 Juni 2026",
+        "TANGGAL_KONTRAK": "05 Juni 2026",
         "TANGGAL_SELESAI": "30 September 2026",
         "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
       },
@@ -18796,11 +18796,11 @@
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "567",
         "NILAI_KONTRAK": 1112999900,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 1112999900,
+        "REALISASI_KONTRAK": 333899970,
+        "SISA_KONTRAK": 779099930,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "AGRO KARYA MANDIRI",
-        "TANGGAL_KONTRAK": "05 Juni 2026",
+        "TANGGAL_KONTRAK": "5 Juni 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -18811,8 +18811,8 @@
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "567",
         "NILAI_KONTRAK": 1112999900,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 1112999900,
+        "REALISASI_KONTRAK": 333899970,
+        "SISA_KONTRAK": 779099930,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "AGRO KARYA MANDIRI",
         "TANGGAL_KONTRAK": "5 Juni 2026",
@@ -18826,8 +18826,8 @@
         "KDKEG": "5890",
         "KDKRO_SUFFIX": "567",
         "NILAI_KONTRAK": 2782494200,
-        "REALISASI_KONTRAK": 0,
-        "SISA_KONTRAK": 2782494200,
+        "REALISASI_KONTRAK": 834748260,
+        "SISA_KONTRAK": 1947745940,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "AGRO KARYA MANDIRI",
         "TANGGAL_KONTRAK": "5 Juni 2026",
@@ -18845,7 +18845,7 @@
         "SISA_KONTRAK": 549264100,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "AIR BUNGA",
-        "TANGGAL_KONTRAK": "04 Juni 2026",
+        "TANGGAL_KONTRAK": "4 Juni 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -18890,7 +18890,7 @@
         "SISA_KONTRAK": 43263000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "LAHAN HIJAU",
-        "TANGGAL_KONTRAK": "5 Juni 2026",
+        "TANGGAL_KONTRAK": "05 Juni 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih"
       },
@@ -19100,7 +19100,7 @@
         "SISA_KONTRAK": 499754640,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "TRUBUS PRIMA",
-        "TANGGAL_KONTRAK": "8 Juni 2026",
+        "TANGGAL_KONTRAK": "08 Juni 2026",
         "TANGGAL_SELESAI": "31 Desember 2026",
         "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
       },
@@ -19130,7 +19130,7 @@
         "SISA_KONTRAK": 230220000,
         "STATUS": "BELUM SELESAI",
         "NAMA_PPK": "DEFARRO SEMBADA",
-        "TANGGAL_KONTRAK": "9 Juni 2026",
+        "TANGGAL_KONTRAK": "09 Juni 2026",
         "TANGGAL_SELESAI": "30 November 2026",
         "NAMA_KEGIATAN": "Bongkar Ratoon"
       },
@@ -19319,7 +19319,7 @@
         "NAMA_PAKET": "Pengadaan Sarana Produksi Penataan Tanaman Sagu di Kab. Nabire 200 Ha",
         "KODE_SATKER": "238830",
         "KDKEG": "1777",
-        "KDKRO_SUFFIX": "",
+        "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 534298500,
         "REALISASI_KONTRAK": 0,
         "SISA_KONTRAK": 534298500,
@@ -19334,7 +19334,7 @@
         "NAMA_PAKET": "Pengadaan Sarana Produksi Penataan Tanaman Sagu di Kab. Mimika 200 Ha",
         "KODE_SATKER": "238830",
         "KDKEG": "1777",
-        "KDKRO_SUFFIX": "",
+        "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 624980000,
         "REALISASI_KONTRAK": 0,
         "SISA_KONTRAK": 624980000,
@@ -19349,7 +19349,7 @@
         "NAMA_PAKET": "Pengadaan Sarana Produksi Penataan Tanaman Sagu di Kab. Nabire 200 Ha",
         "KODE_SATKER": "238830",
         "KDKEG": "1777",
-        "KDKRO_SUFFIX": "",
+        "KDKRO_SUFFIX": "238",
         "NILAI_KONTRAK": 126096000,
         "REALISASI_KONTRAK": 0,
         "SISA_KONTRAK": 126096000,
@@ -19379,7 +19379,7 @@
         "NAMA_PAKET": "Pengadaan Produksi Benih Jambu Mete Siap Salur di Kab. Flores Timur 880 Ha",
         "KODE_SATKER": "567338",
         "KDKEG": "5890",
-        "KDKRO_SUFFIX": "",
+        "KDKRO_SUFFIX": "567",
         "NILAI_KONTRAK": 1058701600,
         "REALISASI_KONTRAK": 0,
         "SISA_KONTRAK": 1058701600,
@@ -19439,7 +19439,7 @@
         "NAMA_PAKET": "Pengadaan Produksi Benih Kakao Siap Salur Kabupaten Wonogiri (350 Ha) sejumlah 350.000 batang",
         "KODE_SATKER": "567338",
         "KDKEG": "5890",
-        "KDKRO_SUFFIX": "",
+        "KDKRO_SUFFIX": "567",
         "NILAI_KONTRAK": 3895483000,
         "REALISASI_KONTRAK": 0,
         "SISA_KONTRAK": 3895483000,
@@ -19508,6 +19508,81 @@
         "TANGGAL_KONTRAK": "15 Juni 2026",
         "TANGGAL_SELESAI": "23 Desember 2026",
         "NAMA_KEGIATAN": "Produksi Benih (Lanjutan)"
+      },
+      {
+        "NO_KONTRAK": "EP-01KT8GZ6AFMMRPN2P4S2T45AXC",
+        "NAMA_PAKET": "Pengadaan Pupuk Organik untuk Kegiatan Peremajaan Tanaman Jambu Mete Kab Karangasem dan Kab Buleleng",
+        "KODE_SATKER": "238830",
+        "KDKEG": "5888",
+        "KDKRO_SUFFIX": "238",
+        "NILAI_KONTRAK": 808790400,
+        "REALISASI_KONTRAK": 0,
+        "SISA_KONTRAK": 808790400,
+        "STATUS": "BELUM SELESAI",
+        "NAMA_PPK": "ALAM MAKMUR ANURI",
+        "TANGGAL_KONTRAK": "15 Juni 2026",
+        "TANGGAL_SELESAI": "31 Oktober 2026",
+        "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
+      },
+      {
+        "NO_KONTRAK": "EP-01KT8XVJVACSP38W15QH34R6PZ",
+        "NAMA_PAKET": "Pengadaan Benih Tebu untuk Kegiatan Perluasan Tanaman Tebu Kabupaten Kendal Tahap II 23 Ha",
+        "KODE_SATKER": "238830",
+        "KDKEG": "5888",
+        "KDKRO_SUFFIX": "238",
+        "NILAI_KONTRAK": 223822200,
+        "REALISASI_KONTRAK": 0,
+        "SISA_KONTRAK": 223822200,
+        "STATUS": "BELUM SELESAI",
+        "NAMA_PPK": "PERWIRA CIPTA MANDIRI",
+        "TANGGAL_KONTRAK": "15 Juni 2026",
+        "TANGGAL_SELESAI": "30 November 2026",
+        "NAMA_KEGIATAN": "Perluasan Tebu"
+      },
+      {
+        "NO_KONTRAK": "EP-01KTC7TRG4QCPA9H3BZ8VQA5Y4",
+        "NAMA_PAKET": "Pengadaan Benih Tebu untuk Kegiatan Perluasan Tanaman Tebu Kabupaten Ogan Ilir Tahap I 65,24 Ha",
+        "KODE_SATKER": "238830",
+        "KDKEG": "5888",
+        "KDKRO_SUFFIX": "238",
+        "NILAI_KONTRAK": 649653396,
+        "REALISASI_KONTRAK": 0,
+        "SISA_KONTRAK": 649653396,
+        "STATUS": "BELUM SELESAI",
+        "NAMA_PPK": "PT RISET PERKEBUNAN NUSANTARA",
+        "TANGGAL_KONTRAK": "15 Juni 2026",
+        "TANGGAL_SELESAI": "30 November 2026",
+        "NAMA_KEGIATAN": "Perluasan Tebu"
+      },
+      {
+        "NO_KONTRAK": "EP-01KV4V2SXH617VJ3JS59QTHVPS",
+        "NAMA_PAKET": "Pengadaan Pupuk Organik Kegiatan Perluasan Kelapa Dalam Kabupaten Bone (100 Ha) sejumlah 33.000 Kg",
+        "KODE_SATKER": "567338",
+        "KDKEG": "1777",
+        "KDKRO_SUFFIX": "",
+        "NILAI_KONTRAK": 128121750,
+        "REALISASI_KONTRAK": 0,
+        "SISA_KONTRAK": 128121750,
+        "STATUS": "BELUM SELESAI",
+        "NAMA_PPK": "BORNEO INTECH",
+        "TANGGAL_KONTRAK": "15 Juni 2026",
+        "TANGGAL_SELESAI": "31 Desember 2026",
+        "NAMA_KEGIATAN": "Pengadaan Pupuk Organik"
+      },
+      {
+        "NO_KONTRAK": "EP-01KTTY4YYBHG1RREREC4KZ4RC9",
+        "NAMA_PAKET": "Pengadaan Produksi Benih Kelapa Dalam Siap Salur di Kabupaten Kepulauan Selayar sejumlah 143.000 batang bersertifikat dan berlabel",
+        "KODE_SATKER": "567338",
+        "KDKEG": "5890",
+        "KDKRO_SUFFIX": "",
+        "NILAI_KONTRAK": 3687106150,
+        "REALISASI_KONTRAK": 0,
+        "SISA_KONTRAK": 3687106150,
+        "STATUS": "KONTRAK BELUM TERDAFTAR",
+        "NAMA_PPK": "CIPTA KARYA MANDIRI",
+        "TANGGAL_KONTRAK": "18 Juni 2026",
+        "TANGGAL_SELESAI": "31 Desember 2026",
+        "NAMA_KEGIATAN": "Produksi Benih"
       }
     ]
   },
@@ -19524,7 +19599,7 @@
     "satker_count": 5,
     "kegiatan_count": 6,
     "akun_count": 51,
-    "kontrak_count": 869,
-    "kontrak_sisa_total": 2852951374598
+    "kontrak_count": 874,
+    "kontrak_sisa_total": 2850878958226
   }
 }
