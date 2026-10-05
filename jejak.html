@@ -259,7 +259,7 @@ footer p{margin:0 0 8px;max-width:90ch}
     <div class="heads">
       <div class="head"><b id="h1v" data-count="4.4" data-dec="1" data-suffix="%">4,4%</b><span id="h1t">lahan sasaran sudah dikerjakan atau ditanam (di luar tebu)</span></div>
       <div class="head"><b id="h2v">72–100%</b><span>benih sudah dipesan, tetapi sebagian besar masih dirawat di persemaian</span></div>
-      <div class="head"><b data-count="16" data-dec="0" data-suffix="%">16%</b><span>anggaran sudah benar-benar dibayarkan (angka yang dilaporkan satker 36%)</span></div>
+      <div class="head"><b id="h3v" data-count="16" data-dec="0" data-suffix="%">16%</b><span id="h3t">anggaran sudah benar-benar dibayarkan (angka yang dilaporkan satker 36%)</span></div>
     </div>
     <div class="live" id="live" data-s="load" role="status"><span class="ld"></span><span id="livetxt">Mengambil data terbaru dari Sisbun…</span><button type="button" id="reload">Perbarui data</button></div>
     <div class="actions">
@@ -335,7 +335,7 @@ footer p{margin:0 0 8px;max-width:90ch}
 <footer>
   <div class="wrap">
     <p><strong>Catatan data.</strong> Luas tanam dan anggaran tebu, serta sebagian data satker Pusat, belum dilaporkan. Persentase lahan keseluruhan dihitung di luar tebu. Anggaran terbayar adalah perkiraan berbasis pembayaran; angka yang dilaporkan satker 36% karena sebagian menghitung nilai kontrak. Untuk pala, lada, dan jambu mete, "penerima terdata" adalah usulan yang masuk, belum seluruhnya ditetapkan.</p>
-    <p><strong>Data langsung.</strong> Lahan ditanam (realisasi tanam), penerima terdata (CPCL), dan benih dipesan (volume kontrak) diambil langsung dari API publik Sisbun (hilirisasibun.sisbun.com) setiap kali halaman dibuka. Target pada API publik bisa sedikit berbeda dengan menu admin Sisbun. Status, posisi tahapan, ringkasan, "Kenapa begini", dan "Berikutnya" disusun otomatis dengan aturan tetap: status membandingkan luas tertanam dengan jadwal salur benih Sisbun sampai akhir bulan lalu (75% ke atas sesuai jadwal, 30–75% perlu dipercepat, di bawah 30% tertinggal jauh), dan alasan diambil dari provinsi dengan CPCL atau kontrak di bawah 80% serta provinsi yang sudah siap tetapi belum menanam. Narasi otomatis hanya membaca angka, sehingga penyebab lapangan seperti kemarau atau SK yang belum terbit tidak terbaca. Anggaran terbayar dan rincian per satker masih dari laporan Triwulan III.</p>
+    <p><strong>Data langsung.</strong> Lahan ditanam (realisasi tanam), penerima terdata (CPCL), dan benih dipesan (volume kontrak) diambil langsung dari API publik Sisbun (hilirisasibun.sisbun.com) setiap kali halaman dibuka. Target pada API publik bisa sedikit berbeda dengan menu admin Sisbun. Status, posisi tahapan, ringkasan, "Kenapa begini", dan "Berikutnya" disusun otomatis dengan aturan tetap: status membandingkan luas tertanam dengan jadwal salur benih Sisbun sampai akhir bulan lalu (75% ke atas sesuai jadwal, 30–75% perlu dipercepat, di bawah 30% tertinggal jauh), dan alasan diambil dari provinsi dengan CPCL atau kontrak di bawah 80% serta provinsi yang sudah siap tetapi belum menanam. Narasi otomatis hanya membaca angka, sehingga penyebab lapangan seperti kemarau atau SK yang belum terbit tidak terbaca. Anggaran terbayar diambil dari data SP2D MyIntress yang dipakai Dashboard Monev (latest.json): RO Kawasan per komoditas ditambah komponen Produksi Benih per komoditas; benih tebu (kebun benih sebar) belum terpisah per komoditas sehingga belum dihitung, dan sisa kontrak (outstanding) tidak termasuk. Rincian per satker masih dari laporan Triwulan III.</p>
     <p><strong>Sumber.</strong> Laporan Kegiatan Strategis Triwulan III 2026: Ditjenbun Pusat (kawasan kelapa; kawasan tanaman semusim dan tahunan; produksi benih), BBPPTP Medan, BBPPTP Surabaya, BBPPTP Ambon, BPTP Pontianak. Pemantauan harian Ditjenbun 6 Maret dan 29 Juli 2026 untuk grafik perkembangan. Diolah Setditjenbun.</p>
   </div>
 </footer>
@@ -441,7 +441,7 @@ function renderDetail(){
     const v=c.m[m.k];
     if(v===null) return `<div class="meter na"><div class="top"><span>${m.label}</span><span>belum dilaporkan</span></div><div class="bar"></div></div>`;
     const w = v>0 && v<1 ? 0.8 : Math.min(v,100);
-    return `<div class="meter"><div class="top"><span>${m.label}${c.live&&c.live[m.k]?'<span class="src on">Sisbun</span>':(LIVE.ok&&m.k!=='uang'?'':'<span class="src">TW III</span>')}</span><span>${pct(v)}</span></div><div class="bar"><i style="width:${w}%;background:${barColor(m.k,v,c.status)}"></i></div><small>${c.mn[m.k]}</small></div>`;}).join('');
+    return `<div class="meter"><div class="top"><span>${m.label}${c.live&&c.live[m.k]?`<span class="src on">${m.k==='uang'?'MyIntress':'Sisbun'}</span>`:(LIVE.ok&&m.k!=='uang'?'':'<span class="src">TW III</span>')}</span><span>${pct(v)}</span></div><div class="bar"><i style="width:${w}%;background:${barColor(m.k,v,c.status)}"></i></div><small>${c.mn[m.k]}</small></div>`;}).join('');
   const who = c.who.map(w=>{
     const [n,t,r,note]=w; const p = r===null?null:(r/t*100);
     return `<div class="row"><span>${n}</span><div class="bar"><i style="width:${p===null?0:Math.max(p, p>0?0.8:0)}%;background:${s.color}"></i></div><em>${r===null?'–':fmt(r, r%1?1:0)} / ${fmt(t,0)} Ha${note?' ('+note+')':''}</em></div>`;}).join('');
@@ -626,7 +626,7 @@ function buildSlides(){
   const cards = D.map(c=>{const s=STATUS[c.status], v=c.m.tanam; return `<div class="s-card"><div class="t"><b>${c.name}</b><span class="pl" style="background:${s.bg}">${s.label}</span></div><div class="bar"><i style="width:${v===null?0:(v>0&&v<1?0.8:v)}%;background:${s.color}"></i></div><div class="v">${v===null?'Tanam belum dilaporkan':pct(v)+' lahan ditanam'}</div><small>${c.target.replace('Target ','Target ')}</small></div>`;}).join('');
   const trows = TR.cpcl.rows.concat([TR.cpcl.total]).map(r=>`<div class="s-tr"><b>${r[0]}</b>${r[1].slice(0,3).map((v,i)=>v===null?`<div><em class="na">–</em><div class="bar"></div></div>`:`<div><em>${pct(v)}</em><div class="bar"><i style="width:${v}%;background:${i===2?'var(--forest)':(i===1?'#6FAE88':'#A9D0B6')}"></i></div></div>`).join('')}</div>`).join('');
   return [
-   `<div class="slide cover"><div class="k" style="color:var(--gold)">Pemantauan Kegiatan Strategis Ditjenbun 2026</div><h2>Sejauh mana bantuan perkebunan sudah berjalan?</h2><p>${document.getElementById('asof').textContent}</p><div class="big3"><div><b>${document.getElementById('h1v').textContent}</b><span>${document.getElementById('h1t').textContent}</span></div><div><b>${document.getElementById('h2v').textContent}</b><span>benih sudah dipesan, sebagian besar masih di persemaian</span></div><div><b>16%</b><span>anggaran sudah benar-benar dibayarkan (dilaporkan 36%)</span></div></div></div>`,
+   `<div class="slide cover"><div class="k" style="color:var(--gold)">Pemantauan Kegiatan Strategis Ditjenbun 2026</div><h2>Sejauh mana bantuan perkebunan sudah berjalan?</h2><p>${document.getElementById('asof').textContent}</p><div class="big3"><div><b>${document.getElementById('h1v').textContent}</b><span>${document.getElementById('h1t').textContent}</span></div><div><b>${document.getElementById('h2v').textContent}</b><span>benih sudah dipesan, sebagian besar masih di persemaian</span></div><div><b>${document.getElementById('h3v').textContent}</b><span>${document.getElementById('h3t').textContent}</span></div></div></div>`,
    `<div class="slide"><div class="k">Perjalanan bantuan</div><h2>Sebagian besar komoditas berada di tahap persemaian</h2><div class="s-steps">${STAGES.map((n,i)=>`<div class="${stepsState[i]}"><b>${i+1}</b><strong>${n}</strong><small>${stepTxt[i]}</small></div>`).join('')}</div><p>Benih baru boleh diantar setelah cukup umur, lolos sertifikasi, dan penerimanya ditetapkan resmi.</p></div>`,
    `<div class="slide"><div class="k">Kabar tiap komoditas</div><h2>${(()=>{const n=k=>D.filter(c=>c.status===k).length;const a=[];if(n('jalan'))a.push(n('jalan')+' sesuai jadwal');if(n('cepat'))a.push(n('cepat')+' perlu dipercepat');if(n('jauh'))a.push(n('jauh')+' tertinggal jauh');return a.join(', ').replace(/^./,x=>x.toUpperCase());})()}</h2><div class="s-grid">${cards}</div></div>`,
    `<div class="slide"><div class="k">Peta sebaran</div><h2>Sasaran terbesar di Jawa Timur, Sulawesi Selatan, dan NTT</h2><div class="s-two"><svg viewBox="0 0 1111 418" role="img" aria-label="Peta sasaran per provinsi">${tileSvg('semua',false)}</svg><div><p style="font-weight:700;margin-bottom:1cqw">Luas sasaran terbesar (di luar kelapa)</p><ol>${bigTop()}</ol></div></div></div>`,
@@ -783,12 +783,58 @@ function terapkan(S, prev){
   const all = Object.values(S).filter(s=>s&&s.t);
   const T = all.reduce((a,s)=>a+s.t,0), C = all.reduce((a,s)=>a+s.c,0), R = all.reduce((a,s)=>a+s.r,0);
   TR.cpcl.total[1][3] = p2(C,T); TR.tanam.total[1][3] = p2(R,T);
+  terapkanAnggaran();
   // angka utama di kepala halaman
   const h1 = T ? R/T*100 : 0;
   const el = document.getElementById('h1v'); el.dataset.live='1'; el.dataset.count = h1.toFixed(1); el.textContent = fmt(h1,1) + '%';
   document.getElementById('h1t').textContent = 'lahan sasaran sudah ditanam (7 komoditas, termasuk tebu)';
   const bs = all.map(s=>Math.min(100, s.v/s.t*100));
   document.getElementById('h2v').textContent = fmt(Math.floor(Math.min(...bs)),0) + '–' + fmt(Math.round(Math.max(...bs)),0) + '%';
+}
+// ---------- anggaran dari MyIntress (latest.json Dashboard Monev) ----------
+const ANG_URLS = ['latest.json', 'https://raw.githubusercontent.com/akhnoer85/monev-ditjenbun/main/latest.json'];
+const ANG_NAMA = {kelapa:'kelapa',kopi:'kopi',kakao:'kakao',tebu:'tebu',pala:'pala',lada:'lada',jambu:'jambu mete'};
+let ANG = null;
+const rpM = v => 'Rp' + (v>=1e12 ? fmt(v/1e12,2)+' T' : fmt(v/1e9, v>=1e11?0:1)+' M');
+const bersih = s => String(s||'').replace(/\u00a0/g,' ').trim().toLowerCase();
+function olahAnggaran(d){
+  const out = {};
+  Object.entries(ANG_NAMA).forEach(([id,nm])=>{
+    const kw = (d.ro||[]).filter(r=>bersih(r.NAMA_RO)==='kawasan '+nm);
+    const bn = (d.komponen||[]).filter(r=>bersih(r.NAMA_KOMPONEN)==='produksi benih '+nm);
+    const s = a => a.reduce((x,r)=>({p:x.p+(r.pagu||0), r:x.r+(r.real||0)}),{p:0,r:0});
+    const K = s(kw), B = s(bn);
+    if(K.p+B.p>0) out[id] = {kp:K.p, kr:K.r, bp:B.p, br:B.r};
+  });
+  return {tanggal: d.tanggal, k: out};
+}
+function terapkanAnggaran(){
+  if(!ANG) return;
+  let P=0, R=0;
+  D.forEach(c=>{
+    const a = ANG.k[c.id]; if(!a) return;
+    const p = a.kp+a.bp, r = a.kr+a.br; P+=p; R+=r;
+    c.m.uang = +(r/p*100).toFixed(r/p<0.01?2:1);
+    const bag = [];
+    if(a.kp) bag.push(`kawasan ${pct(+(a.kr/a.kp*100).toFixed(1))}`);
+    if(a.bp) bag.push(`benih ${pct(+(a.br/a.bp*100).toFixed(1))}`);
+    c.mn.uang = `${rpM(r)} dari ${rpM(p)} (${bag.join(', ')})` + (c.id==='tebu' ? '; benih tebu belum terpisah per komoditas' : '');
+    c.live = Object.assign(c.live||{}, {uang:true});
+  });
+  if(P){
+    const v = R/P*100, el = document.getElementById('h3v'); el.dataset.live='1';
+    el.textContent = fmt(v,1) + '%';
+    document.getElementById('h3t').textContent = 'anggaran kawasan dan benih 7 komoditas sudah dibayarkan (SP2D MyIntress per ' + tglIndo(ANG.tanggal) + ')';
+  }
+}
+async function muatAnggaran(){
+  for(const u of ANG_URLS){
+    try{
+      const r = await fetch(u + '?t=' + Date.now()); if(!r.ok) continue;
+      const d = await r.json(); if(!d.ro) continue;
+      ANG = olahAnggaran(d); terapkanAnggaran(); gambarUlang(); return;
+    }catch(e){}
+  }
 }
 function tglIndo(iso){ if(!iso) return ''; const d=new Date(iso+'T00:00:00'); return d.toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'}); }
 function jam(ms){ return new Date(ms).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'}); }
@@ -821,8 +867,8 @@ async function muat(){
     }
   }finally{ btn.disabled = false; }
 }
-document.getElementById('reload').addEventListener('click', muat);
-muat();
+document.getElementById('reload').addEventListener('click', ()=>{ muat(); muatAnggaran(); });
+muat(); muatAnggaran();
 
 document.addEventListener('fullscreenchange',()=>{ if(!document.fullscreenElement && deck.classList.contains('on')){} });
 
