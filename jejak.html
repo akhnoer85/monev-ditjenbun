@@ -1002,8 +1002,24 @@ async function muat(){
     }
   }finally{ btn.disabled = false; }
 }
-document.getElementById('reload').addEventListener('click', ()=>{ Object.keys(WHO).forEach(k=>delete WHO[k]); muat(); muatAnggaran(); });
-muat(); muatAnggaran();
+// ---------- pembaruan otomatis tiap 30 menit ----------
+const JEDA_AUTO = 30*60*1000;
+let terakhirMuat = 0, sedangMuat = false, timerAuto = null;
+async function perbaruiSemua(){
+  if(sedangMuat) return; sedangMuat = true;
+  try{ Object.keys(WHO).forEach(k=>delete WHO[k]); await Promise.all([muat(), muatAnggaran()]); }
+  finally{ sedangMuat = false; terakhirMuat = Date.now(); jadwalkan(); }
+}
+function jadwalkan(){
+  clearTimeout(timerAuto);
+  timerAuto = setTimeout(()=>{ if(document.visibilityState==='visible') perbaruiSemua(); }, JEDA_AUTO);
+  const el = document.getElementById('livetxt');
+  if(el && !el.querySelector('.auto')) el.insertAdjacentHTML('beforeend', ` <span class="auto" style="opacity:.8">· diperbarui otomatis tiap 30 menit, berikutnya ${jam(Date.now()+JEDA_AUTO)}</span>`);
+}
+// tab yang lama tersembunyi langsung diperbarui begitu dibuka lagi
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='visible' && Date.now()-terakhirMuat > JEDA_AUTO) perbaruiSemua(); });
+document.getElementById('reload').addEventListener('click', perbaruiSemua);
+perbaruiSemua();
 
 document.addEventListener('fullscreenchange',()=>{ if(!document.fullscreenElement && deck.classList.contains('on')){} });
 
