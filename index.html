@@ -96,6 +96,15 @@ button{font-family:inherit}
 .kpi-label{font-size:.88rem;color:var(--muted);font-weight:600;margin-bottom:6px}
 .kpi-value{font-size:1.55rem;font-weight:800;line-height:1.15;margin-bottom:6px;letter-spacing:-0.01em}
 .kpi-sub{font-size:.82rem;color:var(--muted)}
+@media(max-width:640px){
+  .kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .kpi{padding:14px 12px 12px}
+  .kpi-value{font-size:1.25rem}
+  .kpi-label{font-size:.8rem}
+  .kpi-sub{overflow-wrap:anywhere}
+}
+.unit-note{font-size:.8rem;color:var(--muted);margin:-12px 0 18px}
+.os-flag{display:inline-block;margin-top:3px;padding:1px 6px;border-radius:999px;font-size:10px;font-weight:700;background:var(--soil-bg);color:var(--soil-ink);white-space:nowrap}
 .badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:999px;font-size:.8rem;font-weight:700}
 .bg{background:var(--leaf-bg);color:var(--leaf)}
 .by{background:var(--soil-bg);color:var(--soil-ink)}
@@ -231,7 +240,7 @@ footer.foot{max-width:1240px;margin:0 auto;padding:20px 20px 40px;color:var(--mu
 <!-- ═══════════════════════════════════════════════════ -->
 <div id="tab-ringkasan" class="page active">
   <div class="section">
-    <div class="section-head">Upload Data Harian</div>
+    <div class="section-head" id="upload-head" style="display:none">Upload Data Harian</div>
     <div id="auto-fetch-bar" style="display:none;background:var(--bg2);border:1px solid var(--brd);border-radius:8px;padding:10px 16px;margin-bottom:10px;align-items:center;gap:10px;flex-wrap:wrap">
       <span style="font-size:12px;color:var(--txt2)">🔗 Sumber data otomatis aktif</span>
       <button onclick="fetchFromGithub()" style="padding:4px 14px;border-radius:6px;border:none;background:var(--blue);color:#fff;font-size:12px;cursor:pointer">🔄 Refresh Data</button>
@@ -258,6 +267,7 @@ footer.foot{max-width:1240px;margin:0 auto;padding:20px 20px 40px;color:var(--mu
 
   <div id="ringkasan-content" style="display:none">
     <div class="kpi-grid" id="kpi-main"></div>
+    <p class="unit-note">Satuan: Jt = juta, M = miliar, T = triliun rupiah.</p>
 
     <div class="charts-grid">
       <div class="card"><div class="card-title">Realisasi per Satker (%)</div>
@@ -287,7 +297,7 @@ footer.foot{max-width:1240px;margin:0 auto;padding:20px 20px 40px;color:var(--mu
 
   <div id="ringkasan-empty" class="empty">
     <div class="empty-icon">📊</div>
-    <div class="empty-title">Belum ada data — upload file JSON atau XLSX untuk memulai</div>
+    <div class="empty-title" id="ringkasan-empty-txt">Memuat data terbaru…</div>
   </div>
 </div>
 
@@ -489,13 +499,14 @@ footer.foot{max-width:1240px;margin:0 auto;padding:20px 20px 40px;color:var(--mu
       </select>
       <input id="os-f-search" type="text" placeholder="🔍 Cari no kontrak/uraian/penyedia..." style="padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:var(--bg2);color:var(--txt1);font-size:12px;min-width:240px" oninput="OS_PAGE=1;renderOSDetail()">
     </div>
+    <div id="os-flag-note" style="display:none;margin-bottom:10px;padding:10px 14px;border-radius:8px;background:var(--soil-bg);color:var(--soil-ink);font-size:12px;line-height:1.5"></div>
     <div class="tbl-wrap">
       <table><thead><tr>
         <th style="min-width:60px">No Kontrak</th>
         <th style="min-width:180px">Uraian Kontrak</th>
         <th>Satker</th>
         <th>Kegiatan</th>
-        <th>KRO</th>
+        <th style="min-width:140px">Rincian</th>
         <th class="r">Nilai Kontrak</th>
         <th class="r">Realisasi</th>
         <th class="r">Sisa</th>
@@ -596,9 +607,9 @@ function fillHeads(total, gabPct, osTotal){
   try{
     const p = total.pagu ? total.real/total.pagu*100 : 0;
     const set=(id,t)=>{const e=document.getElementById(id); if(e) e.textContent=t;};
-    set('hd-pct', p.toFixed(2).replace('.',',')+'%');
-    set('hd-pct-t', osTotal>0 ? 'anggaran sudah terealisasi (SP2D); '+gabPct.toFixed(2).replace('.',',')+'% bila ditambah sisa kontrak' : 'anggaran sudah terealisasi (SP2D)');
-    const rp=x=>'Rp '+(typeof fmtM==='function'?String(fmtM(x)).replace(/\./g,','):x.toLocaleString('id'));
+    set('hd-pct', nf(p,2)+'%');
+    set('hd-pct-t', osTotal>0 ? 'anggaran sudah terealisasi (SP2D); '+nf(gabPct,2)+'% bila ditambah sisa kontrak' : 'anggaran sudah terealisasi (SP2D)');
+    const rp=x=>'Rp '+fmtM(x);
     set('hd-real', rp(total.real));
     set('hd-real-t', 'realisasi SP2D dari total pagu ' + rp(total.pagu));
     set('hd-sisa', rp(total.pagu-total.real));
@@ -631,15 +642,19 @@ let charts = {};
 // ═══════════════════════════════════════════════════════════
 // UTILS
 // ═══════════════════════════════════════════════════════════
+// Angka desimal format Indonesia (koma desimal, titik ribuan)
+const nf = (v,d) => Number(v||0).toLocaleString('id-ID',{minimumFractionDigits:d,maximumFractionDigits:d});
 const fmtM = v => {
-  if (Math.abs(v) >= 1e12) return (v/1e12).toFixed(2)+' T';
-  if (Math.abs(v) >= 1e9)  return (v/1e9).toFixed(2)+' M';
-  if (Math.abs(v) >= 1e6)  return (v/1e6).toFixed(1)+' Jt';
+  if (Math.abs(v) >= 1e12) return nf(v/1e12,2)+' T';
+  if (Math.abs(v) >= 1e9)  return nf(v/1e9,2)+' M';
+  if (Math.abs(v) >= 1e6)  return nf(v/1e6,1)+' Jt';
   return v.toLocaleString('id');
 };
-const fmtRp = v => 'Rp '+v.toLocaleString('id');
+const fmtRp = v => (v<0?'−Rp ':'Rp ')+Math.abs(v).toLocaleString('id');
+// Tanda +/− untuk delta; nol tanpa tanda
+const sgn = v => v>0?'+':'';
 const pct = (r,p) => p>0 ? (r/p*100) : 0;
-const pctFmt = (r,p) => pct(r,p).toFixed(2)+'%';
+const pctFmt = (r,p) => nf(pct(r,p),2)+'%';
 const chip = p => p>=90?'bg':p>=50?'by':'br';
 const chipColor = p => p>=90?'#2E7D4F':p>=50?'#C9851A':'#A3341B'; // hex untuk Chart.js
 const shortName = n => n.replace(/BALAI BESAR PERBENIHAN DAN PROTEKSI TANAMAN PERKEBUNAN/,'BBP2TP')
@@ -657,12 +672,24 @@ function progressCell(r,p){
   return `<td style="min-width:140px">
     <div style="display:flex;align-items:center;gap:8px">
       <div class="progress-track" style="flex:1"><div class="progress-fill" style="width:${Math.min(pc,100)}%;background:${color}"></div></div>
-      <span style="font-size:11px;color:${color};min-width:44px">${pc.toFixed(1)}%</span>
+      <span style="font-size:11px;color:${color};min-width:44px">${nf(pc,1)}%</span>
     </div>
   </td>`;
 }
 
 function destroyChart(id){ if(charts[id]){charts[id].destroy();delete charts[id];} }
+const isNarrow = () => window.innerWidth < 640;
+const isSelesaiSisa = r => /^SELESAI/i.test(r.STATUS||'') && (r.SISA_KONTRAK||0) > 0;
+// Baris placeholder (pagu & realisasi 0, mis. KRO tanpa nama) tidak ditampilkan — total tidak berubah
+const hasValue = r => (r.pagu||0)!==0 || (r.real||0)!==0;
+// Urut berdasarkan kode kegiatan → KRO → RO → komponen
+const byKode = (a,b) => ['KDKEG','S05','S13','S14'].reduce((c,k)=>c||String(a[k]||'').localeCompare(String(b[k]||'')),0);
+// Gambar ulang grafik ringkasan saat melewati batas layar sempit/lebar
+let _wasNarrow = isNarrow();
+window.addEventListener('resize', ()=>{
+  const n = isNarrow();
+  if(n!==_wasNarrow){ _wasNarrow=n; if(D) renderRingkasan(); }
+});
 
 // ═══════════════════════════════════════════════════════════
 // NAVIGATION
@@ -750,7 +777,9 @@ function applyAdminMode(){
   const viewerNotice = document.getElementById('viewer-notice');
   if(bar) bar.style.display = IS_ADMIN ? 'flex' : 'none';
   if(uploadWrap) uploadWrap.style.display = IS_ADMIN ? 'block' : 'none';
-  if(viewerNotice) viewerNotice.style.display = IS_ADMIN ? 'none' : 'block';
+  if(viewerNotice) viewerNotice.style.display = 'none';
+  const uploadHead = document.getElementById('upload-head');
+  if(uploadHead) uploadHead.style.display = IS_ADMIN ? 'block' : 'none';
 
   // Form manual outstanding
   const manualWrap = document.getElementById('os-manual-wrap');
@@ -952,7 +981,8 @@ function initDashboard(){
   applyAdminMode();
   if(GITHUB_JSON_URL){
     // Fetch data hari ini dan H-1 sekaligus
-    fetchFromGithub().then(ok=>{ if(!ok) tryLoadCache(); }).catch(()=>tryLoadCache());
+    const onFail = ()=>{ tryLoadCache(); if(!D) $text('ringkasan-empty-txt','Data belum bisa dimuat dari server. Coba muat ulang halaman beberapa saat lagi.'); };
+    fetchFromGithub().then(ok=>{ if(!ok) onFail(); }).catch(onFail);
     if(GITHUB_JSON_PREV_URL) fetchFromGithubPrev();
   } else {
     tryLoadCache();
@@ -1039,18 +1069,18 @@ function renderRingkasan(){
     <div class="kpi ${chip(p)}">
       <div class="kpi-label">Realisasi SP2D</div>
       <div class="kpi-value">${fmtM(total.real)}</div>
-      <div class="kpi-sub"><span class="badge ${chip(p)}">${p.toFixed(2)}%</span></div>
+      <div class="kpi-sub"><span class="badge ${chip(p)}">${nf(p,2)}%</span></div>
     </div>
     ${osTotal>0 ? `
     <div class="kpi blue">
       <div class="kpi-label">SP2D + Outstanding</div>
       <div class="kpi-value">${fmtM(gabTotal)}</div>
-      <div class="kpi-sub"><span class="badge ${chip(gabPct)}">${gabPct.toFixed(2)}%</span> incl. sisa kontrak</div>
+      <div class="kpi-sub"><span class="badge ${chip(gabPct)}">${nf(gabPct,2)}%</span> incl. sisa kontrak</div>
     </div>` : ''}
     <div class="kpi red">
       <div class="kpi-label">Sisa Anggaran</div>
       <div class="kpi-value">${fmtM(total.pagu-total.real)}</div>
-      <div class="kpi-sub">${(100-p).toFixed(2)}% belum terealisasi</div>
+      <div class="kpi-sub">${nf((100-p),2)}% belum terealisasi</div>
     </div>
     <div class="kpi blue">
       <div class="kpi-label">Jumlah Satker</div>
@@ -1113,7 +1143,7 @@ function renderRingkasan(){
     options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{left:0}},
       plugins:{
         legend:{display:hasOS,labels:{color:CV('--muted'),font:{size:11},boxWidth:12}},
-        tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.raw.toFixed(2)}%`}}
+        tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${nf(c.raw,2)}%`}}
       },
       scales:{
         x:{max:100,grid:{color:CV('--line')},ticks:{color:CV('--muted'),callback:v=>v+'%'}},
@@ -1124,8 +1154,11 @@ function renderRingkasan(){
 
   // Chart: per kegiatan — warna tiap batang sesuai %
   destroyChart('c-kegiatan');
+  // Layar sempit: label cukup kode kegiatan (nama lengkap di tooltip) agar tidak terpotong
+  const narrow = isNarrow();
   const kegLabels = kegiatan.map(k=>{
     const nm = k.NAMA_KEGIATAN||'';
+    if(narrow) return k.KDKEG;
     return k.KDKEG+' '+(nm.length>28?nm.substring(0,26)+'…':nm);
   });
   const kegPct    = kegiatan.map(k=>pct(k.real,k.pagu));
@@ -1141,7 +1174,7 @@ function renderRingkasan(){
     options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{left:0}},
       plugins:{
         legend:{display:false},
-        tooltip:{callbacks:{label:c=>`${c.raw.toFixed(2)}%`}}
+        tooltip:{callbacks:{title:c=>{const k=kegiatan[c[0].dataIndex];return k.KDKEG+' '+(k.NAMA_KEGIATAN||'');},label:c=>`${nf(c.raw,2)}%`}}
       },
       scales:{
         x:{max:100,grid:{color:CV('--line')},ticks:{color:CV('--muted'),callback:v=>v+'%'}},
@@ -1157,7 +1190,7 @@ function renderRingkasan(){
     type:'doughnut',
     data:{labels:kegiatan.map(k=>k.KDKEG),datasets:[{data:kegiatan.map(k=>k.pagu),backgroundColor:COLORS.slice(0,kegiatan.length),borderColor:CV('--paper'),borderWidth:2}]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:CV('--muted'),font:{size:11},boxWidth:12}},
-      tooltip:{callbacks:{label:c=>`${c.label}: ${fmtM(c.raw)} (${(c.raw/total.pagu*100).toFixed(1)}%)`}}}}
+      tooltip:{callbacks:{label:c=>`${c.label}: ${fmtM(c.raw)} (${nf((c.raw/total.pagu*100),1)}%)`}}}}
   });
 
   // Donut: kewenangan
@@ -1167,7 +1200,7 @@ function renderRingkasan(){
     type:'doughnut',
     data:{labels:kwLabels,datasets:[{data:kewenangan.map(k=>k.pagu),backgroundColor:['#3E7CA6','#2E7D4F'],borderColor:CV('--paper'),borderWidth:2}]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:CV('--muted'),font:{size:11},boxWidth:12}},
-      tooltip:{callbacks:{label:c=>`${c.label}: ${fmtM(c.raw)} (${(c.raw/total.pagu*100).toFixed(1)}%)`}}}}
+      tooltip:{callbacks:{label:c=>`${c.label}: ${fmtM(c.raw)} (${nf((c.raw/total.pagu*100),1)}%)`}}}}
   });
 
   // Tabel satker×kegiatan
@@ -1197,7 +1230,7 @@ function renderSatker(){
     return `<div class="kpi ${chip(p)}">
       <div class="kpi-label">${shortName(s.DESKRIPSI_SATKER)}</div>
       <div class="kpi-value">${fmtM(s.real)}</div>
-      <div class="kpi-sub"><span class="badge ${chip(p)}">${p.toFixed(2)}%</span> dari ${fmtM(s.pagu)}</div>
+      <div class="kpi-sub"><span class="badge ${chip(p)}">${nf(p,2)}%</span> dari ${fmtM(s.pagu)}</div>
     </div>`;
   }).join('');
 
@@ -1244,10 +1277,11 @@ function renderKro(){
   const fKeg=document.getElementById('f-keg-keg').value;
   let kro=D.kro;
   if(fKeg) kro=kro.filter(r=>r.KDKEG===fKeg);
+  kro=kro.filter(hasValue);
   document.getElementById('tb-kro').innerHTML=kro.map(r=>{
     return `<tr>
       <td class="mono" style="color:var(--blue)">${r.KDKEG}</td>
-      <td style="font-size:11px;color:var(--txt2);max-width:180px">${r.NAMA_KEGIATAN.substring(0,40)}…</td>
+      <td style="font-size:11px;color:var(--txt2);max-width:180px">${r.NAMA_KEGIATAN.length>40?r.NAMA_KEGIATAN.substring(0,40)+'…':r.NAMA_KEGIATAN}</td>
       <td style="font-size:12px;max-width:260px">${r.NAMA_KRO||(r.S05||r.S05_KEG_KRO||'—')}</td>
       <td class="r">${fmtRp(r.pagu)}</td>
       <td class="r">${fmtRp(r.real)}</td>
@@ -1283,7 +1317,7 @@ function renderRO(){
 
   // Update dropdown KRO berdasarkan satker + kegiatan
   const roForKro = fKeg ? roBase.filter(r=>r.KDKEG===fKeg) : roBase;
-  const kroAll = [...new Map(roForKro.map(r=>[(r.S05||''), r.NAMA_KRO||r.S05||''])).entries()];
+  const kroAll = [...new Map(roForKro.filter(hasValue).map(r=>[(r.S05||''), r.NAMA_KRO||r.S05||''])).entries()];
   const curKro = document.getElementById('f-ro-kro').value;
   document.getElementById('f-ro-kro').innerHTML =
     '<option value="">Semua KRO</option>' +
@@ -1307,6 +1341,7 @@ function renderRO(){
     });
     ro = [...aggMap.values()];
   }
+  ro = ro.filter(hasValue).sort(byKode);
 
   document.getElementById('tb-ro').innerHTML = ro.length ? ro.map(r=>{
     const s05 = r.S05||r.S05_KEG_KRO||'—';
@@ -1353,6 +1388,7 @@ function renderKomp(){
     });
     komp = [...aggMap.values()];
   }
+  komp = komp.filter(hasValue).sort(byKode);
   if(fSearch) komp = komp.filter(r=>
     (r.NAMA_KOMPONEN||'').toLowerCase().includes(fSearch)||
     (r.NAMA_RO||'').toLowerCase().includes(fSearch)
@@ -1492,7 +1528,7 @@ function renderOS(){
         <div class="kpi green">
           <div class="kpi-label">Realisasi Kontrak</div>
           <div class="kpi-value">${fmtM(s.realisasi_kontrak)}</div>
-          <div class="kpi-sub">${s.pct_realisasi.toFixed(2)}% dari nilai kontrak</div>
+          <div class="kpi-sub">${nf(s.pct_realisasi,2)}% dari nilai kontrak</div>
         </div>
         <div class="kpi orange" style="--kpi-c:var(--orange,#C9851A)">
           <div class="kpi-label">Sisa Kontrak (Outstanding)</div>
@@ -1582,11 +1618,14 @@ function renderOSDetail(resetPage=false){
 
   const satkerMap = {};
   D.satker.forEach(s=>satkerMap[String(s.KODE_SATKER)]=shortName(s.DESKRIPSI_SATKER));
+  // Nama kegiatan resmi dari D.kegiatan (NAMA_KEGIATAN di detail kontrak berisi rincian item, bukan kegiatan)
+  const kegName = {};
+  D.kegiatan.forEach(k=>kegName[k.KDKEG]=k.NAMA_KEGIATAN);
 
   // Update filter kegiatan dinamis
   const kegEl = document.getElementById('os-f-keg');
   if(kegEl && kegEl.options.length<=1){
-    const kegSet = [...new Map(D.outstanding.detail.map(r=>[r.KDKEG, r.NAMA_KEGIATAN||r.KDKEG])).entries()];
+    const kegSet = [...new Set(D.outstanding.detail.map(r=>r.KDKEG).filter(Boolean))].sort().map(k=>[k, kegName[k]||k]);
     kegEl.innerHTML = '<option value="">Semua Kegiatan</option>' +
       kegSet.map(([k,v])=>`<option value="${k}">${k} - ${(v||'').substring(0,35)}</option>`).join('');
   }
@@ -1601,6 +1640,17 @@ function renderOSDetail(resetPage=false){
     }
     return true;
   });
+
+  // Kontrak berstatus SELESAI tetapi sisa > 0 — kemungkinan data sumber belum diperbarui
+  const flagged = D.outstanding.detail.filter(isSelesaiSisa);
+  const flagEl = document.getElementById('os-flag-note');
+  if(flagEl){
+    if(flagged.length){
+      const sum = flagged.reduce((a,r)=>a+(r.SISA_KONTRAK||0),0);
+      flagEl.innerHTML = `⚠ ${flagged.length} kontrak berstatus <b>SELESAI</b> tetapi masih tercatat sisa ${fmtRp(sum)} (ikut dihitung outstanding). Periksa status atau realisasinya di data sumber.`;
+      flagEl.style.display='block';
+    } else flagEl.style.display='none';
+  }
 
   const total = rows.length;
   const totalPage = Math.max(1, Math.ceil(total/OS_PER_PAGE));
@@ -1624,12 +1674,12 @@ function renderOSDetail(resetPage=false){
         <td style="font-size:11px;white-space:nowrap">${r.NO_KONTRAK||'—'}</td>
         <td style="font-size:11px;max-width:200px;white-space:normal;line-height:1.4">${r.NAMA_PAKET||'—'}</td>
         <td style="font-size:11px;white-space:nowrap">${satkerMap[String(r.KODE_SATKER)]||r.KODE_SATKER||'—'}</td>
-        <td style="font-size:11px">${(r.NAMA_KEGIATAN||r.KDKEG||'—').substring(0,30)}</td>
-        <td style="font-size:11px;font-family:monospace">${r.KDKRO_SUFFIX||'—'}</td>
+        <td style="font-size:11px" title="${kegName[r.KDKEG]||''}"><span class="mono" style="color:var(--green)">${r.KDKEG||'—'}</span> ${(kegName[r.KDKEG]||'').substring(0,28)}${(kegName[r.KDKEG]||'').length>28?'…':''}</td>
+        <td style="font-size:11px;max-width:180px;white-space:normal;line-height:1.4">${r.NAMA_KEGIATAN && r.NAMA_KEGIATAN!==r.NAMA_PAKET ? r.NAMA_KEGIATAN : '—'}</td>
         <td class="r" style="font-size:11px;white-space:nowrap">${fmtRp(r.NILAI_KONTRAK||0)}</td>
         <td class="r" style="font-size:11px;white-space:nowrap">${fmtRp(r.REALISASI_KONTRAK||0)}</td>
         <td class="r" style="font-size:11px;white-space:nowrap;color:#C9851A">${fmtRp(r.SISA_KONTRAK||0)}</td>
-        <td style="font-size:11px;color:${statusColor(r.STATUS)};white-space:nowrap">${r.STATUS||'—'}</td>
+        <td style="font-size:11px;color:${statusColor(r.STATUS)};white-space:nowrap">${r.STATUS||'—'}${isSelesaiSisa(r)?'<br><span class="os-flag" title="Status selesai tetapi sisa kontrak belum nol — periksa data sumber">⚠ cek: masih ada sisa</span>':''}</td>
         <td style="font-size:11px;white-space:nowrap">${r.TANGGAL_SELESAI||'—'}</td>
       </tr>`).join('')
     : '<tr><td colspan="10" style="text-align:center;color:var(--txt3);padding:24px">Tidak ada data sesuai filter</td></tr>';
@@ -1677,17 +1727,17 @@ function renderPerbandingan(){
     <div class="kpi blue">
       <div class="kpi-label">Realisasi H-1 (${prev.tanggal})</div>
       <div class="kpi-value">${fmtM(prev.total.real)}</div>
-      <div class="kpi-sub">${prev.total.pct.toFixed(2)}%</div>
+      <div class="kpi-sub">${nf(prev.total.pct,2)}%</div>
     </div>
     <div class="kpi green">
       <div class="kpi-label">Realisasi Hari Ini (${today.tanggal})</div>
       <div class="kpi-value">${fmtM(today.total.real)}</div>
-      <div class="kpi-sub">${today.total.pct.toFixed(2)}%</div>
+      <div class="kpi-sub">${nf(today.total.pct,2)}%</div>
     </div>
     <div class="kpi ${deltaReal>=0?'green':'red'}">
       <div class="kpi-label">Delta Realisasi</div>
-      <div class="kpi-value">${deltaReal>=0?'+':''}${fmtM(deltaReal)}</div>
-      <div class="kpi-sub">${deltaPct>=0?'+':''}${deltaPct.toFixed(2)} poin persentase</div>
+      <div class="kpi-value">${sgn(deltaReal)}${fmtM(deltaReal)}</div>
+      <div class="kpi-sub">${sgn(deltaPct)}${nf(deltaPct,2)} poin persentase</div>
     </div>
   `;
 
@@ -1719,8 +1769,8 @@ function renderPerbandingan(){
       <td style="font-weight:500;font-size:12px">${r.nama}</td>
       <td class="r">${fmtRp(r.prevReal)}</td>
       <td class="r">${fmtRp(r.todayReal)}</td>
-      <td class="r ${cls}">${r.dr>=0?'+':''}${fmtRp(r.dr)}</td>
-      <td class="r ${cls}">${r.dpct>=0?'+':''}${r.dpct.toFixed(2)}%</td>
+      <td class="r ${cls}">${sgn(r.dr)}${fmtRp(r.dr)}</td>
+      <td class="r ${cls}">${r.dr!==0 && Math.abs(r.dpct)<0.005 ? (r.dr>0?'+&lt;':'−&lt;')+nf(0.01,2) : sgn(r.dpct)+nf(r.dpct,2)}%</td>
       <td><span class="badge ${r.dr>0?'bg':r.dr<0?'br':'bb'}">${r.dr>0?'▲ Naik':r.dr<0?'▼ Turun':'→ Sama'}</span></td>
     </tr>`;
   }).join('');
