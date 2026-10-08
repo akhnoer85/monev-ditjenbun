@@ -422,6 +422,8 @@ footer.foot{max-width:1240px;margin:0 auto;padding:20px 20px 40px;color:var(--mu
 <div id="tab-akun" class="page">
   <div id="akun-content" style="display:none">
     <div class="filter-bar">
+      <label id="f-akun-satker-lbl" style="display:none">Satker:</label>
+      <select id="f-akun-satker" onchange="renderAkun()" style="display:none"><option value="">Semua Satker</option></select>
       <label>Filter Kegiatan:</label>
       <select id="f-akun-keg" onchange="renderAkun()"><option value="">Semua</option></select>
       <label>Jenis Akun:</label>
@@ -1039,6 +1041,11 @@ function buildFilters(){
   document.getElementById('f-keg-keg').innerHTML=kegOpts;
   document.getElementById('f-ro-keg').innerHTML=kegOpts;
   document.getElementById('f-akun-keg').innerHTML=kegOpts;
+  // Filter satker di tab Per Akun — hanya jika JSON memuat satker_akun_kegiatan
+  const hasSatAkun = !!(D.satker_akun_kegiatan && D.satker_akun_kegiatan.length);
+  document.getElementById('f-akun-satker').innerHTML=satAll;
+  document.getElementById('f-akun-satker').style.display = hasSatAkun ? '' : 'none';
+  document.getElementById('f-akun-satker-lbl').style.display = hasSatAkun ? '' : 'none';
   // KRO options
   const kroOpts = '<option value="">Semua KRO</option>'+[...new Set(D.kro.map(k=>k.S05||k.S05_KEG_KRO||''))].filter(Boolean).map(k=>`<option value="${k}">${k}</option>`).join('');
   document.getElementById('f-ro-kro').innerHTML=kroOpts;
@@ -1416,9 +1423,19 @@ function renderAkun(){
   if(!D) return;
   const fKeg=document.getElementById('f-akun-keg').value;
   const fJenis=document.getElementById('f-akun-jenis').value;
+  const fSatker=D.satker_akun_kegiatan ? document.getElementById('f-akun-satker').value : '';
 
   let akun;
-  if(fKeg){
+  if(fSatker){
+    // aggregate dari satker_akun_kegiatan — key JSON: KODE_SATKER, S03, NAMA_AKUN, KDKEG
+    const grp={};
+    D.satker_akun_kegiatan.filter(r=>String(r.KODE_SATKER)===fSatker && (!fKeg||r.KDKEG===fKeg)).forEach(r=>{
+      const kode=r.S03||'';
+      if(!grp[kode]) grp[kode]={S03:kode,NAMA_AKUN:r.NAMA_AKUN,pagu:0,real:0};
+      grp[kode].pagu+=r.pagu; grp[kode].real+=r.real;
+    });
+    akun=Object.values(grp);
+  } else if(fKeg){
     // aggregate dari akun_kegiatan — key JSON: S03, NAMA_AKUN
     const grp={};
     D.akun_kegiatan.filter(r=>r.KDKEG===fKeg).forEach(r=>{

@@ -6318,6 +6318,2472 @@
       "real": 25202260
     }
   ],
+  "satker_akun_kegiatan": [
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511111",
+      "NAMA_AKUN": "Belanja Gaji Pokok PNS",
+      "KDKEG": "1780",
+      "pagu": 20570000000,
+      "real": 16759730830
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511119",
+      "NAMA_AKUN": "Belanja Pembulatan Gaji PNS",
+      "KDKEG": "1780",
+      "pagu": 365000,
+      "real": 246855
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511121",
+      "NAMA_AKUN": "Belanja Tunj. Suami/Istri PNS",
+      "KDKEG": "1780",
+      "pagu": 1393560000,
+      "real": 1076045546
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511122",
+      "NAMA_AKUN": "Belanja Tunj. Anak PNS",
+      "KDKEG": "1780",
+      "pagu": 418000000,
+      "real": 302538343
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511123",
+      "NAMA_AKUN": "Belanja Tunj. Struktural PNS",
+      "KDKEG": "1780",
+      "pagu": 416800000,
+      "real": 278630000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511124",
+      "NAMA_AKUN": "Belanja Tunj. Fungsional PNS",
+      "KDKEG": "1780",
+      "pagu": 2800097000,
+      "real": 1890847000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511125",
+      "NAMA_AKUN": "Belanja Tunj. PPh PNS",
+      "KDKEG": "1780",
+      "pagu": 241850000,
+      "real": 212237284
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511126",
+      "NAMA_AKUN": "Belanja Tunj. Beras PNS",
+      "KDKEG": "1780",
+      "pagu": 1092000000,
+      "real": 808062360
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511129",
+      "NAMA_AKUN": "Belanja Uang Makan PNS",
+      "KDKEG": "1780",
+      "pagu": 2200000000,
+      "real": 1079351000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511151",
+      "NAMA_AKUN": "Belanja Tunjangan Umum PNS",
+      "KDKEG": "1780",
+      "pagu": 408240000,
+      "real": 351565000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511611",
+      "NAMA_AKUN": "Belanja Gaji Pokok PPPK",
+      "KDKEG": "1780",
+      "pagu": 4770000000,
+      "real": 2663562228
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511619",
+      "NAMA_AKUN": "Belanja Pembulatan Gaji PPPK",
+      "KDKEG": "1780",
+      "pagu": 365000,
+      "real": 57000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511621",
+      "NAMA_AKUN": "Belanja Tunjangan Suami/Istri PPPK",
+      "KDKEG": "1780",
+      "pagu": 463880000,
+      "real": 198748540
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511622",
+      "NAMA_AKUN": "Belanja Tunjangan Anak PPPK",
+      "KDKEG": "1780",
+      "pagu": 185400000,
+      "real": 58189313
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511624",
+      "NAMA_AKUN": "Belanja Tunjangan Fungsional PPPK",
+      "KDKEG": "1780",
+      "pagu": 200000000,
+      "real": 58675833
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511625",
+      "NAMA_AKUN": "Belanja Tunjangan Beras PPPK",
+      "KDKEG": "1780",
+      "pagu": 400000000,
+      "real": 199142930
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511628",
+      "NAMA_AKUN": "Belanja Uang Makan PPPK",
+      "KDKEG": "1780",
+      "pagu": 1100000000,
+      "real": 287858000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "511633",
+      "NAMA_AKUN": "Belanja Tunjangan Umum PPPK",
+      "KDKEG": "1780",
+      "pagu": 216650000,
+      "real": 151327488
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521111",
+      "NAMA_AKUN": "Belanja Keperluan Perkantoran",
+      "KDKEG": "1780",
+      "pagu": 5660856000,
+      "real": 3124811022
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521114",
+      "NAMA_AKUN": "Belanja Pengiriman Surat Dinas Pos Pusat",
+      "KDKEG": "1780",
+      "pagu": 30750000,
+      "real": 1713090
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521115",
+      "NAMA_AKUN": "Belanja Honor Operasional Satuan Kerja",
+      "KDKEG": "1780",
+      "pagu": 821980000,
+      "real": 506430000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521119",
+      "NAMA_AKUN": "Belanja Barang Operasional Lainnya",
+      "KDKEG": "1780",
+      "pagu": 210950000,
+      "real": 164330813
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521119",
+      "NAMA_AKUN": "Belanja Barang Operasional Lainnya",
+      "KDKEG": "5890",
+      "pagu": 187500000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1777",
+      "pagu": 725902000,
+      "real": 140848700
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1779",
+      "pagu": 312984000,
+      "real": 296269488
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1780",
+      "pagu": 654313000,
+      "real": 431309932
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "5888",
+      "pagu": 4292332000,
+      "real": 888324051
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "5889",
+      "pagu": 123338000,
+      "real": 114148500
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "5890",
+      "pagu": 25847066000,
+      "real": 3600252950
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521213",
+      "NAMA_AKUN": "Belanja Honor Output Kegiatan",
+      "KDKEG": "1777",
+      "pagu": 37800000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521213",
+      "NAMA_AKUN": "Belanja Honor Output Kegiatan",
+      "KDKEG": "1779",
+      "pagu": 19800000,
+      "real": 5800000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521213",
+      "NAMA_AKUN": "Belanja Honor Output Kegiatan",
+      "KDKEG": "1780",
+      "pagu": 619316000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521213",
+      "NAMA_AKUN": "Belanja Honor Output Kegiatan",
+      "KDKEG": "5888",
+      "pagu": 1076700000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521811",
+      "NAMA_AKUN": "Belanja Barang Persediaan Barang Konsumsi",
+      "KDKEG": "1780",
+      "pagu": 980875000,
+      "real": 347435874
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "521822",
+      "NAMA_AKUN": "Belanja Barang Persediaan barang dalam proses",
+      "KDKEG": "5890",
+      "pagu": 2605027653000,
+      "real": 556995028904
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522111",
+      "NAMA_AKUN": "Belanja Langganan Listrik",
+      "KDKEG": "1780",
+      "pagu": 198000000,
+      "real": 126242283
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522112",
+      "NAMA_AKUN": "Belanja Langganan Telepon",
+      "KDKEG": "1780",
+      "pagu": 48000000,
+      "real": 20198223
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522131",
+      "NAMA_AKUN": "Belanja Jasa Konsultan",
+      "KDKEG": "5890",
+      "pagu": 140253000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522141",
+      "NAMA_AKUN": "Belanja Sewa",
+      "KDKEG": "1777",
+      "pagu": 172580000,
+      "real": 15800000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522141",
+      "NAMA_AKUN": "Belanja Sewa",
+      "KDKEG": "1779",
+      "pagu": 61000000,
+      "real": 59976000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522141",
+      "NAMA_AKUN": "Belanja Sewa",
+      "KDKEG": "1780",
+      "pagu": 1231700000,
+      "real": 673393106
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522141",
+      "NAMA_AKUN": "Belanja Sewa",
+      "KDKEG": "5888",
+      "pagu": 424000000,
+      "real": 10150000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522141",
+      "NAMA_AKUN": "Belanja Sewa",
+      "KDKEG": "5890",
+      "pagu": 351400000,
+      "real": 279658164
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522151",
+      "NAMA_AKUN": "Belanja Jasa Profesi",
+      "KDKEG": "1777",
+      "pagu": 47700000,
+      "real": 41400000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522151",
+      "NAMA_AKUN": "Belanja Jasa Profesi",
+      "KDKEG": "1779",
+      "pagu": 30000000,
+      "real": 26000000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522151",
+      "NAMA_AKUN": "Belanja Jasa Profesi",
+      "KDKEG": "1780",
+      "pagu": 2825000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522151",
+      "NAMA_AKUN": "Belanja Jasa Profesi",
+      "KDKEG": "5888",
+      "pagu": 610800000,
+      "real": 224800000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522151",
+      "NAMA_AKUN": "Belanja Jasa Profesi",
+      "KDKEG": "5889",
+      "pagu": 3600000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522151",
+      "NAMA_AKUN": "Belanja Jasa Profesi",
+      "KDKEG": "5890",
+      "pagu": 381500000,
+      "real": 86400000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "1779",
+      "pagu": 64372000,
+      "real": 61156000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "1780",
+      "pagu": 354022000,
+      "real": 124884000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "5888",
+      "pagu": 150000000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "5889",
+      "pagu": 108760000,
+      "real": 43607142
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "5890",
+      "pagu": 487500000,
+      "real": 159091159
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "523119",
+      "NAMA_AKUN": "Belanja Pemeliharaan Gedung dan Bangunan Lainnya",
+      "KDKEG": "1780",
+      "pagu": 1597288000,
+      "real": 1105421193
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "523121",
+      "NAMA_AKUN": "Belanja Pemeliharaan Peralatan dan Mesin",
+      "KDKEG": "1780",
+      "pagu": 2845014000,
+      "real": 1681095752
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1777",
+      "pagu": 4913912000,
+      "real": 3412443134
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1779",
+      "pagu": 185478000,
+      "real": 124493807
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1780",
+      "pagu": 893223000,
+      "real": 859457498
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "5888",
+      "pagu": 32866077000,
+      "real": 22701687411
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "5889",
+      "pagu": 241920000,
+      "real": 202349391
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "5890",
+      "pagu": 62104783000,
+      "real": 25240884659
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "1777",
+      "pagu": 1874400000,
+      "real": 337790000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "1779",
+      "pagu": 47380000,
+      "real": 41680000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "1780",
+      "pagu": 20130000,
+      "real": 16830000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "5888",
+      "pagu": 21669260000,
+      "real": 2671345000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "5889",
+      "pagu": 18760000,
+      "real": 11620000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "5890",
+      "pagu": 3017290000,
+      "real": 115330000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524114",
+      "NAMA_AKUN": "",
+      "KDKEG": "1779",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524114",
+      "NAMA_AKUN": "",
+      "KDKEG": "1780",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524119",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Paket Meeting Luar Kota",
+      "KDKEG": "1780",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524119",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Paket Meeting Luar Kota",
+      "KDKEG": "5889",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524119",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Paket Meeting Luar Kota",
+      "KDKEG": "5890",
+      "pagu": 647570000,
+      "real": 423430541
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524211",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa - Luar Negeri",
+      "KDKEG": "1780",
+      "pagu": 165352000,
+      "real": 165328100
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "524211",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa - Luar Negeri",
+      "KDKEG": "5890",
+      "pagu": 100000000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526112",
+      "NAMA_AKUN": "Belanja Peralatan Dan Mesin Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1777",
+      "pagu": 3473000000,
+      "real": 1264937063
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526112",
+      "NAMA_AKUN": "Belanja Peralatan Dan Mesin Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1779",
+      "pagu": 119550000,
+      "real": 118737033
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526112",
+      "NAMA_AKUN": "Belanja Peralatan Dan Mesin Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "5890",
+      "pagu": 49385000,
+      "real": 49385000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526113",
+      "NAMA_AKUN": "Belanja Gedung Dan Bangunan Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1779",
+      "pagu": 101949000,
+      "real": 101736106
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526113",
+      "NAMA_AKUN": "Belanja Gedung Dan Bangunan Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "5890",
+      "pagu": 59950000,
+      "real": 59850000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1777",
+      "pagu": 121359513000,
+      "real": 21466101015
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1779",
+      "pagu": 93540000,
+      "real": 92262640
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "5888",
+      "pagu": 873920901000,
+      "real": 56874061171
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "5890",
+      "pagu": 919002000,
+      "real": 847183207
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "1777",
+      "pagu": 93478554000,
+      "real": 22132987500
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "1779",
+      "pagu": 23848000,
+      "real": 3520000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "5888",
+      "pagu": 760367739000,
+      "real": 93283310400
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "5890",
+      "pagu": 149120000,
+      "real": 146120000
+    },
+    {
+      "KODE_SATKER": "238830",
+      "S03": "532111",
+      "NAMA_AKUN": "Belanja Modal Peralatan dan Mesin",
+      "KDKEG": "1780",
+      "pagu": 17500000,
+      "real": 17470000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511111",
+      "NAMA_AKUN": "Belanja Gaji Pokok PNS",
+      "KDKEG": "1780",
+      "pagu": 6335051000,
+      "real": 5145569300
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511119",
+      "NAMA_AKUN": "Belanja Pembulatan Gaji PNS",
+      "KDKEG": "1780",
+      "pagu": 85000,
+      "real": 62700
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511121",
+      "NAMA_AKUN": "Belanja Tunj. Suami/Istri PNS",
+      "KDKEG": "1780",
+      "pagu": 443430000,
+      "real": 363902048
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511122",
+      "NAMA_AKUN": "Belanja Tunj. Anak PNS",
+      "KDKEG": "1780",
+      "pagu": 159020000,
+      "real": 123203158
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511123",
+      "NAMA_AKUN": "Belanja Tunj. Struktural PNS",
+      "KDKEG": "1780",
+      "pagu": 42070000,
+      "real": 36060000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511124",
+      "NAMA_AKUN": "Belanja Tunj. Fungsional PNS",
+      "KDKEG": "1780",
+      "pagu": 843672000,
+      "real": 710310000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511125",
+      "NAMA_AKUN": "Belanja Tunj. PPh PNS",
+      "KDKEG": "1780",
+      "pagu": 84200000,
+      "real": 78051317
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511126",
+      "NAMA_AKUN": "Belanja Tunj. Beras PNS",
+      "KDKEG": "1780",
+      "pagu": 340000000,
+      "real": 265926240
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511129",
+      "NAMA_AKUN": "Belanja Uang Makan PNS",
+      "KDKEG": "1780",
+      "pagu": 787245000,
+      "real": 507388000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511151",
+      "NAMA_AKUN": "Belanja Tunjangan Umum PNS",
+      "KDKEG": "1780",
+      "pagu": 94220000,
+      "real": 73795000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511611",
+      "NAMA_AKUN": "Belanja Gaji Pokok PPPK",
+      "KDKEG": "1780",
+      "pagu": 1428222000,
+      "real": 1064588646
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511619",
+      "NAMA_AKUN": "Belanja Pembulatan Gaji PPPK",
+      "KDKEG": "1780",
+      "pagu": 25000,
+      "real": 20918
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511621",
+      "NAMA_AKUN": "Belanja Tunjangan Suami/Istri PPPK",
+      "KDKEG": "1780",
+      "pagu": 134820000,
+      "real": 63336214
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511622",
+      "NAMA_AKUN": "Belanja Tunjangan Anak PPPK",
+      "KDKEG": "1780",
+      "pagu": 53833000,
+      "real": 17210140
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511624",
+      "NAMA_AKUN": "Belanja Tunjangan Fungsional PPPK",
+      "KDKEG": "1780",
+      "pagu": 57045000,
+      "real": 48720000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511625",
+      "NAMA_AKUN": "Belanja Tunjangan Beras PPPK",
+      "KDKEG": "1780",
+      "pagu": 147500000,
+      "real": 67374740
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511628",
+      "NAMA_AKUN": "Belanja Uang Makan PPPK",
+      "KDKEG": "1780",
+      "pagu": 342577000,
+      "real": 161402000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "511633",
+      "NAMA_AKUN": "Belanja Tunjangan Umum PPPK",
+      "KDKEG": "1780",
+      "pagu": 75740000,
+      "real": 51238332
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "521111",
+      "NAMA_AKUN": "Belanja Keperluan Perkantoran",
+      "KDKEG": "1780",
+      "pagu": 461565000,
+      "real": 339934202
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "521114",
+      "NAMA_AKUN": "Belanja Pengiriman Surat Dinas Pos Pusat",
+      "KDKEG": "1780",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "521115",
+      "NAMA_AKUN": "Belanja Honor Operasional Satuan Kerja",
+      "KDKEG": "1780",
+      "pagu": 271200000,
+      "real": 180800000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1777",
+      "pagu": 121290000,
+      "real": 29798750
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1779",
+      "pagu": 178271000,
+      "real": 164383820
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1780",
+      "pagu": 21280000,
+      "real": 17144175
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "5888",
+      "pagu": 519132000,
+      "real": 149348748
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "5890",
+      "pagu": 1055783000,
+      "real": 155267870
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "521213",
+      "NAMA_AKUN": "Belanja Honor Output Kegiatan",
+      "KDKEG": "5890",
+      "pagu": 478305000,
+      "real": 139440000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "521811",
+      "NAMA_AKUN": "Belanja Barang Persediaan Barang Konsumsi",
+      "KDKEG": "1780",
+      "pagu": 7400000,
+      "real": 6126103
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "521822",
+      "NAMA_AKUN": "Belanja Barang Persediaan barang dalam proses",
+      "KDKEG": "5890",
+      "pagu": 515239252000,
+      "real": 115444181224
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "522111",
+      "NAMA_AKUN": "Belanja Langganan Listrik",
+      "KDKEG": "1780",
+      "pagu": 615424000,
+      "real": 423944248
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "522112",
+      "NAMA_AKUN": "Belanja Langganan Telepon",
+      "KDKEG": "1780",
+      "pagu": 33600000,
+      "real": 26153011
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "522113",
+      "NAMA_AKUN": "Belanja Langganan Air",
+      "KDKEG": "1780",
+      "pagu": 17800000,
+      "real": 9364350
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "522151",
+      "NAMA_AKUN": "Belanja Jasa Profesi",
+      "KDKEG": "5890",
+      "pagu": 144900000,
+      "real": 50400000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "1779",
+      "pagu": 72777000,
+      "real": 63291090
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "1780",
+      "pagu": 1278810000,
+      "real": 609155976
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "5890",
+      "pagu": 1538214000,
+      "real": 72230030
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "523111",
+      "NAMA_AKUN": "Belanja Pemeliharaan Gedung dan Bangunan",
+      "KDKEG": "1780",
+      "pagu": 468425000,
+      "real": 341725473
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "523121",
+      "NAMA_AKUN": "Belanja Pemeliharaan Peralatan dan Mesin",
+      "KDKEG": "1780",
+      "pagu": 668125000,
+      "real": 396003948
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "523121",
+      "NAMA_AKUN": "Belanja Pemeliharaan Peralatan dan Mesin",
+      "KDKEG": "5890",
+      "pagu": 53000000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1777",
+      "pagu": 755660000,
+      "real": 173842584
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1779",
+      "pagu": 55704000,
+      "real": 48673000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1780",
+      "pagu": 101063000,
+      "real": 56161260
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "5888",
+      "pagu": 4884300000,
+      "real": 651855461
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "5890",
+      "pagu": 13536047000,
+      "real": 2382202754
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "1777",
+      "pagu": 439620000,
+      "real": 35190000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "1779",
+      "pagu": 17700000,
+      "real": 13950000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "5888",
+      "pagu": 4049060000,
+      "real": 400860000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "5890",
+      "pagu": 419006000,
+      "real": 6935000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "524114",
+      "NAMA_AKUN": "",
+      "KDKEG": "1779",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "526112",
+      "NAMA_AKUN": "Belanja Peralatan Dan Mesin Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1777",
+      "pagu": 615000000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "526112",
+      "NAMA_AKUN": "Belanja Peralatan Dan Mesin Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1779",
+      "pagu": 21090000,
+      "real": 20810280
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "526112",
+      "NAMA_AKUN": "Belanja Peralatan Dan Mesin Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "5890",
+      "pagu": 1256745000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "526113",
+      "NAMA_AKUN": "Belanja Gedung Dan Bangunan Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "5890",
+      "pagu": 1029185000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1777",
+      "pagu": 37294488000,
+      "real": 1110137640
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1779",
+      "pagu": 21000000,
+      "real": 20557200
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "5888",
+      "pagu": 47468851000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "5890",
+      "pagu": 2057717000,
+      "real": 75000000
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "1777",
+      "pagu": 32878300000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "5888",
+      "pagu": 102861200000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567338",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "5890",
+      "pagu": 456175000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511111",
+      "NAMA_AKUN": "Belanja Gaji Pokok PNS",
+      "KDKEG": "1780",
+      "pagu": 6941280000,
+      "real": 6484215200
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511119",
+      "NAMA_AKUN": "Belanja Pembulatan Gaji PNS",
+      "KDKEG": "1780",
+      "pagu": 310000,
+      "real": 82838
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511121",
+      "NAMA_AKUN": "Belanja Tunj. Suami/Istri PNS",
+      "KDKEG": "1780",
+      "pagu": 630000000,
+      "real": 504178650
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511122",
+      "NAMA_AKUN": "Belanja Tunj. Anak PNS",
+      "KDKEG": "1780",
+      "pagu": 238000000,
+      "real": 158556264
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511123",
+      "NAMA_AKUN": "Belanja Tunj. Struktural PNS",
+      "KDKEG": "1780",
+      "pagu": 42000000,
+      "real": 36060000
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511124",
+      "NAMA_AKUN": "Belanja Tunj. Fungsional PNS",
+      "KDKEG": "1780",
+      "pagu": 1180000000,
+      "real": 691266000
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511125",
+      "NAMA_AKUN": "Belanja Tunj. PPh PNS",
+      "KDKEG": "1780",
+      "pagu": 94500000,
+      "real": 73987277
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511126",
+      "NAMA_AKUN": "Belanja Tunj. Beras PNS",
+      "KDKEG": "1780",
+      "pagu": 425000000,
+      "real": 343198380
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511129",
+      "NAMA_AKUN": "Belanja Uang Makan PNS",
+      "KDKEG": "1780",
+      "pagu": 1135565000,
+      "real": 534241000
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511151",
+      "NAMA_AKUN": "Belanja Tunjangan Umum PNS",
+      "KDKEG": "1780",
+      "pagu": 215000000,
+      "real": 139545000
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511611",
+      "NAMA_AKUN": "Belanja Gaji Pokok PPPK",
+      "KDKEG": "1780",
+      "pagu": 735000000,
+      "real": 596460841
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511619",
+      "NAMA_AKUN": "Belanja Pembulatan Gaji PPPK",
+      "KDKEG": "1780",
+      "pagu": 14000,
+      "real": 13738
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511621",
+      "NAMA_AKUN": "Belanja Tunjangan Suami/Istri PPPK",
+      "KDKEG": "1780",
+      "pagu": 53900000,
+      "real": 34974721
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511622",
+      "NAMA_AKUN": "Belanja Tunjangan Anak PPPK",
+      "KDKEG": "1780",
+      "pagu": 17640000,
+      "real": 10909112
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511625",
+      "NAMA_AKUN": "Belanja Tunjangan Beras PPPK",
+      "KDKEG": "1780",
+      "pagu": 38238000,
+      "real": 41901005
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511628",
+      "NAMA_AKUN": "Belanja Uang Makan PPPK",
+      "KDKEG": "1780",
+      "pagu": 237408000,
+      "real": 95498000
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "511633",
+      "NAMA_AKUN": "Belanja Tunjangan Umum PPPK",
+      "KDKEG": "1780",
+      "pagu": 37800000,
+      "real": 45589997
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521111",
+      "NAMA_AKUN": "Belanja Keperluan Perkantoran",
+      "KDKEG": "1780",
+      "pagu": 180711000,
+      "real": 110737169
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521114",
+      "NAMA_AKUN": "Belanja Pengiriman Surat Dinas Pos Pusat",
+      "KDKEG": "1780",
+      "pagu": 220000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521115",
+      "NAMA_AKUN": "Belanja Honor Operasional Satuan Kerja",
+      "KDKEG": "1780",
+      "pagu": 203112000,
+      "real": 138910000
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1777",
+      "pagu": 174310000,
+      "real": 29220900
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1779",
+      "pagu": 30720000,
+      "real": 24802500
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1780",
+      "pagu": 28073000,
+      "real": 21579430
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "5888",
+      "pagu": 255810000,
+      "real": 59643300
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "5890",
+      "pagu": 181961000,
+      "real": 66259205
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521213",
+      "NAMA_AKUN": "Belanja Honor Output Kegiatan",
+      "KDKEG": "1777",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521213",
+      "NAMA_AKUN": "Belanja Honor Output Kegiatan",
+      "KDKEG": "5890",
+      "pagu": 45300000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521219",
+      "NAMA_AKUN": "Belanja Barang Non Operasional Lainnya",
+      "KDKEG": "1780",
+      "pagu": 659000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521219",
+      "NAMA_AKUN": "Belanja Barang Non Operasional Lainnya",
+      "KDKEG": "5890",
+      "pagu": 120941000,
+      "real": 67132800
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521811",
+      "NAMA_AKUN": "Belanja Barang Persediaan Barang Konsumsi",
+      "KDKEG": "1780",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "521822",
+      "NAMA_AKUN": "Belanja Barang Persediaan barang dalam proses",
+      "KDKEG": "5890",
+      "pagu": 169693940000,
+      "real": 41465500855
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "522111",
+      "NAMA_AKUN": "Belanja Langganan Listrik",
+      "KDKEG": "1780",
+      "pagu": 643613000,
+      "real": 430176705
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "522113",
+      "NAMA_AKUN": "Belanja Langganan Air",
+      "KDKEG": "1780",
+      "pagu": 60000000,
+      "real": 33231313
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "522119",
+      "NAMA_AKUN": "Belanja Langganan Daya dan Jasa Lainnya",
+      "KDKEG": "1780",
+      "pagu": 168000000,
+      "real": 103430800
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "522141",
+      "NAMA_AKUN": "Belanja Sewa",
+      "KDKEG": "1777",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "522151",
+      "NAMA_AKUN": "Belanja Jasa Profesi",
+      "KDKEG": "1777",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "522151",
+      "NAMA_AKUN": "Belanja Jasa Profesi",
+      "KDKEG": "5890",
+      "pagu": 174970000,
+      "real": 49100000
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "1779",
+      "pagu": 12960000,
+      "real": 7000000
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "1780",
+      "pagu": 1049100000,
+      "real": 806996676
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "5890",
+      "pagu": 15350000,
+      "real": 5125300
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "523111",
+      "NAMA_AKUN": "Belanja Pemeliharaan Gedung dan Bangunan",
+      "KDKEG": "1780",
+      "pagu": 530560000,
+      "real": 269899369
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "523121",
+      "NAMA_AKUN": "Belanja Pemeliharaan Peralatan dan Mesin",
+      "KDKEG": "1780",
+      "pagu": 444827000,
+      "real": 362248886
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1777",
+      "pagu": 800540000,
+      "real": 600388997
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1779",
+      "pagu": 19759000,
+      "real": 18922700
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1780",
+      "pagu": 37417000,
+      "real": 29211058
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "5888",
+      "pagu": 1497899000,
+      "real": 944117233
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "5890",
+      "pagu": 7767757000,
+      "real": 3859678289
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "1777",
+      "pagu": 439450000,
+      "real": 59907150
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "5888",
+      "pagu": 1209550000,
+      "real": 80126000
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "5890",
+      "pagu": 182665000,
+      "real": 4900000
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "524114",
+      "NAMA_AKUN": "",
+      "KDKEG": "1779",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "525113",
+      "NAMA_AKUN": "",
+      "KDKEG": "1780",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "526112",
+      "NAMA_AKUN": "Belanja Peralatan Dan Mesin Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1779",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1777",
+      "pagu": 36556905000,
+      "real": 7453631658
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1779",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "5890",
+      "pagu": 66075000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "1777",
+      "pagu": 29375880000,
+      "real": 962000000
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "5888",
+      "pagu": 46463998000,
+      "real": 5324636100
+    },
+    {
+      "KODE_SATKER": "567408",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "5890",
+      "pagu": 21866000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511111",
+      "NAMA_AKUN": "Belanja Gaji Pokok PNS",
+      "KDKEG": "1780",
+      "pagu": 3176680000,
+      "real": 2642327900
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511119",
+      "NAMA_AKUN": "Belanja Pembulatan Gaji PNS",
+      "KDKEG": "1780",
+      "pagu": 120000,
+      "real": 42258
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511121",
+      "NAMA_AKUN": "Belanja Tunj. Suami/Istri PNS",
+      "KDKEG": "1780",
+      "pagu": 210000000,
+      "real": 130472766
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511122",
+      "NAMA_AKUN": "Belanja Tunj. Anak PNS",
+      "KDKEG": "1780",
+      "pagu": 70000000,
+      "real": 38873980
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511123",
+      "NAMA_AKUN": "Belanja Tunj. Struktural PNS",
+      "KDKEG": "1780",
+      "pagu": 28000000,
+      "real": 23400000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511124",
+      "NAMA_AKUN": "Belanja Tunj. Fungsional PNS",
+      "KDKEG": "1780",
+      "pagu": 315000000,
+      "real": 241570000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511125",
+      "NAMA_AKUN": "Belanja Tunj. PPh PNS",
+      "KDKEG": "1780",
+      "pagu": 35000000,
+      "real": 18364569
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511126",
+      "NAMA_AKUN": "Belanja Tunj. Beras PNS",
+      "KDKEG": "1780",
+      "pagu": 150000000,
+      "real": 121593180
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511129",
+      "NAMA_AKUN": "Belanja Uang Makan PNS",
+      "KDKEG": "1780",
+      "pagu": 643158000,
+      "real": 298600000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511151",
+      "NAMA_AKUN": "Belanja Tunjangan Umum PNS",
+      "KDKEG": "1780",
+      "pagu": 145000000,
+      "real": 71525000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511611",
+      "NAMA_AKUN": "Belanja Gaji Pokok PPPK",
+      "KDKEG": "1780",
+      "pagu": 165000000,
+      "real": 124319246
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511619",
+      "NAMA_AKUN": "Belanja Pembulatan Gaji PPPK",
+      "KDKEG": "1780",
+      "pagu": 56000,
+      "real": 3447
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511621",
+      "NAMA_AKUN": "Belanja Tunjangan Suami/Istri PPPK",
+      "KDKEG": "1780",
+      "pagu": 14560000,
+      "real": 6215961
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511622",
+      "NAMA_AKUN": "Belanja Tunjangan Anak PPPK",
+      "KDKEG": "1780",
+      "pagu": 7280000,
+      "real": 2486383
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511625",
+      "NAMA_AKUN": "Belanja Tunjangan Beras PPPK",
+      "KDKEG": "1780",
+      "pagu": 12000000,
+      "real": 8961975
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511628",
+      "NAMA_AKUN": "Belanja Uang Makan PPPK",
+      "KDKEG": "1780",
+      "pagu": 38000000,
+      "real": 21000000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "511633",
+      "NAMA_AKUN": "Belanja Tunjangan Umum PPPK",
+      "KDKEG": "1780",
+      "pagu": 19120000,
+      "real": 8910000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "521111",
+      "NAMA_AKUN": "Belanja Keperluan Perkantoran",
+      "KDKEG": "1780",
+      "pagu": 585417000,
+      "real": 474313631
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "521114",
+      "NAMA_AKUN": "Belanja Pengiriman Surat Dinas Pos Pusat",
+      "KDKEG": "1780",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "521115",
+      "NAMA_AKUN": "Belanja Honor Operasional Satuan Kerja",
+      "KDKEG": "1780",
+      "pagu": 61400000,
+      "real": 41840000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1777",
+      "pagu": 9690000,
+      "real": 7300000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1779",
+      "pagu": 61752000,
+      "real": 34727451
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1780",
+      "pagu": 73507000,
+      "real": 73327600
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "521219",
+      "NAMA_AKUN": "Belanja Barang Non Operasional Lainnya",
+      "KDKEG": "1779",
+      "pagu": 17000000,
+      "real": 6222748
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "521811",
+      "NAMA_AKUN": "Belanja Barang Persediaan Barang Konsumsi",
+      "KDKEG": "1780",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "522111",
+      "NAMA_AKUN": "Belanja Langganan Listrik",
+      "KDKEG": "1780",
+      "pagu": 259200000,
+      "real": 156087798
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "522112",
+      "NAMA_AKUN": "Belanja Langganan Telepon",
+      "KDKEG": "1780",
+      "pagu": 1440000,
+      "real": 698626
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "522113",
+      "NAMA_AKUN": "Belanja Langganan Air",
+      "KDKEG": "1780",
+      "pagu": 27600000,
+      "real": 14077379
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "1779",
+      "pagu": 6400000,
+      "real": 6400000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "1780",
+      "pagu": 1426000,
+      "real": 1400000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "523111",
+      "NAMA_AKUN": "Belanja Pemeliharaan Gedung dan Bangunan",
+      "KDKEG": "1780",
+      "pagu": 309510000,
+      "real": 293282000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "523121",
+      "NAMA_AKUN": "Belanja Pemeliharaan Peralatan dan Mesin",
+      "KDKEG": "1779",
+      "pagu": 6000000,
+      "real": 3563512
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "523121",
+      "NAMA_AKUN": "Belanja Pemeliharaan Peralatan dan Mesin",
+      "KDKEG": "1780",
+      "pagu": 560160000,
+      "real": 469279861
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "523133",
+      "NAMA_AKUN": "Belanja Pemeliharaan Jaringan",
+      "KDKEG": "1780",
+      "pagu": 191942000,
+      "real": 191457506
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1777",
+      "pagu": 113230000,
+      "real": 49739511
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1779",
+      "pagu": 16362000,
+      "real": 16298000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1780",
+      "pagu": 29116000,
+      "real": 28958810
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "1777",
+      "pagu": 34000000,
+      "real": 4080000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "1779",
+      "pagu": 28980000,
+      "real": 27450000
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "524114",
+      "NAMA_AKUN": "",
+      "KDKEG": "1779",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "526112",
+      "NAMA_AKUN": "Belanja Peralatan Dan Mesin Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1779",
+      "pagu": 9000000,
+      "real": 8996550
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1777",
+      "pagu": 2145000000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1779",
+      "pagu": 26500000,
+      "real": 26498475
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "1777",
+      "pagu": 2216500000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567521",
+      "S03": "532111",
+      "NAMA_AKUN": "Belanja Modal Peralatan dan Mesin",
+      "KDKEG": "1780",
+      "pagu": 7925000,
+      "real": 7732260
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511111",
+      "NAMA_AKUN": "Belanja Gaji Pokok PNS",
+      "KDKEG": "1780",
+      "pagu": 3777602000,
+      "real": 2918010220
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511119",
+      "NAMA_AKUN": "Belanja Pembulatan Gaji PNS",
+      "KDKEG": "1780",
+      "pagu": 56000,
+      "real": 42721
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511121",
+      "NAMA_AKUN": "Belanja Tunj. Suami/Istri PNS",
+      "KDKEG": "1780",
+      "pagu": 211000000,
+      "real": 180305376
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511122",
+      "NAMA_AKUN": "Belanja Tunj. Anak PNS",
+      "KDKEG": "1780",
+      "pagu": 48570000,
+      "real": 41737748
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511123",
+      "NAMA_AKUN": "Belanja Tunj. Struktural PNS",
+      "KDKEG": "1780",
+      "pagu": 42070000,
+      "real": 36060000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511124",
+      "NAMA_AKUN": "Belanja Tunj. Fungsional PNS",
+      "KDKEG": "1780",
+      "pagu": 253280000,
+      "real": 211470000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511125",
+      "NAMA_AKUN": "Belanja Tunj. PPh PNS",
+      "KDKEG": "1780",
+      "pagu": 27539000,
+      "real": 26585841
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511126",
+      "NAMA_AKUN": "Belanja Tunj. Beras PNS",
+      "KDKEG": "1780",
+      "pagu": 156285000,
+      "real": 133180380
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511129",
+      "NAMA_AKUN": "Belanja Uang Makan PNS",
+      "KDKEG": "1780",
+      "pagu": 405000000,
+      "real": 380522000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511151",
+      "NAMA_AKUN": "Belanja Tunjangan Umum PNS",
+      "KDKEG": "1780",
+      "pagu": 86605000,
+      "real": 76700000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511611",
+      "NAMA_AKUN": "Belanja Gaji Pokok PPPK",
+      "KDKEG": "1780",
+      "pagu": 1034370000,
+      "real": 886021722
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511619",
+      "NAMA_AKUN": "Belanja Pembulatan Gaji PPPK",
+      "KDKEG": "1780",
+      "pagu": 28000,
+      "real": 22513
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511621",
+      "NAMA_AKUN": "Belanja Tunjangan Suami/Istri PPPK",
+      "KDKEG": "1780",
+      "pagu": 74201000,
+      "real": 62613406
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511622",
+      "NAMA_AKUN": "Belanja Tunjangan Anak PPPK",
+      "KDKEG": "1780",
+      "pagu": 26304000,
+      "real": 22371212
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511624",
+      "NAMA_AKUN": "Belanja Tunjangan Fungsional PPPK",
+      "KDKEG": "1780",
+      "pagu": 7505000,
+      "real": 6345000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511625",
+      "NAMA_AKUN": "Belanja Tunjangan Beras PPPK",
+      "KDKEG": "1780",
+      "pagu": 115900000,
+      "real": 72220845
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511628",
+      "NAMA_AKUN": "Belanja Uang Makan PPPK",
+      "KDKEG": "1780",
+      "pagu": 195184000,
+      "real": 175716000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "511629",
+      "NAMA_AKUN": "Belanja Tunjangan Kompensasi Kerja PPPK",
+      "KDKEG": "1780",
+      "pagu": 62660000,
+      "real": 52820000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "512211",
+      "NAMA_AKUN": "Belanja Uang Lembur",
+      "KDKEG": "1780",
+      "pagu": 25008000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "521111",
+      "NAMA_AKUN": "Belanja Keperluan Perkantoran",
+      "KDKEG": "1780",
+      "pagu": 43660000,
+      "real": 2229800
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "521114",
+      "NAMA_AKUN": "Belanja Pengiriman Surat Dinas Pos Pusat",
+      "KDKEG": "1780",
+      "pagu": 3926000,
+      "real": 947000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "521115",
+      "NAMA_AKUN": "Belanja Honor Operasional Satuan Kerja",
+      "KDKEG": "1780",
+      "pagu": 153480000,
+      "real": 84960000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1777",
+      "pagu": 96555000,
+      "real": 38155000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1779",
+      "pagu": 8123000,
+      "real": 8123000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "1780",
+      "pagu": 19304000,
+      "real": 12287000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "5888",
+      "pagu": 379065000,
+      "real": 251555000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "521211",
+      "NAMA_AKUN": "Belanja Bahan",
+      "KDKEG": "5890",
+      "pagu": 544756000,
+      "real": 76465986
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "521213",
+      "NAMA_AKUN": "Belanja Honor Output Kegiatan",
+      "KDKEG": "1777",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "521219",
+      "NAMA_AKUN": "Belanja Barang Non Operasional Lainnya",
+      "KDKEG": "1780",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "521822",
+      "NAMA_AKUN": "Belanja Barang Persediaan barang dalam proses",
+      "KDKEG": "5890",
+      "pagu": 186410352000,
+      "real": 39795340922
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "522111",
+      "NAMA_AKUN": "Belanja Langganan Listrik",
+      "KDKEG": "1780",
+      "pagu": 236330000,
+      "real": 193771483
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "522112",
+      "NAMA_AKUN": "Belanja Langganan Telepon",
+      "KDKEG": "1780",
+      "pagu": 79030000,
+      "real": 59831817
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "522113",
+      "NAMA_AKUN": "Belanja Langganan Air",
+      "KDKEG": "1780",
+      "pagu": 5000000,
+      "real": 4336600
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "522141",
+      "NAMA_AKUN": "Belanja Sewa",
+      "KDKEG": "1777",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "522151",
+      "NAMA_AKUN": "Belanja Jasa Profesi",
+      "KDKEG": "5890",
+      "pagu": 49500000,
+      "real": 36300000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "1780",
+      "pagu": 12500000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "522191",
+      "NAMA_AKUN": "Belanja Jasa Lainnya",
+      "KDKEG": "5890",
+      "pagu": 49070000,
+      "real": 31543000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "523119",
+      "NAMA_AKUN": "Belanja Pemeliharaan Gedung dan Bangunan Lainnya",
+      "KDKEG": "1780",
+      "pagu": 80795000,
+      "real": 37552416
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "523121",
+      "NAMA_AKUN": "Belanja Pemeliharaan Peralatan dan Mesin",
+      "KDKEG": "1780",
+      "pagu": 918232000,
+      "real": 268465583
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1777",
+      "pagu": 1318630000,
+      "real": 266558493
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1779",
+      "pagu": 14060000,
+      "real": 14060000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "1780",
+      "pagu": 36630000,
+      "real": 27230218
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "5888",
+      "pagu": 2311632000,
+      "real": 298679919
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "524111",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Biasa",
+      "KDKEG": "5890",
+      "pagu": 5285420000,
+      "real": 2160504074
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "1777",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "1780",
+      "pagu": 0,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "5888",
+      "pagu": 1733490000,
+      "real": 119510000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "524113",
+      "NAMA_AKUN": "Belanja Perjalanan Dinas Dalam Kota",
+      "KDKEG": "5890",
+      "pagu": 483200000,
+      "real": 17000000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "526112",
+      "NAMA_AKUN": "Belanja Peralatan Dan Mesin Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1777",
+      "pagu": 440000000,
+      "real": 415772700
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "1777",
+      "pagu": 49226892000,
+      "real": 8916192360
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "5888",
+      "pagu": 8302800000,
+      "real": 560999639
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "526115",
+      "NAMA_AKUN": "Belanja Barang Fisik Lainnya Untuk Diserahkan Kepada Masyarakat/Pemda",
+      "KDKEG": "5890",
+      "pagu": 277344000,
+      "real": 0
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "1777",
+      "pagu": 43106440000,
+      "real": 1281865000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "5888",
+      "pagu": 66913160000,
+      "real": 13600000
+    },
+    {
+      "KODE_SATKER": "567717",
+      "S03": "526312",
+      "NAMA_AKUN": "Belanja Barang untuk Bantuan Lainnya yang Memiliki Karakteristik Bantuan Pemerintah ",
+      "KDKEG": "5890",
+      "pagu": 77340000,
+      "real": 0
+    }
+  ],
   "outstanding": {
     "summary": {
       "jml_kontrak": 1131,
