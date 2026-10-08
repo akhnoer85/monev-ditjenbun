@@ -96,6 +96,13 @@ button{font-family:inherit}
 .kpi-label{font-size:.88rem;color:var(--muted);font-weight:600;margin-bottom:6px}
 .kpi-value{font-size:1.55rem;font-weight:800;line-height:1.15;margin-bottom:6px;letter-spacing:-0.01em}
 .kpi-sub{font-size:.82rem;color:var(--muted)}
+/* Ringkasan: semua kartu KPI dalam satu baris di layar lebar */
+@media(min-width:1100px){
+  #kpi-main{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:10px}
+  #kpi-main .kpi{padding:16px 14px 14px}
+  #kpi-main .kpi-value{font-size:1.35rem}
+  #kpi-main .kpi-label,#kpi-main .kpi-sub{font-size:.78rem}
+}
 @media(max-width:640px){
   .kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .kpi{padding:14px 12px 12px}
