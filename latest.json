@@ -1,9 +1,9 @@
 {
-  "tanggal": "2026-10-10",
+  "tanggal": "2026-10-11",
   "ref_keg": "id_keg_rev1.xlsx",
   "total": {
     "pagu": 6158018408000,
-    "real": 1135001490368,
+    "real": 1135014477368,
     "pct": 18.43
   },
   "satker": [
@@ -11,7 +11,7 @@
       "KODE_SATKER": "238830",
       "DESKRIPSI_SATKER": "DIREKTORAT JENDERAL PERKEBUNAN",
       "pagu": 4675716722000,
-      "real": 856776423491
+      "real": 856789410491
     },
     {
       "KODE_SATKER": "567338",
@@ -55,7 +55,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 99186366000,
-      "real": 72883998543
+      "real": 72896985543
     },
     {
       "KDKEG": "5888",
@@ -131,7 +131,7 @@
       "S05": "1780EBA",
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "pagu": 98535578000,
-      "real": 72282624767
+      "real": 72295611767
     },
     {
       "KDKEG": "1780",
@@ -369,7 +369,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Perkantoran ",
       "pagu": 96157361000,
-      "real": 70418335080
+      "real": 70431322080
     },
     {
       "KDKEG": "1780",
@@ -957,7 +957,7 @@
       "NAMA_RO": "Layanan Perkantoran ",
       "NAMA_KOMPONEN": "Operasional dan Pemeliharaan Kantor",
       "pagu": 24311603000,
-      "real": 14792536227
+      "real": 14805523227
     },
     {
       "KDKEG": "1780",
@@ -1829,7 +1829,7 @@
       "S03": "522141",
       "NAMA_AKUN": "Belanja Sewa",
       "pagu": 2474680000,
-      "real": 1062057017
+      "real": 1075044017
     },
     {
       "S03": "522151",
@@ -1957,7 +1957,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 53229301000,
-      "real": 36376221598
+      "real": 36389208598
     },
     {
       "KODE_SATKER": "238830",
@@ -2237,7 +2237,7 @@
       "NAMA_KRO": "Layanan Dukungan Manajemen Internal",
       "NAMA_RO": "Layanan Perkantoran ",
       "pagu": 51165937000,
-      "real": 34593842835
+      "real": 34606829835
     },
     {
       "KODE_SATKER": "238830",
@@ -3548,7 +3548,7 @@
       "NAMA_RO": "Layanan Perkantoran ",
       "NAMA_KOMPONEN": "Operasional dan Pemeliharaan Kantor",
       "pagu": 14288730000,
-      "real": 8217027285
+      "real": 8230014285
     },
     {
       "KODE_SATKER": "238830",
@@ -5480,7 +5480,7 @@
     {
       "S06": "A000000001",
       "pagu": 6156836969000,
-      "real": 1134219776450
+      "real": 1134232763450
     },
     {
       "S06": "D000000001",
@@ -5492,7 +5492,7 @@
     {
       "S08": "1",
       "pagu": 4675716722000,
-      "real": 856776423491
+      "real": 856789410491
     },
     {
       "S08": "2",
@@ -5891,7 +5891,7 @@
       "KDKEG": "1780",
       "NAMA_KEGIATAN": "Dukungan Manajemen dan Dukungan Teknis Lainnya Ditjen Perkebunan",
       "pagu": 1231700000,
-      "real": 696472853
+      "real": 709459853
     },
     {
       "S03": "522141",
@@ -6645,7 +6645,7 @@
       "NAMA_AKUN": "Belanja Sewa",
       "KDKEG": "1780",
       "pagu": 1231700000,
-      "real": 696472853
+      "real": 709459853
     },
     {
       "KODE_SATKER": "238830",
