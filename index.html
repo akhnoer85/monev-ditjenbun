@@ -365,7 +365,7 @@ footer.foot{max-width:1240px;margin:0 auto;padding:20px 20px 40px;color:var(--mu
     <div class="tbl-wrap" style="margin-bottom:16px">
       <table><thead><tr>
         <th>Kode Keg</th><th>Nama Kegiatan</th><th>KRO</th>
-        <th class="r">Pagu</th><th class="r">Realisasi</th><th>Progress</th>
+        <th class="r">Pagu</th><th class="r">Realisasi</th><th class="r">Sisa</th><th>Progress</th>
       </tr></thead>
       <tbody id="tb-kro"></tbody></table>
     </div>
@@ -399,7 +399,7 @@ footer.foot{max-width:1240px;margin:0 auto;padding:20px 20px 40px;color:var(--mu
     <div class="tbl-wrap" style="margin-bottom:16px">
       <table><thead><tr>
         <th>Kode Keg</th><th>KRO</th><th>RO</th>
-        <th class="r">Pagu</th><th class="r">Realisasi</th><th>Progress</th>
+        <th class="r">Pagu</th><th class="r">Realisasi</th><th class="r">Sisa</th><th>Progress</th>
       </tr></thead>
       <tbody id="tb-ro"></tbody></table>
     </div>
@@ -414,9 +414,27 @@ footer.foot{max-width:1240px;margin:0 auto;padding:20px 20px 40px;color:var(--mu
     <div class="tbl-wrap">
       <table><thead><tr>
         <th>Kode Keg</th><th>RO</th><th>Komponen</th><th class="r">Kode Komp</th>
-        <th class="r">Pagu</th><th class="r">Realisasi</th><th>Progress</th>
+        <th class="r">Pagu</th><th class="r">Realisasi</th><th class="r">Sisa</th><th>Progress</th>
       </tr></thead>
       <tbody id="tb-komp"></tbody></table>
+    </div>
+    <div id="subkomp-wrap" style="display:none;margin-top:16px">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:6px">
+        <div class="section-head" style="margin-bottom:0;flex:1">Sub-komponen
+          <span id="subkomp-count" style="font-size:11px;font-weight:400;color:var(--txt3);margin-left:8px"></span>
+        </div>
+        <div class="export-bar" style="margin-bottom:0">
+          <button class="btn-export csv" onclick="exportCSV('tb-subkomp','realisasi_subkomponen')">⬇ CSV</button>
+        </div>
+      </div>
+      <div class="tbl-wrap">
+        <table><thead><tr>
+          <th>Kode Keg</th><th>RO</th><th>Komponen</th><th>Sub-komponen</th>
+          <th class="r">Pagu</th><th class="r">Realisasi</th><th class="r">Sisa</th><th>Progress</th>
+        </tr></thead>
+        <tbody id="tb-subkomp"></tbody></table>
+      </div>
+      <div id="subkomp-pagination" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:10px"></div>
     </div>
   </div>
   <div id="ro-empty" class="empty"><div class="empty-icon">🔍</div>
@@ -692,7 +710,7 @@ const isSelesaiSisa = r => /^SELESAI/i.test(r.STATUS||'') && (r.SISA_KONTRAK||0)
 // Baris placeholder (pagu & realisasi 0, mis. KRO tanpa nama) tidak ditampilkan — total tidak berubah
 const hasValue = r => (r.pagu||0)!==0 || (r.real||0)!==0;
 // Urut berdasarkan kode kegiatan → KRO → RO → komponen
-const byKode = (a,b) => ['KDKEG','S05','S13','S14'].reduce((c,k)=>c||String(a[k]||'').localeCompare(String(b[k]||'')),0);
+const byKode = (a,b) => ['KDKEG','S05','S13','S14','S15'].reduce((c,k)=>c||String(a[k]||'').localeCompare(String(b[k]||'')),0);
 // Gambar ulang grafik ringkasan saat melewati batas layar sempit/lebar
 let _wasNarrow = isNarrow();
 window.addEventListener('resize', ()=>{
@@ -821,7 +839,7 @@ function tblToData(tblId){
 }
 
 function exportCSV(tblId, fname){
-  var data = tblToData(tblId);
+  var data = tblId==='tb-subkomp' ? subkompCSVData() : tblToData(tblId);
   if(!data.rows.length){ alert('Tidak ada data untuk diexport'); return; }
   var tanggal = D&&D.tanggal ? D.tanggal : new Date().toISOString().slice(0,10);
   var escape = function(v){ return '"'+String(v).replace(/"/g,'""')+'"'; };
@@ -1299,6 +1317,7 @@ function renderKro(){
       <td style="font-size:12px;max-width:260px">${r.NAMA_KRO||(r.S05||r.S05_KEG_KRO||'—')}</td>
       <td class="r">${fmtRp(r.pagu)}</td>
       <td class="r">${fmtRp(r.real)}</td>
+      <td class="r" style="color:var(--txt3)">${fmtRp(r.pagu-r.real)}</td>
       ${progressCell(r.real,r.pagu)}
     </tr>`;
   }).join('');
@@ -1365,10 +1384,11 @@ function renderRO(){
       <td style="font-size:12px;max-width:280px">${r.NAMA_RO||'—'}</td>
       <td class="r">${fmtRp(r.pagu)}</td>
       <td class="r">${fmtRp(r.real)}</td>
+      <td class="r" style="color:var(--txt3)">${fmtRp(r.pagu-r.real)}</td>
       ${progressCell(r.real,r.pagu)}
     </tr>`;
   }).join('')
-  : '<tr><td colspan="6" style="text-align:center;padding:20px;color:var(--txt3)">Tidak ada data</td></tr>';
+  : '<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--txt3)">Tidak ada data</td></tr>';
 
   renderKomp();
 }
@@ -1417,10 +1437,93 @@ function renderKomp(){
       <td class="r mono" style="font-size:11px">${s14}</td>
       <td class="r">${fmtRp(r.pagu)}</td>
       <td class="r">${fmtRp(r.real)}</td>
+      <td class="r" style="color:var(--txt3)">${fmtRp(r.pagu-r.real)}</td>
       ${progressCell(r.real,r.pagu)}
     </tr>`;
   }).join('')
-  : '<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--txt3)">Tidak ada data</td></tr>';
+  : '<tr><td colspan="8" style="text-align:center;padding:20px;color:var(--txt3)">Tidak ada data</td></tr>';
+
+  renderSubkomp(true);
+}
+
+// ═══════════════════════════════════════════════════════════
+// RENDER: SUB-KOMPONEN (Seg15) — mengikuti filter tab RO
+// ═══════════════════════════════════════════════════════════
+let SUBKOMP_ROWS = [], SUBKOMP_PAGE = 1;
+const SUBKOMP_PER_PAGE = 50;
+
+function renderSubkomp(resetPage=false){
+  const wrap = document.getElementById('subkomp-wrap');
+  if(!D || !D.satker_subkomponen){ if(wrap) wrap.style.display='none'; return; }
+  wrap.style.display='block';
+  if(resetPage) SUBKOMP_PAGE = 1;
+  const fSatker= (document.getElementById('f-ro-satker')?.value||'');
+  const fKeg   = document.getElementById('f-ro-keg').value;
+  const fKro   = document.getElementById('f-ro-kro').value;
+  const fSearch= (document.getElementById('f-ro-search')?.value||'').toLowerCase().trim();
+
+  // Nama RO & komponen dari satker_komponen (tidak disimpan ulang di subkomponen)
+  const names = {};
+  (D.satker_komponen||D.komponen||[]).forEach(r=>{ names[r.KDKEG+'|'+r.S05+'|'+r.S13+'|'+r.S14] = r; });
+
+  const aggMap = new Map();
+  D.satker_subkomponen.forEach(r=>{
+    if(fSatker && String(r.KODE_SATKER)!==fSatker) return;
+    if(fKeg && r.KDKEG!==fKeg) return;
+    if(fKro && r.S05!==fKro) return;
+    const key = r.KDKEG+'|'+r.S05+'|'+r.S13+'|'+r.S14+'|'+r.S15;
+    if(!aggMap.has(key)){
+      const n = names[r.KDKEG+'|'+r.S05+'|'+r.S13+'|'+r.S14]||{};
+      aggMap.set(key,{KDKEG:r.KDKEG,S05:r.S05,S13:r.S13,S14:r.S14,S15:r.S15,
+        NAMA_RO:n.NAMA_RO||'',NAMA_KOMPONEN:n.NAMA_KOMPONEN||'',NAMA_SUBKOMPONEN:r.NAMA_SUBKOMPONEN||'',pagu:0,real:0});
+    }
+    const e = aggMap.get(key); e.pagu += r.pagu; e.real += r.real;
+  });
+  let rows = [...aggMap.values()].filter(hasValue);
+  if(fSearch) rows = rows.filter(r=>(r.NAMA_RO+' '+r.NAMA_KOMPONEN+' '+r.NAMA_SUBKOMPONEN+' '+r.S14+'.'+r.S15).toLowerCase().includes(fSearch));
+  SUBKOMP_ROWS = rows.sort(byKode);
+
+  const total = rows.length;
+  const totalPage = Math.max(1, Math.ceil(total/SUBKOMP_PER_PAGE));
+  if(SUBKOMP_PAGE>totalPage) SUBKOMP_PAGE=totalPage;
+  const start = (SUBKOMP_PAGE-1)*SUBKOMP_PER_PAGE;
+  $text('subkomp-count', `${total.toLocaleString('id')} sub-komponen — mengikuti filter di atas`);
+
+  document.getElementById('tb-subkomp').innerHTML = total ? rows.slice(start, start+SUBKOMP_PER_PAGE).map(r=>`<tr>
+      <td class="mono" style="color:var(--blue);font-size:11px">${r.KDKEG}</td>
+      <td style="font-size:11px;color:var(--txt2);max-width:180px">${(r.NAMA_RO||'—').substring(0,40)}</td>
+      <td style="font-size:12px;max-width:200px"><span class="mono" style="font-size:11px;color:var(--txt3)">${r.S14}</span> ${r.NAMA_KOMPONEN||'—'}</td>
+      <td style="font-size:12px;max-width:220px"><span class="mono" style="font-weight:600">${r.S15}</span>${r.NAMA_SUBKOMPONEN?' '+r.NAMA_SUBKOMPONEN:''}</td>
+      <td class="r">${fmtRp(r.pagu)}</td>
+      <td class="r">${fmtRp(r.real)}</td>
+      <td class="r" style="color:var(--txt3)">${fmtRp(r.pagu-r.real)}</td>
+      ${progressCell(r.real,r.pagu)}
+    </tr>`).join('')
+    : '<tr><td colspan="8" style="text-align:center;padding:20px;color:var(--txt3)">Tidak ada data</td></tr>';
+
+  const pg = document.getElementById('subkomp-pagination');
+  if(totalPage<=1){ pg.innerHTML=''; return; }
+  const btn = (p,label,dis,act) => `<button onclick="subkompGoPage(${p})" ${dis?'disabled':''} style="padding:4px 10px;border-radius:6px;border:1px solid var(--brd);background:${act?'var(--blue)':'var(--bg2)'};color:${act?'#fff':'var(--txt2)'};cursor:pointer;font-size:12px">${label}</button>`;
+  let h = `<span style="font-size:12px;color:var(--txt3)">${start+1}–${Math.min(start+SUBKOMP_PER_PAGE,total)} / ${total}</span>`;
+  h += btn(1,'«',SUBKOMP_PAGE===1) + btn(SUBKOMP_PAGE-1,'‹',SUBKOMP_PAGE===1);
+  const pStart = Math.max(1, Math.min(SUBKOMP_PAGE-2, totalPage-4));
+  for(let p=pStart; p<=Math.min(totalPage,pStart+4); p++) h += btn(p,p,false,p===SUBKOMP_PAGE);
+  h += btn(SUBKOMP_PAGE+1,'›',SUBKOMP_PAGE===totalPage) + btn(totalPage,'»',SUBKOMP_PAGE===totalPage);
+  pg.innerHTML = h;
+}
+
+function subkompGoPage(p){
+  SUBKOMP_PAGE = p;
+  renderSubkomp();
+  document.getElementById('subkomp-wrap').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// CSV sub-komponen: semua baris sesuai filter, bukan hanya halaman yang tampil
+function subkompCSVData(){
+  return {
+    headers:['Kode Keg','KRO','RO','Kode Komp','Komponen','Kode Sub-komp','Sub-komponen','Pagu','Realisasi','Sisa','Progress (%)'],
+    rows: SUBKOMP_ROWS.map(r=>[r.KDKEG,r.S05,r.NAMA_RO,r.S14,r.NAMA_KOMPONEN,r.S15,r.NAMA_SUBKOMPONEN,r.pagu,r.real,r.pagu-r.real,nf(pct(r.real,r.pagu),2)])
+  };
 }
 
 // ═══════════════════════════════════════════════════════════
