@@ -533,6 +533,7 @@ footer.foot{max-width:1240px;margin:0 auto;padding:20px 20px 40px;color:var(--mu
         <th style="min-width:180px">Uraian Kontrak</th>
         <th>Satker</th>
         <th>Kegiatan</th>
+        <th style="min-width:120px">KRO</th>
         <th style="min-width:140px">Rincian</th>
         <th class="r">Nilai Kontrak</th>
         <th class="r">Realisasi</th>
@@ -1748,6 +1749,9 @@ function renderOSDetail(resetPage=false){
   // Nama kegiatan resmi dari D.kegiatan (NAMA_KEGIATAN di detail kontrak berisi rincian item, bukan kegiatan)
   const kegName = {};
   D.kegiatan.forEach(k=>kegName[k.KDKEG]=k.NAMA_KEGIATAN);
+  // Nama KRO dari D.kro (S05 = kode kegiatan + 3 huruf KRO, mis. 5890RAG)
+  const kroName = {};
+  D.kro.forEach(k=>kroName[k.S05]=k.NAMA_KRO);
 
   // Update filter kegiatan dinamis
   const kegEl = document.getElementById('os-f-keg');
@@ -1802,6 +1806,7 @@ function renderOSDetail(resetPage=false){
         <td style="font-size:11px;max-width:200px;white-space:normal;line-height:1.4">${r.NAMA_PAKET||'—'}</td>
         <td style="font-size:11px;white-space:nowrap">${satkerMap[String(r.KODE_SATKER)]||r.KODE_SATKER||'—'}</td>
         <td style="font-size:11px" title="${kegName[r.KDKEG]||''}"><span class="mono" style="color:var(--green)">${r.KDKEG||'—'}</span> ${(kegName[r.KDKEG]||'').substring(0,28)}${(kegName[r.KDKEG]||'').length>28?'…':''}</td>
+        <td style="font-size:11px;max-width:160px;white-space:normal;line-height:1.4">${kroName[(r.KDKEG||'')+(r.KDKRO_SUFFIX||'')] ? `<span class="mono" style="color:var(--blue)">${r.KDKRO_SUFFIX}</span> ${kroName[r.KDKEG+r.KDKRO_SUFFIX]}` : '—'}</td>
         <td style="font-size:11px;max-width:180px;white-space:normal;line-height:1.4">${r.NAMA_KEGIATAN && r.NAMA_KEGIATAN!==r.NAMA_PAKET ? r.NAMA_KEGIATAN : '—'}</td>
         <td class="r" style="font-size:11px;white-space:nowrap">${fmtRp(r.NILAI_KONTRAK||0)}</td>
         <td class="r" style="font-size:11px;white-space:nowrap">${fmtRp(r.REALISASI_KONTRAK||0)}</td>
@@ -1809,7 +1814,7 @@ function renderOSDetail(resetPage=false){
         <td style="font-size:11px;color:${statusColor(r.STATUS)};white-space:nowrap">${r.STATUS||'—'}${isSelesaiSisa(r)?'<br><span class="os-flag" title="Status selesai tetapi sisa kontrak belum nol — periksa data sumber">⚠ cek: masih ada sisa</span>':''}</td>
         <td style="font-size:11px;white-space:nowrap">${r.TANGGAL_SELESAI||'—'}</td>
       </tr>`).join('')
-    : '<tr><td colspan="10" style="text-align:center;color:var(--txt3);padding:24px">Tidak ada data sesuai filter</td></tr>';
+    : '<tr><td colspan="11" style="text-align:center;color:var(--txt3);padding:24px">Tidak ada data sesuai filter</td></tr>';
 
   // Pagination
   const pgEl = document.getElementById('os-pagination');
