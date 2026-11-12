@@ -138,6 +138,12 @@ button{font-family:inherit}
 table{width:100%;border-collapse:collapse;font-size:.88rem}
 thead th{background:var(--paper);padding:12px 14px;text-align:left;font-size:.8rem;color:var(--muted);font-weight:700;border-bottom:2px solid var(--line);white-space:nowrap}
 thead th.r{text-align:right}
+/* Urutkan tabel: klik judul kolom */
+thead th.sortable{cursor:pointer;user-select:none}
+thead th.sortable:hover{color:var(--ink)}
+thead th.sortable::after{content:'↕';margin-left:5px;opacity:.3;font-size:.75em}
+thead th.sortable[data-sort=asc]::after{content:'▲';opacity:.85}
+thead th.sortable[data-sort=desc]::after{content:'▼';opacity:.85}
 tbody tr{border-bottom:1px solid var(--line)}
 tbody tr:last-child{border-bottom:none}
 tbody tr:hover{background:var(--ground)}
@@ -1482,7 +1488,11 @@ function renderSubkomp(resetPage=false){
   });
   let rows = [...aggMap.values()].filter(hasValue);
   if(fSearch) rows = rows.filter(r=>(r.NAMA_RO+' '+r.NAMA_KOMPONEN+' '+r.NAMA_SUBKOMPONEN+' '+r.S14+'.'+r.S15).toLowerCase().includes(fSearch));
-  SUBKOMP_ROWS = rows.sort(byKode);
+  SUBKOMP_ROWS = sortData('tb-subkomp', rows.sort(byKode), [
+    r=>r.KDKEG, r=>r.NAMA_RO, r=>r.S14+' '+r.NAMA_KOMPONEN, r=>r.S15,
+    r=>fmtRp(r.pagu), r=>fmtRp(r.real), r=>fmtRp(r.pagu-r.real), r=>nf(pct(r.real,r.pagu),1)+'%',
+  ]);
+  rows = SUBKOMP_ROWS;
 
   const total = rows.length;
   const totalPage = Math.max(1, Math.ceil(total/SUBKOMP_PER_PAGE));
@@ -1771,6 +1781,15 @@ function renderOSDetail(resetPage=false){
     }
     return true;
   });
+  // Urutan dari klik judul kolom (urutan kolom = urutan <th> tabel kontrak)
+  const kegNm = k => k ? k+' '+(kegName[k]||'') : '';
+  rows = sortData('tb-os-detail', rows, [
+    r=>r.NO_KONTRAK, r=>r.NAMA_PAKET, r=>satkerMap[String(r.KODE_SATKER)]||r.KODE_SATKER, r=>kegNm(r.KDKEG),
+    r=>kroName[(r.KDKEG||'')+(r.KDKRO_SUFFIX||'')] ? r.KDKRO_SUFFIX : '',
+    r=>r.NAMA_KEGIATAN && r.NAMA_KEGIATAN!==r.NAMA_PAKET ? r.NAMA_KEGIATAN : '',
+    r=>fmtRp(r.NILAI_KONTRAK||0), r=>fmtRp(r.REALISASI_KONTRAK||0), r=>fmtRp(r.SISA_KONTRAK||0),
+    r=>r.STATUS, r=>r.TANGGAL_SELESAI,
+  ]);
 
   // Kontrak berstatus SELESAI tetapi sisa > 0 — kemungkinan data sumber belum diperbarui
   const flagged = D.outstanding.detail.filter(isSelesaiSisa);
@@ -1907,6 +1926,91 @@ function renderPerbandingan(){
     </tr>`;
   }).join('');
 }
+
+// ═══════════════════════════════════════════════════════════
+// URUTKAN TABEL — klik judul kolom (naik / turun)
+// ═══════════════════════════════════════════════════════════
+const SORT = {};   // { tbodyId: {col, dir: 1|-1} }
+const BULAN = {januari:1,februari:2,maret:3,april:4,mei:5,juni:6,juli:7,agustus:8,september:9,oktober:10,november:11,desember:12};
+
+// Nilai sel untuk diurutkan: angka (Rp, %, T/M/Jt, tanggal) atau teks; kosong/— = null
+function sortVal(text){
+  const t = String(text??'').trim().replace(/\s+/g,' ');
+  if(!t || t==='—' || t==='-') return null;
+  const neg = /^[−-]/.test(t) ? -1 : 1;
+  let m;
+  if(/^[+−-]?\s*Rp\s*[\d.]+$/.test(t)) return neg*Number(t.replace(/[^\d]/g,''));
+  if((m = t.match(/^[+−-]?<?\s*([\d.]*,?\d+)\s*%/))) return neg*parseFloat(m[1].replace(/\./g,'').replace(',','.'));
+  if((m = t.match(/^[+−-]?([\d.]*,?\d+)\s*(T|M|Jt)$/))) return neg*parseFloat(m[1].replace(/\./g,'').replace(',','.'))*({T:1e12,M:1e9,Jt:1e6}[m[2]]);
+  if((m = t.match(/^(\d{1,2}) ([A-Za-z]+) (\d{4})$/)) && BULAN[m[2].toLowerCase()]) return Number(m[3])*1e4+BULAN[m[2].toLowerCase()]*100+Number(m[1]);
+  if((m = t.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/))) return Number(m[3])*1e4+Number(m[2])*100+Number(m[1]);   // dd/mm/yyyy
+  if(/^\d+$/.test(t)) return Number(t);
+  return t.toLowerCase();
+}
+function cmpVal(a,b){
+  if(a===null && b===null) return 0;
+  if(a===null) return 1;            // kosong selalu di bawah
+  if(b===null) return -1;
+  if(typeof a==='number' && typeof b==='number') return a-b;
+  return String(a).localeCompare(String(b),'id',{numeric:true});
+}
+
+// Tabel berhalaman diurutkan di level data (semua halaman), bukan hanya baris yang tampil
+const SORT_PAGED = {
+  'tb-os-detail': { rerender: ()=>{ OS_PAGE=1; renderOSDetail(); } },
+  'tb-subkomp'  : { rerender: ()=>renderSubkomp(true) },
+};
+function sortData(tbodyId, rows, getters){
+  const st = SORT[tbodyId];
+  if(!st || !getters[st.col]) return rows;
+  const g = getters[st.col];
+  return rows.map((r,i)=>({r,i,v:sortVal(g(r))}))
+    .sort((a,b)=>{ const c=cmpVal(a.v,b.v); if(a.v===null||b.v===null) return c||a.i-b.i; return c*st.dir||a.i-b.i; })
+    .map(x=>x.r);
+}
+
+// Tabel biasa: urutkan baris DOM; dipanggil lagi otomatis setiap tabel dirender ulang
+function sortDom(tbody){
+  const st = SORT[tbody.id];
+  if(!st) return;
+  const rows = [...tbody.rows];
+  if(rows.length<2 || rows.some(r=>r.cells.length<=st.col)) return;
+  const keyed = rows.map((r,i)=>({r,i,v:sortVal(r.cells[st.col].innerText)}));
+  keyed.sort((a,b)=>{ const c=cmpVal(a.v,b.v); if(a.v===null||b.v===null) return c||a.i-b.i; return c*st.dir||a.i-b.i; });
+  if(keyed.every((k,i)=>k.r===rows[i])) return;   // sudah urut: tidak mengubah DOM, observer berhenti
+  keyed.forEach(k=>tbody.appendChild(k.r));
+}
+
+function markHeaders(tbody){
+  const st = SORT[tbody.id];
+  tbody.closest('table').querySelectorAll('thead th').forEach((th,i)=>{
+    if(st && st.col===i) th.dataset.sort = st.dir===1?'asc':'desc'; else delete th.dataset.sort;
+  });
+}
+
+function initTableSort(){
+  document.querySelectorAll('tbody[id^="tb-"]').forEach(tbody=>{
+    const table = tbody.closest('table');
+    table.querySelectorAll('thead th').forEach((th,i)=>{
+      if(!th.innerText.trim()) return;           // kolom aksi tanpa judul
+      th.classList.add('sortable');
+      th.title = 'Klik untuk mengurutkan';
+      th.addEventListener('click', ()=>{
+        const cur = SORT[tbody.id];
+        // Klik pertama: kolom angka (rata kanan) besar→kecil, kolom teks A→Z
+        const dir = cur && cur.col===i ? -cur.dir : (th.classList.contains('r')||/Progress|%/.test(th.innerText) ? -1 : 1);
+        SORT[tbody.id] = {col:i, dir};
+        markHeaders(tbody);
+        if(SORT_PAGED[tbody.id]) SORT_PAGED[tbody.id].rerender();
+        else sortDom(tbody);
+      });
+    });
+    if(!SORT_PAGED[tbody.id]){
+      new MutationObserver(()=>sortDom(tbody)).observe(tbody,{childList:true});
+    }
+  });
+}
+initTableSort();
 
 // ═══════════════════════════════════════════════════════════
 // INIT
